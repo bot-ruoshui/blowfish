@@ -3,6 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://your_domain.com/docs/hadoop-mapreduce/hadoop-mapreduce/</loc>
+    <lastmod>2024-07-01T08:00:00+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://your_domain.com/docs/shell/</loc>
     <lastmod>2024-07-01T08:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
@@ -17,11 +23,6 @@
   <url>
     <loc>https://your_domain.com/</loc>
     <lastmod>2024-07-01T08:00:00+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://your_domain.com/docs/hadoop-mapreduce/hadoop-mapreduce/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

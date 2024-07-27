@@ -9,11 +9,31 @@
     <copyright>© 2024 KV先生</copyright>
     <lastBuildDate>Mon, 01 Jul 2024 08:00:00 +0800</lastBuildDate><atom:link href="https://your_domain.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Hadoop MapReduce</title>
+      <link>https://your_domain.com/tags/hadoop-mapreduce/</link>
+      <pubDate>Mon, 01 Jul 2024 08:00:00 +0800</pubDate>
+      
+      <guid>https://your_domain.com/tags/hadoop-mapreduce/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>Shell</title>
       <link>https://your_domain.com/tags/shell/</link>
       <pubDate>Mon, 01 Jul 2024 08:00:00 +0800</pubDate>
       
       <guid>https://your_domain.com/tags/shell/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>采集</title>
+      <link>https://your_domain.com/tags/%E9%87%87%E9%9B%86/</link>
+      <pubDate>Mon, 01 Jul 2024 08:00:00 +0800</pubDate>
+      
+      <guid>https://your_domain.com/tags/%E9%87%87%E9%9B%86/</guid>
       <description></description>
       
     </item>
