@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-cn" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title> &middot; KV先生</title>
+  <meta name="title" content=" &middot; KV先生" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://your_domain.com/docs/hadoop_hdfs/hadoop_hdfs/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.8ea60310059bae0843ca33ef1de0ed63f1367330a68d9b13d82d6c3bc474a4c1a7c705dba2592e367518d4eb2c0a82076592aeab874ff2e02034ddc7147c752f.css"
+    integrity="sha512-jqYDEAWbrghDyjPvHeDtY/E2czCmjZsT2C1sO8R0pMGnxwXbolkuNnUY1OssCoIHZZKuq4dP8uAgNN3HFHx1Lw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.b3e22525a7c62c7b8e4c7c002546ab6498031635fa2d07802d593d476d7ab1262ec61b0cec0fe9f5653e1c9e6c256cbd0b66e5a8421b4f82a7bd2c1d5c901638.js"
+    integrity="sha512-s&#43;IlJafGLHuOTHwAJUarZJgDFjX6LQeALVk9R216sSYuxhsM7A/p9WU&#43;HJ5sJWy9C2blqEIbT4KnvSwdXJAWOA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://your_domain.com/docs/hadoop_hdfs/hadoop_hdfs/">
+  <meta property="og:site_name" content="KV先生">
+  <meta property="og:title" content="KV先生">
+  <meta property="og:description" content="Hadoop_HDFS # Hadoop # Hadoop Common：Hadoop体系最底层的一个模块，是其他模块的基础设施">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KV先生">
+  <meta name="twitter:description" content="Hadoop_HDFS # Hadoop # Hadoop Common：Hadoop体系最底层的一个模块，是其他模块的基础设施">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "",
+    "headline": "",
+    
+    "abstract": "Hadoop_HDFS # Hadoop # Hadoop Common：Hadoop体系最底层的一个模块，是其他模块的基础设施",
+    "inLanguage": "zh-cn",
+    "url" : "https:\/\/your_domain.com\/docs\/hadoop_hdfs\/hadoop_hdfs\/",
+    "author" : {
+      "@type": "Person",
+      "name": "KV先生"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1686"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="KV先生" />
+  
+  
+  
+  <link href="mailto:hello@your_domain.com" rel="me" />
+  
+  
+  <link href="https://github.com/bot-ruoshui" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+	            <span style="font-weight:600;font-size:18px;">KV先生</span>
+	        </a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        文档
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        标签
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/5mrhelloworld"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            文档
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            标签
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/5mrhelloworld"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/hadoop_hdfs/hadoop_hdfs/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time><span class="px-2 text-primary-500">&middot;</span><span>1686 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+        
+        
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="KV先生" src="/img/wmz_hu0f64dbd4a3f6623dcafe1cf79b5f4bcf_435948_192x192_fill_q75_box_center.jpg" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      KV先生
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">rosser</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:hello@your_domain.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/bot-ruoshui"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+      
+
+      
+
+      
+      <div class="mb-5"></div>
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hadoop">Hadoop</a></li>
+    <li><a href="#分布式文件系统架构hdfs">分布式文件系统架构——HDFS</a>
+      <ul>
+        <li><a href="#文件切分思想">文件切分思想</a></li>
+        <li><a href="#block拆分标准">Block拆分标准</a></li>
+        <li><a href="#block数据安全">Block数据安全</a></li>
+        <li><a href="#hdfs的特点">HDFS的特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop基础架构">Hadoop基础架构</a>
+      <ul>
+        <li><a href="#client客户端">Client客户端</a></li>
+        <li><a href="#namenodenn">NameNode（NN）</a>
+          <ul>
+            <li><a href="#功能">功能</a></li>
+            <li><a href="#性能">性能</a></li>
+          </ul>
+        </li>
+        <li><a href="#datanodedn">DataNode（DN）</a>
+          <ul>
+            <li><a href="#功能-1">功能</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-ha架构">Hadoop-HA架构</a>
+      <ul>
+        <li><a href="#设计思想">设计思想</a></li>
+        <li><a href="#active-namenodeann">Active NameNode（ANN）</a></li>
+        <li><a href="#standby-namenodesnn">Standby NameNode（SNN）</a></li>
+        <li><a href="#datanodedn-1">DataNode（DN）</a></li>
+        <li><a href="#quorum-jurnanode-managerqjm">Quorum JurnaNode Manager（QJM）</a></li>
+        <li><a href="#zookeeper-failover-controllerzkfc">Zookeeper Failover Controller（ZKFC）</a></li>
+        <li><a href="#zookeeper">Zookeeper</a></li>
+        <li><a href="#脑裂-brain-split">脑裂 brain-split</a></li>
+      </ul>
+    </li>
+    <li><a href="#federation-联邦机制">Federation 联邦机制</a>
+      <ul>
+        <li><a href="#单nn的局限">单NN的局限</a></li>
+        <li><a href="#federation">Federation</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-ha-高可用集群环境搭建">Hadoop-HA 高可用集群环境搭建</a>
+      <ul>
+        <li><a href="#目标环境">目标环境</a></li>
+        <li><a href="#安装">安装</a>
+          <ul>
+            <li><a href="#解压即安装">解压即安装</a></li>
+            <li><a href="#修改配置文件">修改配置文件</a></li>
+            <li><a href="#拷贝至其他节点">拷贝至其他节点</a></li>
+            <li><a href="#修改环境变量">修改环境变量</a></li>
+          </ul>
+        </li>
+        <li><a href="#启动">启动</a></li>
+        <li><a href="#访问">访问</a></li>
+        <li><a href="#测试文件上传">测试文件上传</a></li>
+        <li><a href="#关闭">关闭</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-集群命令">Hadoop 集群命令</a>
+      <ul>
+        <li><a href="#命令分类">命令分类</a></li>
+        <li><a href="#hadoop-fs命令">Hadoop FS命令</a></li>
+        <li><a href="#hdfs-dfs命令">hdfs dfs命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#java访问hadoop集群">Java访问Hadoop集群</a>
+      <ul>
+        <li><a href="#环境变量">环境变量</a></li>
+        <li><a href="#java-访问-hadoop">Java 访问 Hadoop</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop3x-其他特性">Hadoop3.x 其他特性</a>
+      <ul>
+        <li><a href="#erasure-encoding">Erasure Encoding</a>
+          <ul>
+            <li><a href="#简介">简介</a></li>
+            <li><a href="#ec技术">EC技术</a></li>
+          </ul>
+        </li>
+        <li><a href="#namenode">NameNode</a></li>
+        <li><a href="#服务器端口">服务器端口</a></li>
+        <li><a href="#datanode">DataNode</a></li>
+        <li><a href="#jdk">JDK</a></li>
+      </ul>
+    </li>
+    <li><a href="#附录配置文件详解">附录：配置文件详解</a>
+      <ul>
+        <li><a href="#core-sitexml">core-site.xml</a></li>
+        <li><a href="#hdfs-sitexml">hdfs-site.xml</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hadoop">Hadoop</a></li>
+    <li><a href="#分布式文件系统架构hdfs">分布式文件系统架构——HDFS</a>
+      <ul>
+        <li><a href="#文件切分思想">文件切分思想</a></li>
+        <li><a href="#block拆分标准">Block拆分标准</a></li>
+        <li><a href="#block数据安全">Block数据安全</a></li>
+        <li><a href="#hdfs的特点">HDFS的特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop基础架构">Hadoop基础架构</a>
+      <ul>
+        <li><a href="#client客户端">Client客户端</a></li>
+        <li><a href="#namenodenn">NameNode（NN）</a>
+          <ul>
+            <li><a href="#功能">功能</a></li>
+            <li><a href="#性能">性能</a></li>
+          </ul>
+        </li>
+        <li><a href="#datanodedn">DataNode（DN）</a>
+          <ul>
+            <li><a href="#功能-1">功能</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-ha架构">Hadoop-HA架构</a>
+      <ul>
+        <li><a href="#设计思想">设计思想</a></li>
+        <li><a href="#active-namenodeann">Active NameNode（ANN）</a></li>
+        <li><a href="#standby-namenodesnn">Standby NameNode（SNN）</a></li>
+        <li><a href="#datanodedn-1">DataNode（DN）</a></li>
+        <li><a href="#quorum-jurnanode-managerqjm">Quorum JurnaNode Manager（QJM）</a></li>
+        <li><a href="#zookeeper-failover-controllerzkfc">Zookeeper Failover Controller（ZKFC）</a></li>
+        <li><a href="#zookeeper">Zookeeper</a></li>
+        <li><a href="#脑裂-brain-split">脑裂 brain-split</a></li>
+      </ul>
+    </li>
+    <li><a href="#federation-联邦机制">Federation 联邦机制</a>
+      <ul>
+        <li><a href="#单nn的局限">单NN的局限</a></li>
+        <li><a href="#federation">Federation</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-ha-高可用集群环境搭建">Hadoop-HA 高可用集群环境搭建</a>
+      <ul>
+        <li><a href="#目标环境">目标环境</a></li>
+        <li><a href="#安装">安装</a>
+          <ul>
+            <li><a href="#解压即安装">解压即安装</a></li>
+            <li><a href="#修改配置文件">修改配置文件</a></li>
+            <li><a href="#拷贝至其他节点">拷贝至其他节点</a></li>
+            <li><a href="#修改环境变量">修改环境变量</a></li>
+          </ul>
+        </li>
+        <li><a href="#启动">启动</a></li>
+        <li><a href="#访问">访问</a></li>
+        <li><a href="#测试文件上传">测试文件上传</a></li>
+        <li><a href="#关闭">关闭</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-集群命令">Hadoop 集群命令</a>
+      <ul>
+        <li><a href="#命令分类">命令分类</a></li>
+        <li><a href="#hadoop-fs命令">Hadoop FS命令</a></li>
+        <li><a href="#hdfs-dfs命令">hdfs dfs命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#java访问hadoop集群">Java访问Hadoop集群</a>
+      <ul>
+        <li><a href="#环境变量">环境变量</a></li>
+        <li><a href="#java-访问-hadoop">Java 访问 Hadoop</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop3x-其他特性">Hadoop3.x 其他特性</a>
+      <ul>
+        <li><a href="#erasure-encoding">Erasure Encoding</a>
+          <ul>
+            <li><a href="#简介">简介</a></li>
+            <li><a href="#ec技术">EC技术</a></li>
+          </ul>
+        </li>
+        <li><a href="#namenode">NameNode</a></li>
+        <li><a href="#服务器端口">服务器端口</a></li>
+        <li><a href="#datanode">DataNode</a></li>
+        <li><a href="#jdk">JDK</a></li>
+      </ul>
+    </li>
+    <li><a href="#附录配置文件详解">附录：配置文件详解</a>
+      <ul>
+        <li><a href="#core-sitexml">core-site.xml</a></li>
+        <li><a href="#hdfs-sitexml">hdfs-site.xml</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">Hadoop_HDFS 
+    <div id="hadoop_hdfs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop_hdfs" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Hadoop 
+    <div id="hadoop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>Hadoop Common：Hadoop体系最底层的一个模块，是其他模块的基础设施</p>
+<p>Hadoop Distributed File System：Hadoop分布式文件系统，是Hadoop的基石，负责存储数据</p>
+<p>Hadoop YARN：Hadoop作业调度和资源管理框架。 负责资源调度</p>
+<p>Hadoop MapReduce：Hadoop基于YARN的大数据并行处理程序，负责计算</p>
+
+
+<h2 class="relative group">分布式文件系统架构——HDFS 
+    <div id="%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84hdfs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84hdfs" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>全称Hadoop Distributed File System，是一种分布式文件系统，被设计用来存储和处理大规模的数据集。</p>
+<p>FS	FIle System</p>
+<p>​	文件系统是一个基于硬盘的文件管理工具，用户操作文件系统可以和硬盘解耦</p>
+<p>DFS	Distributed File System</p>
+<p>​	分布式文件系统就是将数据存放在多台电脑上存储，HDFS是Mapreduce计算的基础</p>
+
+
+<h3 class="relative group">文件切分思想 
+    <div id="%E6%96%87%E4%BB%B6%E5%88%87%E5%88%86%E6%80%9D%E6%83%B3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6%E5%88%87%E5%88%86%E6%80%9D%E6%83%B3" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	不管文件的大小，所有文件都是由字节数组构成，切分文件就是将一个字节数组分成多分，切分后的数据拼接到一起，数据可以继续使用。根据数据的偏移量重新拼接，偏移量是当前数据在数组中的相对位置，类似下标。</p>
+
+
+<h3 class="relative group">Block拆分标准 
+    <div id="block%E6%8B%86%E5%88%86%E6%A0%87%E5%87%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#block%E6%8B%86%E5%88%86%E6%A0%87%E5%87%86" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>1、拆分的数据块需要等大
+数据计算的时候简化问题的复杂度，进行分布式算法设计的时候，数据不统一，算法很难设计；数据拉取的时候时间相对一致；通过偏移量就知道这个块的位置；相同文件，分成的数据块大小应该相等</p>
+<p>2、数据块 Block
+数据被切分后的一个整体称之为块；在H1默认大小为64M,在H2及其以后默认大小为128M；同一个文件中，每个数据块大小要一致除了最后一个节点外，不同文件中，块的大小可以不一致，文件大小不同可以设置不同的块的数量；真实情况下，会根据文件大小和集群节点的数量综合考虑块的大小，数据块的个数 =Ceil（ 文件大小 / 每个块的大小）</p>
+<p>3、注意事项
+HDFS中一旦文件被存储，数据不允许被修改，修改会影响偏移量，修改会导致数据倾斜，修改数据会导致蝴蝶效益；但是可以被追加，但是不推荐，追加设置需要手动打开；一般HDFS存储的都是历史数据，所以将来Hadoop的mr都用来进行离线数据的处理；块的大小一旦文件上传之后就不允许被修改，128m -512M。</p>
+
+
+<h3 class="relative group">Block数据安全 
+    <div id="block%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#block%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>对存储数据做备份，备份的数据不能存放在一个节点上，使用数据的时候可以就近获取数据，所以备份的数量要小于等于节点的数量，一般每个数据块会有3个副本，相同副本是不会存放在同一个节点上，副本的数量可以变更，热数据，副本数可以多设置几个，冷数据可以减少副本数。</p>
+
+
+<h3 class="relative group">HDFS的特点 
+    <div id="hdfs%E7%9A%84%E7%89%B9%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hdfs%E7%9A%84%E7%89%B9%E7%82%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li><strong>高容错性</strong>：HDFS通过数据块复制来实现高容错性。每个数据块都会被复制多份（默认情况下为3份），存储在不同的节点上，这样即使某个节点发生故障，数据仍然可以从其他节点恢复。</li>
+<li><strong>大规模数据集的支持</strong>：HDFS能够处理PB级别的数据，非常适合海量数据的存储和处理。</li>
+<li><strong>流式数据访问</strong>：HDFS优化了对大型数据集的流式数据访问，适用于数据处理任务，如MapReduce作业，这些作业通常需要读取或写入整个文件，而不是随机访问。</li>
+<li><strong>简单的数据一致性模型</strong>：HDFS提供了简单的数据一致性模型，写入操作只在文件结束时完成，这简化了数据的一致性问题。</li>
+<li><strong>可扩展性</strong>：HDFS可以轻松地在更多的机器上扩展，以增加存储容量和处理能力。</li>
+<li>不擅长低延迟访问，不擅长小文件上传分区，不擅长并发写入。</li>
+</ol>
+
+
+<h2 class="relative group">Hadoop基础架构 
+    <div id="hadoop%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>主备 -&gt; 主从 -&gt; ZKFC</p>
+
+
+<h3 class="relative group">Client客户端 
+    <div id="client%E5%AE%A2%E6%88%B7%E7%AB%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#client%E5%AE%A2%E6%88%B7%E7%AB%AF" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Client发起文件上传或下载的请求到ANN，ANN会根据DN的资源及机架感知策略返回可用节点。</p>
+<p>直接和DN建立连接完成文件的上传下载。客户端设置文件分隔阈值，文件大小超过阈值时进行切分。</p>
+
+
+<h3 class="relative group">NameNode（NN） 
+    <div id="namenodenn" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#namenodenn" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">功能 
+    <div id="%E5%8A%9F%E8%83%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%9F%E8%83%BD" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>1、接受客户端的读写服务
+
+	NameNode存放文件和Block的映射关系；NameNode会记录Block和DataNode的映射关系，不会持久化
+
+2、保存文件的元数据信息
+
+	文件的归属、权限、大小、时间和Block信息，Block的位置信息需要每次开启集群的时候DN上报
+
+3、收集Block的信息
+
+	系统启动时，DN将自己节点上存储的Block信息汇报给NN，NN接收请求之后重新生成映射关系。如果数据块的副本小于设置数，那么NN会将这个副本拷贝到其他节点。如果客户端需要读取或上传数据的时候，NN可以知道DN的健康情况，可以让客户端读取存活的DN节点。
+
+3、间隔时间没有心跳，认为DN出现异常
+
+	DN超过10分30秒没有心跳，那么NN会将当前DN存储的数据转存到其他节点。
+</code></pre>
+
+<h4 class="relative group">性能 
+    <div id="%E6%80%A7%E8%83%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%80%A7%E8%83%BD" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>NN为了效率，所有的操作都在内存中完成，NN不会和磁盘进行任何数据交互。数据持久化的，掉电丢失。</p>
+
+
+<h3 class="relative group">DataNode（DN） 
+    <div id="datanodedn" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#datanodedn" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">功能 
+    <div id="%E5%8A%9F%E8%83%BD-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%9F%E8%83%BD-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>1、存放的是文件的数据信息和验证文件完整性的校验信息</p>
+<p>2、汇报，启动时汇报之前先验证Block文件是否损坏，向NN汇报当前DN上的Block的信息。运行中，向NN保持心跳机制，客户可以向DN读写数据</p>
+<p>3、客户端读写数据的时候，先去NN查询file—block—dn的映射关系，然后客户端直接和dn建立连接读写数据</p>
+<p>4、NN和DN是主从关系，DN宕机时，部分文件块无法满足集群默认副本数时，NN会让其他资源充足的节点进行拷贝。</p>
+
+
+<h2 class="relative group">Hadoop-HA架构 
+    <div id="hadoop-ha%E6%9E%B6%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop-ha%E6%9E%B6%E6%9E%84" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">设计思想 
+    <div id="%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>hadoop2启用了主备节点切换模式；主节点出现异常的时候，集群直接切换备用节点。有独立的线程对主备节点进行健康状态监控；有选举机制去确认主从关系；实时存储日志的中间件。
+</code></pre>
+
+<h3 class="relative group">Active NameNode（ANN） 
+    <div id="active-namenodeann" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#active-namenodeann" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​		为了元数据不丢失，对数据进行持久化落盘存储，为了快速响应客户端，元数据还需要放入内存。块和DN的映射关系只存入内存，因为DN可能宕机，持久化没意义。Client发起文件上传下载请求到ANN，ANN根据DN的资源情况和机架感知策略返回可用节点。Zookeeper主从选择解决ANN单点故障。</p>
+<p>​		整个集群宕机，重启后恢复数据流程：fsimage文件读入内存 -&gt; QJM中大于fsimage标号的edits（日志）文件读入内存 -&gt; 再将QJM中最大编号的edits_inprogress文件读入内存 -&gt; 等待所有DN心跳 -&gt; 对外服务</p>
+
+
+<h3 class="relative group">Standby NameNode（SNN） 
+    <div id="standby-namenodesnn" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#standby-namenodesnn" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>SNN内存元数据和ANN内存元数据一致，作为备用可以在主宕机时顶替成为新的主。SNN和ANN中的磁盘元数据不一致，只有后ANN才会在磁盘中写入元数据，并实时写入QJM。DN向所有NN汇报心跳内容主要包括资源情况和DN与块的映射。SNN会对元数据进行压缩合并，时间维度、操作维度、维度检查、合并后的文件叫做fsimage（快照），合并后SNN会通知ANN拷贝走，fsimage最多存在近两个版本。</p>
+
+
+<h3 class="relative group">DataNode（DN） 
+    <div id="datanodedn-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#datanodedn-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	文件的Block数据存储在硬盘中，启动时同时向两个NN汇报Block信息，运行时同时和两个NN节点保持心跳机制。</p>
+
+
+<h3 class="relative group">Quorum JurnaNode Manager（QJM） 
+    <div id="quorum-jurnanode-managerqjm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#quorum-jurnanode-managerqjm" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>	共享存储系统，小型分布式文件系统，最少三台构建为集群环境，自己内部实现了Paxos算法。只接受单个ANN的数据写入。
+
+	ANN产生日志文件的时候会同时发送到QJM，QJM通过Paxos算法实现同步。QJM正在生成的文件叫edits_inprogress_xxxxxxxx，已经完成的文件叫做edits_xxxxxx。元数据每隔2分钟生成一次，客户端上传文件时元数据试试写入内存和inprogress文件，2分钟后inprogress文件分割成edits文件。
+	
+	JournalNode不要求所有的JN节点都收到日志，只要有半数以上节点收到日志，那么本条日志就生效。SNN每隔一段时间就去QJM上取回最新的日志——SNN上日志可能不是最新，一次只能有一个NN处于活动状态。
+</code></pre>
+
+<h3 class="relative group">Zookeeper Failover Controller（ZKFC） 
+    <div id="zookeeper-failover-controllerzkfc" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#zookeeper-failover-controllerzkfc" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>	故障转移控制器，对NN的主备切换进行总体控制，能及时检测到NN的健康状况，在NN故障时借助ZK实现自动的贮备选举和切换，防止在NN宕机导致心跳受影响，ZKFC作为一个deamon进程从NN分离出来。
+
+	启动时：集群启动时贮备节点的概念很模糊，先到先得，ZKFC只检查到一个节点是健康状态时直接设置，两个节点健康时投票，选出一个主节点一个备节点，并修改主备节点状态
+
+	运行时：ZKFC启动时会创建HealthMonitor和ActiveStandbyElector这两个主要的内部组件，HealthMonitor主要负责检测NameNode的健康状态，ActiveStanDbyElector主要负责完成自动的主备选举，内部封装了zookeeper
+
+	主备节点正常切换：NameNode在选举成功后，ActiveStandbyElector会在zk上创建一个ActiveStandbyElectorLock临时节点，没有选举成功的SNN中的ActiveStandbyElector会监听这个节点。如果ANN对应的HealthMonitor检测到NameNode的异常状态时，ZKFailvoerController会主动删除当前ZK上建立的额临时节点ASEL。如果ANN宕机，会话结束，临时节点ASEL被删除，从而也会自动进行一次主备切换。处于Standby状态的NN的ASE注册的监听器会收到这个节点的NodeDeleted事件，并创建ASEL临时节点，SNN被选举为ANN并切换状态。
+</code></pre>
+
+<h3 class="relative group">Zookeeper 
+    <div id="zookeeper" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#zookeeper" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>解决Hadoop集群单点故障的问题，帮助选主以及主备切换，NN向ZK注册临时Znode谁先注册成功谁就是主。ANN宕机后SNN通过监听机制重新注册为ANN，ANN降级为SNN，Zookeeper通过ZKFC调用ANN转换方法，调用失败后ZK会根据配置中的解决方案，例如SSH杀死旧的ANN。</p>
+<p>为主备切换控制器提供主备选举支持，辅助投票，和ZKFC保持心跳机制，确定ZKFC的存活。</p>
+
+
+<h3 class="relative group">脑裂 brain-split 
+    <div id="%E8%84%91%E8%A3%82-brain-split" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%84%91%E8%A3%82-brain-split" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>定义
+脑裂是Hadoop2.X版本后出现的全新问题，实际运行过程中很有可能出现两个namenode同时服务于整个集群的情况，这种情况称之为脑裂。</p>
+<p>原因
+脑裂通常发生在主从namenode切换时，由于ActiveNameNode的网络延迟、设备故障等问题，另一个NameNode会认为活跃的NameNode成为失效状态，此时StandbyNameNode会转换成活跃状态，此时集群中将会出现两个活跃的namenode。因此，可能出现的因素有网络延迟、心跳故障、设备故障等。</p>
+<p>脑裂场景
+NameNode 可能会出现这种情况，NameNode 在垃圾回收（GC）时，可能会在长时间内整个系统无响应zkfc客户端也就无法向 zk 写入心跳信息，这样的话可能会导致临时节点掉线，备 NameNode 会切换到 Active 状态
+这种情况可能会导致整个集群会有同时有两个Active NameNode</p>
+<p>脑裂问题的解决方案是隔离（Fencing）：
+1.第三方共享存储：任一时刻，只有一个 NN 可以写入；
+2.DataNode：需要保证只有一个 NN 发出与管理数据副本有关的命令；
+3.Client需要保证同一时刻只有一个 NN 能够对 Client 的请求发出正确的响应。
+(a) 每个NN改变状态的时候，向DN发送自己的状态和一个本次选举对应的序列号。
+(b) DN在运行过程中维护此序列号，当failover时，新的NN在返回DN心跳时会返回自己的active状态和一个更大的序列号。DN接收到这个返回是认为该NN为新的active。
+(c) 如果这时原来的active（比如GC）恢复，返回给DN的心跳信息包含active状态和原来的序列号，这时DN就会拒绝这个NN的命令。
+解决方案
+ActiveStandbyElector为了实现 fencing，当NN成为ANN之后创建Zookeeper临时节点ActiveStandbyElectorLock，创建ActiveBreadCrumb 的持久节点，这个节点里面保存了这个 Active NameNode的地址信息(node-01)Active NameNode的 ActiveStandbyElector在正常的状态下关闭 Zookeeper Session 的时候，会一起删除这个持久节点但如果 ActiveStandbyElector在异常的状态下关闭，那么由于 /hadoopha/${dfs.nameservices}/ActiveBreadCrumb是持久节点，会一直保留下来，后面当另一个 NameNode 选主成功之后，会注意到上一个 Active NameNode 遗留下来的这个节点，从而会回调 ZKFailoverController的方法对旧的 Active NameNode 进行 fencing。首先尝试调用这个旧 Active NameNode 的 HAServiceProtocol RPC 接口的 transitionToStandby 方法，看能不能把它转换为 Standby 状态；如果 transitionToStandby 方法调用失败，那么就执行 Hadoop 配置文件之中预定义的隔离措施。</p>
+<ol>
+<li>sshfence：通过 SSH 登录到目标机器上，执行命令 fuser 将对应的进程杀死</li>
+<li>shellfence：执行一个用户自定义的 shell 脚本来将对应的进程隔离
+在成功地执行完成 fencing 之后，选主成功的 ActiveStandbyElector 才会回调 ZKFailoverController 的becomeActive
+方法将对应的 NameNode 转换为 Active 状态，开始对外提供服务。</li>
+<li>新的主创建临时节点ActiveStandbyElectorLock，创建持久化节点ActiveBreadCrumb ，并将自己的主机地址Node02赋值给初始化节点</li>
+</ol>
+
+
+<h2 class="relative group">Federation 联邦机制 
+    <div id="federation-%E8%81%94%E9%82%A6%E6%9C%BA%E5%88%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#federation-%E8%81%94%E9%82%A6%E6%9C%BA%E5%88%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>HDFS Federation就是使得HDFS支持多个命名空间，并且允许在HDFS中同时存在多个Name Node。</p>
+
+
+<h3 class="relative group">单NN的局限 
+    <div id="%E5%8D%95nn%E7%9A%84%E5%B1%80%E9%99%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8D%95nn%E7%9A%84%E5%B1%80%E9%99%90" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>1、Namespace（命名空间）的限制
+	NN能存储的对象（文件+块）数目受到NN所在JVM的heap size的限制。Namesapce和Block Management紧密耦合。
+2、性能瓶颈
+	整个HDFS文件系统的吞吐量受限于单个NN
+3、隔离问题
+	HDFS上的一个实现程序可能影响整个HDFS上的运行程序
+4、集群可用性
+	NN的宕机会导致整个HDFS集群宕机。
+5、纵向扩展目前的NN不可行
+	NN的Heap空间扩大后启动时间太长；NN在Full GC的时候发生错误集群会宕机。
+</code></pre>
+
+<h3 class="relative group">Federation 
+    <div id="federation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#federation" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>联邦机制是为了解决NN压力的问题，防止NN出现OOM，底层DN公用，上层NN联邦，DN磁盘存储格式是按照NN的BlockPoolID构建目录分别存储，心跳也是只汇报对应的块池文件块信息。</p>
+
+
+<h2 class="relative group">Hadoop-HA 高可用集群环境搭建 
+    <div id="hadoop-ha-%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop-ha-%E9%AB%98%E5%8F%AF%E7%94%A8%E9%9B%86%E7%BE%A4%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">目标环境 
+    <div id="%E7%9B%AE%E6%A0%87%E7%8E%AF%E5%A2%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%AE%E6%A0%87%E7%8E%AF%E5%A2%83" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">安装 
+    <div id="%E5%AE%89%E8%A3%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%89%E8%A3%85" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">解压即安装 
+    <div id="%E8%A7%A3%E5%8E%8B%E5%8D%B3%E5%AE%89%E8%A3%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A7%A3%E5%8E%8B%E5%8D%B3%E5%AE%89%E8%A3%85" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>将准备好的安装包上传至 node01，然后解压</p>
+<pre tabindex="0"><code>[root@node01 ~]# tar -zxvf hadoop-3.3.4.tar.gz -C /opt/yjx/
+[root@node01 ~]# rm hadoop-3.3.4.tar.gz -rf
+</code></pre>
+
+<h4 class="relative group">修改配置文件 
+    <div id="%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>修改环境配置文件 hadoop-env.sh ：</p>
+<pre tabindex="0"><code>[root@node01 ~]# cd /opt/yjx/hadoop-3.3.4/etc/hadoop/
+[root@node01 hadoop]# vim hadoop-env.sh
+</code></pre><p>在文件末尾添加以下内容：</p>
+<pre tabindex="0"><code>export JAVA_HOME=/usr/java/jdk1.8.0_351-amd64
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_ZKFC_USER=root
+export HDFS_JOURNALNODE_USER=root
+export YARN_RESOURCEMANAGER_USER=root
+export YARN_NODEMANAGER_USER=root
+</code></pre><p>修改核心配置文件 core-site.xml ：</p>
+<pre tabindex="0"><code>[root@node01 hadoop]# vim core-site.xml
+</code></pre><p>在 configuration 节点中添加以下内容：</p>
+<p>​	hadoop.tmp.dir 属性的默认值为 /tmp/hadoop-${user.name} ，NameNode 会将 HDFS 的元数据存储在这个
+/tmp 目录下，如果操作系统重启了，系统会清空 /tmp，导致 NameNode 元数据丢失，是个非常严重的问题，所以我们需要修改此路径。
+​	hadoop.http.staticuser.user=dr.who 默认值是一个不真实存在的用户，此用户权限非常小，不能访问不同用户的数据，但是这保证了数据的安全。也可以设置为 hdfs 和 hadoop 等具有较高权限的用户，但会导致能够登陆网页界面的人会看到其它用户的数据。实际设置请综合考虑，如无特殊需求，使用默认值就好。</p>
+<pre tabindex="0"><code>&lt;!-- 设置 NameNode 节点的 URI(包括协议、主机名称、端口号)，用于 NameNode 与 DataNode 之间的通讯 --&gt;
+&lt;property&gt;
+&lt;name&gt;fs.defaultFS&lt;/name&gt;
+&lt;value&gt;hdfs://hdfs-yjx&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 Hadoop 运行时临时文件的存放位置，比如 HDFS 的 NameNode 数据默认都存放这个目录下 --&gt;
+&lt;property&gt;
+&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+&lt;value&gt;/var/yjx/hadoop/ha&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置在 Web 界面访问数据时使用的用户名 --&gt;
+&lt;property&gt;
+&lt;name&gt;hadoop.http.staticuser.user&lt;/name&gt;
+&lt;value&gt;root&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 HA，需要一组 ZK 地址，以逗号分隔。被 ZKFailoverController 使用于自动失效备援 failover --&gt;
+&lt;property&gt;
+&lt;name&gt;ha.zookeeper.quorum&lt;/name&gt;
+&lt;value&gt;node01:2181,node02:2181,node03:2181&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 该参数表示可以通过 httpfs 接口访问 HDFS 的 IP 地址限制 --&gt;
+&lt;!-- 配置 root(超级用户) 允许通过 httpfs 方式访问 HDFS 的主机名、域名 --&gt;
+&lt;property&gt;
+&lt;name&gt;hadoop.proxyuser.root.hosts&lt;/name&gt;
+&lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 通过 httpfs 接口访问的用户获得的群组身份 --&gt;
+&lt;!-- 配置允许通过 httpfs 方式访问的客户端的用户组 --&gt;
+&lt;property&gt;
+&lt;name&gt;hadoop.proxyuser.root.groups&lt;/name&gt;
+&lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;
+</code></pre><p>修改 HDFS 配置文件 hdfs-site.xml ：</p>
+<pre tabindex="0"><code>[root@node01 hadoop]# vim hdfs-site.xml
+</code></pre><p>在 configuration 节点中添加以下内容：</p>
+<pre tabindex="0"><code>&lt;!-- 设置 nameservices 列表（联邦列表），逗号分隔 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.nameservices&lt;/name&gt;
+&lt;value&gt;hdfs-yjx&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置一个 NameNode 列表。hdfs-yjx 是指具体的 nameservice 名称，通常就是 dfs.nameservices 中配置的。值
+是预备配置的 NameNode 的 ID，ID 是自己取的，不重复就可以，例如 nn1,nn2 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.ha.namenodes.hdfs-yjx&lt;/name&gt;
+&lt;value&gt;nn1,nn2&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 NameNode 的 RPC 地址和端口 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.namenode.rpc-address.hdfs-yjx.nn1&lt;/name&gt;
+&lt;value&gt;node01:8020&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 NameNode 的 RPC 地址和端口 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.namenode.rpc-address.hdfs-yjx.nn2&lt;/name&gt;
+&lt;value&gt;node02:8020&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 NameNode 的 HTTP 地址和端口 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.namenode.http-address.hdfs-yjx.nn1&lt;/name&gt;
+&lt;value&gt;node01:9870&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 NameNode 的 HTTP 地址和端口 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.namenode.http-address.hdfs-yjx.nn2&lt;/name&gt;
+&lt;value&gt;node02:9870&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 QJM 共享存储系统服务器。在多个 NameNode 中共享存储目录，用于存放 edits 文件，该目录由 Active 写，
+Standby 读 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.namenode.shared.edits.dir&lt;/name&gt;
+&lt;value&gt;qjournal://node01:8485;node02:8485;node03:8485/hdfs-yjx&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 journalnode 用于存放 edits 日志的目录，默认值为 /tmp/hadoop/dfs/journalnode --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.journalnode.edits.dir&lt;/name&gt;
+&lt;value&gt;/var/yjx/hadoop/ha/qjm&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置客户端连接 Active NameNode 所用的代理类 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.client.failover.proxy.provider.hdfs-yjx&lt;/name&gt;
+&lt;value&gt;org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 HDFS-HA 功能的防脑裂方法。可以是内建的方法(例如 shell 和 sshfence)或者用户自定义的方法 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.ha.fencing.methods&lt;/name&gt;
+&lt;value&gt;sshfence&lt;/value&gt;
+&lt;value&gt;shell(true)&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置失效转移时使用的秘钥文件 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.ha.fencing.ssh.private-key-files&lt;/name&gt;
+&lt;value&gt;/root/.ssh/id_rsa&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置故障转移功能是否开启，建议开启 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.ha.automatic-failover.enabled&lt;/name&gt;
+&lt;value&gt;true&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 HDFS 默认的数据块副本数。可以在创建文件时指定，如果创建时未指定，则使用默认值 --&gt;
+&lt;property&gt;
+&lt;name&gt;dfs.replication&lt;/name&gt;
+&lt;value&gt;2&lt;/value&gt;
+&lt;/property&gt;
+</code></pre><p>修改 workers ：</p>
+<pre tabindex="0"><code>[root@node01 hadoop]# vim workers
+</code></pre><p>用以下内容替换文件内容：</p>
+<pre tabindex="0"><code>node01
+node02
+node03
+</code></pre>
+
+<h4 class="relative group">拷贝至其他节点 
+    <div id="%E6%8B%B7%E8%B4%9D%E8%87%B3%E5%85%B6%E4%BB%96%E8%8A%82%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8B%B7%E8%B4%9D%E8%87%B3%E5%85%B6%E4%BB%96%E8%8A%82%E7%82%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>将 node01 已配置好的 hadoop 拷贝至 node02 和 node03。</p>
+<pre tabindex="0"><code>[root@node02 ~]# scp -r root@node01:/opt/yjx/hadoop-3.3.4 /opt/yjx/
+[root@node03 ~]# scp -r root@node01:/opt/yjx/hadoop-3.3.4 /opt/yjx/
+# 或者使用分发脚本
+[root@node01 ~]# yjxrsync /opt/yjx/hadoop-3.3.4/
+</code></pre>
+
+<h4 class="relative group">修改环境变量 
+    <div id="%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>三个节点修改环境变量 vim /etc/profile ，在文件末尾添加以下内容：</p>
+<pre tabindex="0"><code>export HADOOP_HOME=/opt/yjx/hadoop-3.3.4
+export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+</code></pre><p>修改完成后 source /etc/profile 重新加载环境变量。</p>
+
+
+<h3 class="relative group">启动 
+    <div id="%E5%90%AF%E5%8A%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%AF%E5%8A%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>首先启动 ZooKeeper（三台机器都需要执行）。</p>
+<pre tabindex="0"><code>zkServer.sh start
+zkServer.sh status
+</code></pre><p>然后启动 JournalNode（三台机器都需要执行）。</p>
+<pre tabindex="0"><code>hdfs --daemon start journalnode
+</code></pre><p>最后格式化 NameNode 等相关服务并启动集群。</p>
+<pre tabindex="0"><code># 格式化 node01 的 namenode（第一次配置的情况下使用）
+[root@node01 ~]# hdfs namenode -format
+# 启动 node01 的 namenode
+[root@node01 ~]# hdfs --daemon start namenode
+# node02 节点同步镜像数据
+[root@node02 ~]# hdfs namenode -bootstrapStandby
+# 格式化 zkfc（第一次配置的情况下使用）
+[root@node01 ~]# hdfs zkfc -formatZK
+# 启动 HDFS
+[root@node01 ~]# start-dfs.sh
+</code></pre><p>后期只需要先启动 ZooKeeper 然后再启动 HDFS 即可。</p>
+<pre tabindex="0"><code>zkServer.sh start
+zkServer.sh status
+[root@node01 ~]# start-dfs.sh
+</code></pre>
+
+<h3 class="relative group">访问 
+    <div id="%E8%AE%BF%E9%97%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%BF%E9%97%AE" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>访问：http://192.168.100.101:9870/ 和 http://192.168.100.102:9870/</p>
+
+
+<h3 class="relative group">测试文件上传 
+    <div id="%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>[root@node01 ~]# hdfs dfs -mkdir -p /test
+[root@node01 ~]# hdfs dfs -put hadoop-3.3.4.tar.gz /test
+# 指定 Block 大小
+[root@node01 ~]# hdfs dfs -D dfs.blocksize=134217728 -put hadoop-3.3.4.tar.gz /test
+</code></pre>
+
+<h3 class="relative group">关闭 
+    <div id="%E5%85%B3%E9%97%AD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%B3%E9%97%AD" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>先关闭 HDFS。</p>
+<pre tabindex="0"><code>[root@node01 ~]# stop-dfs.sh
+</code></pre><p>再关闭 ZooKeeper（三台机器都需要执行）。</p>
+<pre tabindex="0"><code>zkServer.sh stop
+</code></pre><p>环境搭建成功后 shutdown -h now 关机拍摄快照。</p>
+
+
+<h2 class="relative group">Hadoop 集群命令 
+    <div id="hadoop-%E9%9B%86%E7%BE%A4%E5%91%BD%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop-%E9%9B%86%E7%BE%A4%E5%91%BD%E4%BB%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">命令分类 
+    <div id="%E5%91%BD%E4%BB%A4%E5%88%86%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%91%BD%E4%BB%A4%E5%88%86%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>hadoop fs:
+FS relates to a generic file system which can point to any file systems like local, HDFS etc. So this can be used when youare dealing with different file systems such as Local FS, HFTP FS, S3 FS, and others
+该命令可以用于其他文件系统，不止是hdfs文件系统内，也就是说该命令的使用范围更广
+hadoop dfs
+专门针对hdfs分布式文件系统
+hdfs dfs（推荐）
+和上面的命令作用相同，相比于上面的命令更为推荐，并且当使用hadoop dfs时内部会被转为hdfs dfs命令</p>
+
+
+<h3 class="relative group">Hadoop FS命令 
+    <div id="hadoop-fs%E5%91%BD%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop-fs%E5%91%BD%E4%BB%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>介绍
+调用文件系统(FS)Shell命令应使用 bin/hadoop fs 的形式。所有的的FS shell命令使用URI路径作为参数。URI格式是scheme://authority/path。对HDFS文件系统，scheme是hdfs，对本地文件系统，scheme是file。
+其中scheme和authority参数都是可选的，如果未加指定，就会使用配置中指定的默认scheme。
+一个HDFS文件或目录比如/parent/child可以表示成hdfs://namenode:namenodeport/parent/child，或者更简单
+的/parent/child（假设你配置文件中的默认值是namenode:namenodeport）。
+大多数FS Shell命令的行为和对应的Unix Shell命令类似，不同之处会在下面介绍各命令使用详情时指出。出错信
+息会输出到stderr，其他信息输出到stdout。</p>
+<p>网址</p>
+<p><a href="http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html" target="_blank">http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html</a></p>
+<pre tabindex="0"><code>1 hadoop fs -ls &lt;path&gt;
+ 列出指定目录下的内容，支持pattern匹配。输出格式如filename（full path）&lt;r n&gt;size.n代表备份数。
+2 hadoop fs -lsr &lt;path&gt;
+ 递归列出该路径下所有子目录信息
+3 hadoop fs -du&lt;path&gt;
+显示目录中所有文件大小，或者指定一个文件时，显示此文件大小
+4 hadoop fs -dus&lt;path&gt;
+显示文件大小 相当于 linux的du -sb s代表显示只显示总计，列出最后的和 b代表显示文件大小时以byte为单位
+5 hadoop fs -mv &lt;src&gt; &lt;dst&gt;
+将目标文件移动到指定路径下，当src为多个文件，dst必须为目录
+6 hadoop fs -cp &lt;src&gt; &lt;dst&gt;
+拷贝文件到目标位置，src为多个文件时，dst必须是个目录
+7 hadoop fs -rm [skipTrash] &lt;src&gt;
+删除匹配pattern的指定文件
+8 hadoop fs -rmr [skipTrash] &lt;src&gt;
+递归删除文件目录及文件
+9 hadoop fs -rmi [skipTrash] &lt;src&gt;
+为了避免误删数据，加了一个确认
+10 hadoop fs -put &lt;&gt; ... &lt;dst&gt;
+从本地系统拷贝到dfs中
+11 hadoop fs -copyFromLocal&lt;localsrc&gt;...&lt;dst&gt;
+从本地系统拷贝到dfs中,与-put一样
+12 hadoop fs -moveFromLocal &lt;localsrc&gt;...&lt;dst&gt;
+从本地系统拷贝文件到dfs中，拷贝完删除源文件
+13 hadoop fs -get [-ignoreCrc] [-crc] &lt;src&gt; &lt;localdst&gt;
+从dfs中拷贝文件到本地系统，文件匹配pattern，若是多个文件，dst必须是个目录
+14 hadoop fs -getmerge &lt;src&gt; &lt;localdst&gt;
+从dfs中拷贝多个文件合并排序为一个文件到本地文件系统
+15 hadoop fs -cat &lt;src&gt;
+输出文件内容
+16 hadoop fs -copyTolocal [-ignoreCre] [-crc] &lt;src&gt; &lt;localdst&gt;
+与 -get一致
+17 hadoop fs -mkdir &lt;path&gt;
+在指定位置创建目录
+18 hadoop fs -setrep [-R] [-w] &lt;rep&gt; &lt;path/file&gt;
+设置文件的备份级别，-R标志控制是否递归设置子目录及文件
+19 hadoop fs -chmod [-R] &lt;MODE[,MODE]...|OCTALMODE&gt;PATH
+修改文件权限， -R递归修改 mode为a+r,g-w,+rwx ,octalmode为755
+20 hadoop fs -chown [-R] [OWNER][:[GROUP]] PATH
+递归修改文件所有者和组
+21 hadoop fs -count[q] &lt;path&gt;
+统计文件个数及占空间情况，输出表格列的含义分别为：DIR_COUNT.FILE_COUNT.CONTENT_SIZE.FILE_NAME，如果加-q 的话，还会列出QUOTA,REMAINING_QUOTA,REMAINING_SPACE_QUOTA
+</code></pre>
+
+<h3 class="relative group">hdfs dfs命令 
+    <div id="hdfs-dfs%E5%91%BD%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hdfs-dfs%E5%91%BD%E4%BB%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>-mkdir 创建目录　　hdfs dfs -mkdir [-p] &lt; paths&gt;
+-ls　　查看目录下内容，包括文件名，权限，所有者，大小和修改时间　　hdfs dfs -ls [-R] &lt; args&gt;
+-put　　将本地文件或目录上传到HDFS中的路径　　hdfs dfs -put &lt; localsrc&gt; … &lt; dst&gt;
+-get　　将文件或目录从HDFS中的路径拷贝到本地文件路径　　hdfs dfs -get [-ignoreCrc] [-crc] &lt; src&gt; &lt;localdst&gt;　
+   	选项：-ignorecrc选项复制CRC校验失败的文件。-crc选项复制文件和CRC。
+-du　　显示给定目录中包含的文件和目录的大小或文件的长度，用字节大小表示。　　hdfs dfs -du [-s] [-h] URI [URI…]　　选项：-s选项将显示文件长度的汇总摘要，而不是单个文件。-h选项将以“人可读”的方式格式化文件大小（例如64.0m而不是67108864）；第一列标示该目录下总文件大小，第二列标示该目录下所有文件在集群上的总存储大小和你的副本数相关（第二列内容=文件大小*副本数），第三列标示你查询的目录
+-dus　　显示文件长度的摘要　hdfs dfs -dus &lt; args&gt;　注意：不推荐使用此命令。而是使用hdfs dfs -du -s。
+-mv　　在HDFS文件系统中，将文件或目录从HDFS的源路径移动到目标路径。不允许跨文件系统移动文件。
+-cp　　在HDFS文件系统中，将文件或目录复制到目标路径下　　hdfs dfs -cp [-f] [-p | -p [topax] ] URI [ URI …]&lt; dest&gt;　选项：-f选项覆盖已经存在的目标。-p选项将保留文件属性[topx]（时间戳，所有权，权限，ACL，XAttr）。如果指定了-p且没有arg，则保留时间戳，所有权和权限。如果指定了-pa，则还保留权限，因为ACL是一组超级权限。确定是否保留原始命名空间扩展属性与-p标志无关。
+-copyFromLocal　从本地复制文件到hdfs文件系统（与-put命令相似）hdfs dfs -copyFromLocal &lt;localsrc&gt; URI　选项：如果目标已存在，则-f选项将覆盖目标。
+-copyToLocal　　复制hdfs文件系统中的文件到本地 （与-get命令相似）　　hdfs dfs -copyToLocal [-ignorecrc] [-crc] URI &lt; localdst&gt;　
+-rm　　删除一个文件或目录　　hdfs dfs -rm [-f] [-r|-R] [-skipTrash] URI [URI …]　　选项：如果文件不存在，-f选项将不显示诊断消息或修改退出状态以反映错误。-R选项以递归方式删除目录及其下的任何内容。-r选项等效于-R。-skipTrash选项将绕过垃圾桶（如果已启用），并立即删除指定的文件。当需要从超配额目录中删除文件时，这非常有用。
+-cat　　显示文件内容到标准输出上。　　hdfs dfs -cat URI [URI …]
+-text　　获取源文件并以文本格式输出文件。允许的格式为zip和TextRecordInputStream。　　hdfs dfs -text
+-touchz　　创建一个零长度的文件。　　hdfs dfs -touchz URI [URI …]
+-stat　　显示文件所占块数(%b)，文件名(%n)，块大小(%n)，复制数(%r)，修改时间(%y%Y)　　hdfs dfs -stat URI
+[URI …]
+-tail　　显示文件的最后1kb内容到标准输出　　hdfs dfs -tail [-f] URI　　选项：　　-f选项将在文件增长时输出附加数据，如在Unix中一样。
+-count　　统计与指定文件模式匹配的路径下的目录，文件和字节数　　hdfs dfs -count [-q] [-h] &lt; paths&gt;
+-getmerge　　将源目录和目标文件作为输入，并将src中的文件连接到目标本地文件（把两个文件的内容合并起来）　　hdfsdfs -getmerge &lt; src&gt; &lt; localdst&gt; [addnl] 　　注：合并后的文件位于当前目录，不在hdfs中，是本地文件
+-grep　　从hdfs上过滤包含某个字符的行内容　　hdfs dfs -cat &lt; srcpath&gt; | grep 过滤字段
+-chown　　hdfs上文件权限修改 hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]#修改文件的所有者  例如：hdfs dfs -chown -R Administrator:Administrator /user/ 
+-distcp　　最常用在集群之间的拷贝：hadoop distcp hdfs://master1:8020/foo/bar hdfs://master2:8020/bar/foo
+</code></pre>
+
+<h2 class="relative group">Java访问Hadoop集群 
+    <div id="java%E8%AE%BF%E9%97%AEhadoop%E9%9B%86%E7%BE%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#java%E8%AE%BF%E9%97%AEhadoop%E9%9B%86%E7%BE%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">环境变量 
+    <div id="%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Windows 系统的环境变量配置：
+解压 hadoop-3.3.4.zip，将解压后的文件夹存放到自己软件目录，例如：D:\hadoop\hadoop-3.3.4
+将 D:\hadoop\hadoop-3.3.4\bin 目录下的 winutils.exe 和 hadoop.dll 文件拷贝到 C:\Windows\System32 目录下
+将 Hadoop 添加到环境变量
+HADOOP_HOME &ndash;&gt; D:\hadoop\hadoop-3.3.4
+HADOOP_USER_NAME &ndash;&gt; root
+Path &ndash;&gt; %HADOOP_HOME%\bin;%HADOOP_HOME%\sbin;
+JDK 的版本也设置的和服务器版本一致
+修改当前 Window 的 hosts（C:\Windows\System32\drivers\etc\hosts）文件，添加以下内容：</p>
+<pre tabindex="0"><code>192.168.100.101 node01
+192.168.100.102 node02
+192.168.100.103 node03
+</code></pre>
+
+<h3 class="relative group">Java 访问 Hadoop 
+    <div id="java-%E8%AE%BF%E9%97%AE-hadoop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#java-%E8%AE%BF%E9%97%AE-hadoop" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>打开 IDEA，创建一个普通的Maven项目。拷贝 Hadoop 的以下配置文件至项目 resources 目录：</p>
+<p>core-site.xml
+hdfs-site.xml
+mapred-site.xml
+yarn-site.xml
+log4j.properties</p>
+<p>　pom.xml 文件如下：</p>
+<pre tabindex="0"><code class="language-pom" data-lang="pom">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;
+&lt;project xmlns=&#34;http://maven.apache.org/POM/4.0.0&#34;
+    xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;
+    xsi:schemaLocation=&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-
+4.0.0.xsd&#34;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.yjxxt&lt;/groupId&gt;
+  &lt;artifactId&gt;hadoop-demo&lt;/artifactId&gt;
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;8&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;8&lt;/maven.compiler.target&gt;
+    &lt;!-- Hadoop 版本 --&gt;
+    &lt;hadoop.version&gt;3.3.4&lt;/hadoop.version&gt;
+    &lt;!-- commons-io 版本 --&gt;
+    &lt;commons-io.version&gt;2.11.0&lt;/commons-io.version&gt;
+  &lt;/properties&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+      &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;
+      &lt;version&gt;${hadoop.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+      &lt;artifactId&gt;hadoop-hdfs&lt;/artifactId&gt;
+      &lt;version&gt;${hadoop.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+      &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;
+      &lt;version&gt;${hadoop.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+      &lt;artifactId&gt;hadoop-mapreduce-client-common&lt;/artifactId&gt;
+      &lt;version&gt;${hadoop.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+      &lt;artifactId&gt;hadoop-mapreduce-client-core&lt;/artifactId&gt;
+      &lt;version&gt;${hadoop.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+      &lt;artifactId&gt;hadoop-mapreduce-client-jobclient&lt;/artifactId&gt;
+      &lt;version&gt;${hadoop.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+          &lt;groupId&gt;commons-io&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+      &lt;version&gt;${commons-io.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.janeluo&lt;/groupId&gt;
+      &lt;artifactId&gt;ikanalyzer&lt;/artifactId&gt;
+      &lt;version&gt;2012_u6&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
+      &lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
+      &lt;version&gt;5.9.2&lt;/version&gt;
+      &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+&lt;/project&gt;
+</code></pre><p>HDFSTest.java 代码如下：</p>
+<pre tabindex="0"><code>package com.yjxxt.hdfs;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import java.io.IOException;
+@DisplayName(&#34;HDFS 测试类&#34;)
+public class HDFSTest {
+  FileSystem fileSystem = null;
+  @BeforeEach
+  public void hdfsInit() throws IOException {
+    // 加载配置文件
+    Configuration configuration = new Configuration(true);
+    // 获取文件系统
+    fileSystem = FileSystem.get(configuration);
+ }
+  @DisplayName(&#34;文件上传与下载&#34;)
+  @Test
+  public void testFileUploadAndDownload() throws IOException {
+    // 文件上传
+    Path srcPath = new Path(&#34;D:\\_组件资源包\\后端\\JDK\\JDK8\\jdk-8u351-linux-x64.tar.gz&#34;);
+    Path destPath = new Path(&#34;/jdk/jdk-8u351-linux-x64.tar.gz&#34;);
+    fileSystem.copyFromLocalFile(srcPath, destPath);
+    // 文件下载
+    // Path localPath = new Path(&#34;E:\\test&#34;);
+    // Path hdfsPath = new Path(&#34;/jdk/jdk-8u351-linux-x64.tar.gz&#34;);
+    // fileSystem.copyToLocalFile(hdfsPath, localPath);
+ }
+}
+</code></pre>
+
+<h2 class="relative group">Hadoop3.x 其他特性 
+    <div id="hadoop3x-%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop3x-%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Erasure Encoding 
+    <div id="erasure-encoding" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#erasure-encoding" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">简介 
+    <div id="%E7%AE%80%E4%BB%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AE%80%E4%BB%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>HDFS默认情况下，Block的备份系数是3，一个原始数据块和其他2个副本。
+其中2个副本所需要的存储开销各站100%，这样使得200%的存储开销
+正常操作中很少访问具有低IO活动的冷数据集的副本，但是仍然消耗与原始数据集相同的资源量。</p>
+
+
+<h4 class="relative group">EC技术 
+    <div id="ec%E6%8A%80%E6%9C%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ec%E6%8A%80%E6%9C%AF" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>EC(擦除编码)和HDFS的整合可以保持与提供存储效率相同的容错。
+HDFS:一个副本系数为3，要复制文件的6个块，需要消耗6*3=18个块的磁盘空间
+EC:6个数据块，3个奇偶校验块
+擦除编码需要在执行远程读取时，对数据重建带来额外的开销，因此他通常用于存储不太频繁访问的数据</p>
+
+
+<h3 class="relative group">NameNode 
+    <div id="namenode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#namenode" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>在Hadoop3中允许用户运行多个备用的NameNode。例如，通过配置三个NameNode（1个Active NameNode和2个Standby NameNode）和5个JournalNodes节点，此时集群可以容忍2个NameNode节点故障。</p>
+
+
+<h3 class="relative group">服务器端口 
+    <div id="%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%8F%A3" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>应用</th>
+<th>Hadoop 2.x port</th>
+<th>Hadoop 3 port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NNPorts</td>
+<td>Namenode</td>
+<td>8020</td>
+<td>9820</td>
+</tr>
+<tr>
+<td>NNPorts</td>
+<td>NN HTTP UI</td>
+<td>50070</td>
+<td>9870</td>
+</tr>
+<tr>
+<td>NNPorts</td>
+<td>NN HTTPS UI</td>
+<td>50470</td>
+<td>9871</td>
+</tr>
+<tr>
+<td>SNN ports</td>
+<td>SNN HTTP</td>
+<td>50091</td>
+<td>9869</td>
+</tr>
+<tr>
+<td>SNN ports</td>
+<td>SNN HTTP UI</td>
+<td>50090</td>
+<td>9866</td>
+</tr>
+<tr>
+<td>DN ports</td>
+<td>DN IPC</td>
+<td>50020</td>
+<td>9867</td>
+</tr>
+<tr>
+<td>DN ports</td>
+<td>DN</td>
+<td>50010</td>
+<td>9866</td>
+</tr>
+<tr>
+<td>DN ports</td>
+<td>DN HTTP UI</td>
+<td>50075</td>
+<td>9864</td>
+</tr>
+<tr>
+<td>DN ports</td>
+<td>Namenode</td>
+<td>50475</td>
+<td>9865</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">DataNode 
+    <div id="datanode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#datanode" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	单个数据节点配置多个数据磁盘，在正常写入操作期间，数据被均匀的划分，因此，磁盘被均匀填充。在维护磁盘时，添加或者替换磁盘会导致DataNode节点存储出现偏移。这种情况在早期的HDFS文件系统中，是没有被处理的。</p>
+<p>​	Hadoop3通过新的内部DataNode平衡功能来处理这种情况，这是通过hdfs diskbalancer CLI来进行调用的。执行之后，DataNode会进行均衡处理。</p>
+
+
+<h3 class="relative group">JDK 
+    <div id="jdk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#jdk" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Hadoop3中，最低版本要求是JDK8，所以低于JDK8的版本需要对JDK进行升级，方可安装使用Hadoop3</p>
+
+
+<h2 class="relative group">附录：配置文件详解 
+    <div id="%E9%99%84%E5%BD%95%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%99%84%E5%BD%95%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">core-site.xml 
+    <div id="core-sitexml" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#core-sitexml" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>core-site.xml配置文件的作用：
+ 用于定义系统级别的参数，如HDFS URL、Hadoop的临时目录以及用于rack-aware集群中的配置文件的配置等，此中的参数定义会覆盖core-default.xml文件中的默认配置。
+fs.defaultFS 参数的作用：
+ #声明namenode的地址，相当于声明hdfs文件系统。我们可以指定某个ip地址，在ha模式中我们通常指定hdfs集群的逻辑名称
+hadoop.tmp.dir 参数的作用：
+ #声明hadoop工作目录的地址。
+hadoop.http.staticuser.user 参数的作用：
+ #在网页界面访问数据使用的用户名。默认值是一个不真实存在的用户，此用户权限很小，不能访问不同用户的数据。这保证了数据安全。也可以设置为hdfs和hadoop等具有较高权限的用户，但会导致能够登陆网页界面的人能看到其它用户数据。实际设置请综合考虑。如无特殊需求。使用默认值就好.
+ ha.zookeeper.quorum 参数的作用：
+ #指定zookeeper集群的地址，让zookeeper帮我们管理hdfs集群。
+</code></pre>
+
+<h3 class="relative group">hdfs-site.xml 
+    <div id="hdfs-sitexml" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hdfs-sitexml" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>hdfs-site.xml 配置文件的作用：
+ #HDFS的相关设定，如文件副本的个数、块大小及是否使用强制权限等，此中的参数定义会覆盖hdfs-default.xml文件中的默认配置.
+dfs.replication 参数的作用：
+ #为了数据可用性及冗余的目的，HDFS会在多个节点上保存同一个数据块的多个副本，其默认为3个。而只有一个节点的伪分布式环境中其仅用保存一个副本即可，这可以通过dfs.replication属性进行定义。它是一个软件级备份。
+dfs.nameservices 参数的作用：
+ #指定一个逻辑名称，该名称会自动去帮我们找打真实NameNode节点，这和咱们的keepalive的VIP有点类似！这个名称咱们可以自定义！但是我们正在引用时千万别引用错了！
+dfs.ha.namenodes.yinzhengjie-hdfs 参数的作用：
+ #看到没，上面我们定义了dfs.nameservices的名称，现在我们就用到了，我们把定义的逻辑名称指向了各个namenode的别名
+ dfs.namenode.rpc-address.yinzhengjie-hdfs.namenode1 参数的作用：
+ #定义远程主机调用的服务器地址。
+dfs.namenode.http-address.yinzhengjie-hdfs.namenode1 参数的作用：
+ #上面我们定义了集群的逻辑名称，也定义节点的逻辑名称，但是真正的ip地址我们始终没有指定，因此我们这一步骤就是指定dfs.namenode.rpc-address.yinzhengjie-hdfs.namenode1对应的IP地址。当然你写主机名称也是可以的，只不过嘛你得在/etc/hosts文件做映射或者配置DNS中有对应的A记录哟！
+dfs.namenode.shared.edits.dir 参数的作用：
+ #配置JournalNode集群的地址。
+dfs.client.failover.proxy.provider.yinzhengjie-hdfs 参数的作用：
+ #配置故障转移的代理类，这是HDFS客户端找到active NameNode类名的一个代理类，如果你不配置这个项的话，那么客户端连接active namenode地址时会报错！实际上故障转移就是通过这个代理类来实现的，我们只需要默认官网的配置即可！不需要手动修改！
+dfs.ha.fencing.methods 参数的作用：
+ #指定ha出现故障时的隔离方法！
+dfs.ha.fencing.ssh.private-key-files 参数的作用：
+ #指定隔离主机的私钥PATH。
+dfs.journalnode.edits.dir 参数的作用：
+ #指定JN节点存放编辑日志的目录。
+dfs.ha.automatic-failover.enabled 参数的作用：
+ #开启自动故障转移功能.
+ 
+ – dfs.name.dir
+– NameNode 元数据存放位置
+– 默认值：使用core-site.xml中的hadoop.tmp.dir/dfs/name
+– dfs.block.size
+– 对于新文件切分的大小，单位byte。默认是64M,建议是128M。每一个节点都要指定，包括客户端。
+– 默认值：67108864
+– dfs.data.dir
+– DataNode在本地磁盘存放block的位置，可以是以逗号分隔的目录列表，DataNode循环向磁盘中写入数据，每个DataNode
+可单独指定与其它DataNode不一样
+– 默认值：${hadoop.tmp.dir}/dfs/data
+– dfs.namenode.handler.count
+– NameNode用来处理来自DataNode的RPC请求的线程数量
+– 建议设置为DataNode数量的10%，一般在10~200个之间
+– 如设置太小，DataNode在传输数据的时候日志中会报告“connecton refused&#34;信息
+– 在NameNode上设定
+– 默认值：10
+– dfs.datanode.handler.count
+– DataNode用来连接NameNode的RPC请求的线程数量
+– 取决于系统的繁忙程度
+– 设置太小会导致性能下降甚至报错
+– 在DataNode上设定
+– 默认值：3
+– dfs.datanode.max.xcievers
+– DataNode可以同时处理的数据传输连接数
+– 默认值：256
+– 建议值：4096
+– dfs.permissions
+– 如果是true则检查权限，否则不检查（每一个人都可以存取文件）
+– 于NameNode上设定
+– 默认值：true
+– dfs.datanode.du.reserved
+– 在每个卷上面HDFS不能使用的空间大小
+– 在每个DataNode上面设定
+– 默认值：0
+– 建议为10737418240，即10G。需要结合MapReduce场景设置。
+– dfs.datanode.failed.volumes.tolerated
+– DataNode可以容忍损块的磁盘数量，超过这个数量DataNode将会离线，所有在这个节点上面的block将会被重新复制
+– 默认是0，但是在有多块磁盘的时候一般会增大这个值
+– dfs.replication
+– 在文件被写入的时候，每一块将要被复制多少份
+– 默认是3份。建议3份
+– 在客户端上设定
+通常也需要在DataNode上设定
+2、HDFS core-site.xml 参数配置
+– fs.default.name
+– 文件系统的名字。通常是NameNode的hostname与port
+– 需要在每一个需要访问集群的机器上指定，包括集群中的节点
+– 例如：hdfs://&lt;your_namenode&gt;:9000/
+– hadoop.tmp.dir
+– HDFS与本地磁盘的临时文件
+默认是/tmp/hadoop-${user.name}.需要在所有的节点中设定
+– fs.trash.interval
+– 当一个文件被删掉后，它会被放到用户目录的.Trash目录下，而不是立即删掉
+– 经过此参数设置的分钟数之后，再删掉数据
+– 默认是0，禁用此功能，建议1440（一天）
+– io.file.buffer.size
+– 设定在读写数据时的缓存大小，应该为硬件分页大小的2倍
+– 默认是4096，建议为65536 （ 64K）
+</code></pre>
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\Hadoop_HDFS\\Hadoop_HDFS.md"
+        var oid_likes = "likes_docs\\Hadoop_HDFS\\Hadoop_HDFS.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/hbase/hbase/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  ></span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/hadoop-mapreduce/hadoop-mapreduce/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  ></span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部" title="返回顶部">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      KV先生
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://your_domain.com/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

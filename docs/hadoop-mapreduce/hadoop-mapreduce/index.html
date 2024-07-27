@@ -1,0 +1,3023 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-cn" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title> &middot; KV先生</title>
+  <meta name="title" content=" &middot; KV先生" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://your_domain.com/docs/hadoop-mapreduce/hadoop-mapreduce/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.8ea60310059bae0843ca33ef1de0ed63f1367330a68d9b13d82d6c3bc474a4c1a7c705dba2592e367518d4eb2c0a82076592aeab874ff2e02034ddc7147c752f.css"
+    integrity="sha512-jqYDEAWbrghDyjPvHeDtY/E2czCmjZsT2C1sO8R0pMGnxwXbolkuNnUY1OssCoIHZZKuq4dP8uAgNN3HFHx1Lw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.b3e22525a7c62c7b8e4c7c002546ab6498031635fa2d07802d593d476d7ab1262ec61b0cec0fe9f5653e1c9e6c256cbd0b66e5a8421b4f82a7bd2c1d5c901638.js"
+    integrity="sha512-s&#43;IlJafGLHuOTHwAJUarZJgDFjX6LQeALVk9R216sSYuxhsM7A/p9WU&#43;HJ5sJWy9C2blqEIbT4KnvSwdXJAWOA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://your_domain.com/docs/hadoop-mapreduce/hadoop-mapreduce/">
+  <meta property="og:site_name" content="KV先生">
+  <meta property="og:title" content="KV先生">
+  <meta property="og:description" content="Hadoop MapReduce # https://www.">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KV先生">
+  <meta name="twitter:description" content="Hadoop MapReduce # https://www.">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "",
+    "headline": "",
+    
+    "abstract": "Hadoop MapReduce # https:\/\/www.",
+    "inLanguage": "zh-cn",
+    "url" : "https:\/\/your_domain.com\/docs\/hadoop-mapreduce\/hadoop-mapreduce\/",
+    "author" : {
+      "@type": "Person",
+      "name": "KV先生"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2770"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="KV先生" />
+  
+  
+  
+  <link href="mailto:hello@your_domain.com" rel="me" />
+  
+  
+  <link href="https://github.com/bot-ruoshui" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+	            <span style="font-weight:600;font-size:18px;">KV先生</span>
+	        </a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        文档
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        标签
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/5mrhelloworld"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            文档
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            标签
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/5mrhelloworld"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/hadoop-mapreduce/hadoop-mapreduce/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time><span class="px-2 text-primary-500">&middot;</span><span>2770 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">14 分钟</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+        
+        
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="KV先生" src="/img/wmz_hu0f64dbd4a3f6623dcafe1cf79b5f4bcf_435948_192x192_fill_q75_box_center.jpg" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      KV先生
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">rosser</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:hello@your_domain.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/bot-ruoshui"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+      
+
+      
+
+      
+      <div class="mb-5"></div>
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mapreduce设计思想">MapReduce设计思想</a></li>
+    <li><a href="#常用排序算法">常用排序算法</a>
+      <ul>
+        <li><a href="#分类">分类</a>
+          <ul>
+            <li><a href="#普遍型">普遍型</a></li>
+            <li><a href="#进阶型">进阶型</a></li>
+            <li><a href="#常用型">常用型</a></li>
+            <li><a href="#偏方型">偏方型</a></li>
+          </ul>
+        </li>
+        <li><a href="#快速排序">快速排序</a>
+          <ul>
+            <li><a href="#左右指针法">左右指针法</a></li>
+            <li><a href="#挖坑法">挖坑法</a></li>
+            <li><a href="#前后指针法">前后指针法</a></li>
+            <li><a href="#优化选-key">优化选 Key</a></li>
+          </ul>
+        </li>
+        <li><a href="#归并排序">归并排序</a></li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce计算流程">MapReduce计算流程</a>
+      <ul>
+        <li><a href="#原始数据file">原始数据File</a></li>
+        <li><a href="#数据块block">数据块Block</a></li>
+        <li><a href="#切片split">切片Split</a></li>
+        <li><a href="#maptask">MapTask</a></li>
+        <li><a href="#环形数据缓冲区">环形数据缓冲区</a></li>
+        <li><a href="#分区partation">分区Partation</a></li>
+        <li><a href="#排序sort">排序Sort</a></li>
+        <li><a href="#溢写spill">溢写Spill</a></li>
+        <li><a href="#合并merge">合并Merge</a></li>
+        <li><a href="#组合器combiner">组合器Combiner</a></li>
+        <li><a href="#拉取fetch">拉取Fetch</a></li>
+        <li><a href="#合并merge-1">合并Merge</a></li>
+        <li><a href="#归并reduce">归并Reduce</a></li>
+        <li><a href="#写出output">写出Output</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-yarn架构">Hadoop-YARN架构</a>
+      <ul>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#工作流程">工作流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-yarn环境搭建">Hadoop-YARN环境搭建</a>
+      <ul>
+        <li><a href="#目标环境">目标环境</a></li>
+        <li><a href="#修改配置文件">修改配置文件</a></li>
+        <li><a href="#拷贝至其他节点">拷贝至其他节点</a></li>
+        <li><a href="#启动">启动</a></li>
+        <li><a href="#访问">访问</a></li>
+        <li><a href="#关闭">关闭</a></li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce案例wordcount">MapReduce案例[WordCount]</a>
+      <ul>
+        <li><a href="#java代码实现">Java代码实现</a></li>
+        <li><a href="#job提交方式">Job提交方式</a></li>
+        <li><a href="#yarn-常用命令">YARN 常用命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce案例充值记录">MapReduce案例[充值记录]</a></li>
+    <li><a href="#mapreduce案例天气信息">MapReduce案例[天气信息]</a></li>
+    <li><a href="#mapreduce案例好友推荐">MapReduce案例[好友推荐]</a></li>
+    <li><a href="#mapreducer压缩">MapReducer压缩</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#条件与优缺点">条件与优缺点</a></li>
+        <li><a href="#基本原则">基本原则</a></li>
+        <li><a href="#压缩实践">压缩实践</a>
+          <ul>
+            <li><a href="#压缩支持">压缩支持</a></li>
+            <li><a href="#压缩比较">压缩比较</a></li>
+            <li><a href="#压缩选择">压缩选择</a></li>
+            <li><a href="#压缩配置">压缩配置</a></li>
+            <li><a href="#压缩实践-1">压缩实践</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce优化">MapReduce优化</a>
+      <ul>
+        <li><a href="#概述-1">概述</a></li>
+        <li><a href="#小文件优化">小文件优化</a></li>
+        <li><a href="#数据倾斜">数据倾斜</a></li>
+        <li><a href="#推测执行">推测执行</a></li>
+        <li><a href="#mapreduce执行流程优化">MapReduce执行流程优化</a>
+          <ul>
+            <li><a href="#map">Map</a></li>
+            <li><a href="#reduce">Reduce</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mapreduce设计思想">MapReduce设计思想</a></li>
+    <li><a href="#常用排序算法">常用排序算法</a>
+      <ul>
+        <li><a href="#分类">分类</a>
+          <ul>
+            <li><a href="#普遍型">普遍型</a></li>
+            <li><a href="#进阶型">进阶型</a></li>
+            <li><a href="#常用型">常用型</a></li>
+            <li><a href="#偏方型">偏方型</a></li>
+          </ul>
+        </li>
+        <li><a href="#快速排序">快速排序</a>
+          <ul>
+            <li><a href="#左右指针法">左右指针法</a></li>
+            <li><a href="#挖坑法">挖坑法</a></li>
+            <li><a href="#前后指针法">前后指针法</a></li>
+            <li><a href="#优化选-key">优化选 Key</a></li>
+          </ul>
+        </li>
+        <li><a href="#归并排序">归并排序</a></li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce计算流程">MapReduce计算流程</a>
+      <ul>
+        <li><a href="#原始数据file">原始数据File</a></li>
+        <li><a href="#数据块block">数据块Block</a></li>
+        <li><a href="#切片split">切片Split</a></li>
+        <li><a href="#maptask">MapTask</a></li>
+        <li><a href="#环形数据缓冲区">环形数据缓冲区</a></li>
+        <li><a href="#分区partation">分区Partation</a></li>
+        <li><a href="#排序sort">排序Sort</a></li>
+        <li><a href="#溢写spill">溢写Spill</a></li>
+        <li><a href="#合并merge">合并Merge</a></li>
+        <li><a href="#组合器combiner">组合器Combiner</a></li>
+        <li><a href="#拉取fetch">拉取Fetch</a></li>
+        <li><a href="#合并merge-1">合并Merge</a></li>
+        <li><a href="#归并reduce">归并Reduce</a></li>
+        <li><a href="#写出output">写出Output</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-yarn架构">Hadoop-YARN架构</a>
+      <ul>
+        <li><a href="#基本概念">基本概念</a></li>
+        <li><a href="#工作流程">工作流程</a></li>
+      </ul>
+    </li>
+    <li><a href="#hadoop-yarn环境搭建">Hadoop-YARN环境搭建</a>
+      <ul>
+        <li><a href="#目标环境">目标环境</a></li>
+        <li><a href="#修改配置文件">修改配置文件</a></li>
+        <li><a href="#拷贝至其他节点">拷贝至其他节点</a></li>
+        <li><a href="#启动">启动</a></li>
+        <li><a href="#访问">访问</a></li>
+        <li><a href="#关闭">关闭</a></li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce案例wordcount">MapReduce案例[WordCount]</a>
+      <ul>
+        <li><a href="#java代码实现">Java代码实现</a></li>
+        <li><a href="#job提交方式">Job提交方式</a></li>
+        <li><a href="#yarn-常用命令">YARN 常用命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce案例充值记录">MapReduce案例[充值记录]</a></li>
+    <li><a href="#mapreduce案例天气信息">MapReduce案例[天气信息]</a></li>
+    <li><a href="#mapreduce案例好友推荐">MapReduce案例[好友推荐]</a></li>
+    <li><a href="#mapreducer压缩">MapReducer压缩</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#条件与优缺点">条件与优缺点</a></li>
+        <li><a href="#基本原则">基本原则</a></li>
+        <li><a href="#压缩实践">压缩实践</a>
+          <ul>
+            <li><a href="#压缩支持">压缩支持</a></li>
+            <li><a href="#压缩比较">压缩比较</a></li>
+            <li><a href="#压缩选择">压缩选择</a></li>
+            <li><a href="#压缩配置">压缩配置</a></li>
+            <li><a href="#压缩实践-1">压缩实践</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#mapreduce优化">MapReduce优化</a>
+      <ul>
+        <li><a href="#概述-1">概述</a></li>
+        <li><a href="#小文件优化">小文件优化</a></li>
+        <li><a href="#数据倾斜">数据倾斜</a></li>
+        <li><a href="#推测执行">推测执行</a></li>
+        <li><a href="#mapreduce执行流程优化">MapReduce执行流程优化</a>
+          <ul>
+            <li><a href="#map">Map</a></li>
+            <li><a href="#reduce">Reduce</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">Hadoop MapReduce 
+    <div id="hadoop-mapreduce" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop-mapreduce" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+<p><a href="https://www.processon.com/view/link/64f680ccf5c8296d88838473" target="_blank">https://www.processon.com/view/link/64f680ccf5c8296d88838473</a></p>
+
+
+<h2 class="relative group">MapReduce设计思想 
+    <div id="mapreduce%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>分而治之：</p>
+<pre tabindex="0"><code>对付大数据并行处理，将大的数据切分成多个小数据，交给更多的节点参与运算。注意：不可拆分的计算
+任务或相互间有依赖关系的数据无法进行并行计算。
+</code></pre><p>抽象模型：Input、Split、Map、Shuffle、Reduce、Output。</p>
+<pre tabindex="0"><code>Input：读取数据。
+Split：对数据进行粗粒度切分。
+Map：对数据进行细粒度切分。
+Shuffle：洗牌。将各个 MapTask 结果合并输出到 Reduce。
+Reduce：对 Shuffle 进行汇总并输出到指定存储。
+Output：HDFS、Hive、Spark、Flume……
+</code></pre><p>统一架构：</p>
+<pre tabindex="0"><code>程序员需要考虑数据存储、划分、分发、结果手机、错误恢复等诸多细节。因此MapReduce设计并提供了统一的计算框架，为程序员隐藏了绝大多数系统层面的细节处理。程序员只需要集中于应用问题和算法本身，而不需要关注其他系统层的细节处理，大大减轻了程序员开发程序的负担。
+</code></pre><p>离线框架：可以实现上千台服务器几圈并发工作，适合PB级以上海量数据的离线处理</p>
+<pre tabindex="0"><code>不擅长实时计算：MapReduce 无法像 MySQL 一样，在毫秒或者秒级内返回结果。如果数据量小，使用 MR 反而不
+合适。
+不擅长流式计算：流式计算的输入数据是动态的，而 MapReduce 的输入数据集是静态的，不能动态变化。这是因
+为 MapReduce 自身的设计特点决定了数据源必须是静态的。
+不擅长 DAG（有向图）计算：多个应用程序存在依赖关系，后一个应用程序的输入为前一个的输出。在这种情况
+下，MapReduce 并不是不能做，而是使用后，每个 MapReduce 作业的输出结果都会写入到磁盘，会造成大量的
+磁盘 IO，导致性能非常的低下。
+</code></pre><p>计算机项数据靠拢：将计算放在数据节点上进行工作</p>
+<p>顺序处理数据，避免随机访问数据</p>
+<pre tabindex="0"><code>大规模数据处理的特点决定了大量的数据记录不可能存放在内存、而只可能放在
+外存中进行处理。磁盘的顺序访问和随即访问在性能上有巨大的差异。例：100 亿个数据记录，每个记录 100B，共计
+1TB 的数据库。更新 1% 的记录（随机访问）需要 1 个月时间；而顺序访问并重写所有数据记录仅需 1 天时间。
+</code></pre><p>节点失效是常态</p>
+<pre tabindex="0"><code>MapReduce 集群中使用大量的低端服务器（Google 目前在全球共使用百万台以上的服务器节点），因此，节点硬件失效和软件出错是常态。因而：一个良好设计、具有容错性的并行计算系统不能因为节点失效而影响计算服务的质量，任何节点失效都不应当导致结果的不一致或不确定性；任何一个节点失效时，其它节点要能够无缝接管失效节点的计算任务；当失效节点恢复后应能自动无缝加入集群，而不需要管理员人工进行系统配置。MapReduce 并行计算软件框架使用了多种有效的机制，如节点自动重启技术，使集群和计算框架具有对付节点失效的健壮性，能有效处理失效节点的检测和恢复。
+</code></pre>
+
+<h2 class="relative group">常用排序算法 
+    <div id="%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%B8%E7%94%A8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">分类 
+    <div id="%E5%88%86%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">普遍型 
+    <div id="%E6%99%AE%E9%81%8D%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%99%AE%E9%81%8D%E5%9E%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>指的是学过计算机的基本都会的算法，大家都会了变的普遍了。冒泡排序，选择排序，插入排序</p>
+
+
+<h4 class="relative group">进阶型 
+    <div id="%E8%BF%9B%E9%98%B6%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BF%9B%E9%98%B6%E5%9E%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>希尔排序（高级插入），堆排序（高级选择</p>
+
+
+<h4 class="relative group">常用型 
+    <div id="%E5%B8%B8%E7%94%A8%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B8%B8%E7%94%A8%E5%9E%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>快速排序，归并排序</p>
+
+
+<h4 class="relative group">偏方型 
+    <div id="%E5%81%8F%E6%96%B9%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%81%8F%E6%96%B9%E5%9E%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>所谓偏方治大病，在某些场景下会有奇效。计数排序，桶排序，基数排序</p>
+
+
+<h3 class="relative group">快速排序 
+    <div id="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	快速排序（Quick sort）从冒泡排序演变而来，实际上是在冒泡排序基础上的递归分治法。快速排序在每一轮挑选一个基准元素，让比他大的元素移动到数列的一边，比他小的元素移动到另一边，从而把数列拆解成两个部分。快排又分为：Hoare法（左右指针）、前后指针法、挖坑法。</p>
+
+
+<h4 class="relative group">左右指针法 
+    <div id="%E5%B7%A6%E5%8F%B3%E6%8C%87%E9%92%88%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B7%A6%E5%8F%B3%E6%8C%87%E9%92%88%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>定义一个Begin指向第一个元素，定义一个END指向最后一个元素。令第一个元素为Key,Begin向后找大于Key的数，End向前找小于key的数，找到后Begin和End交换位置，直到Begin的索引大于等于End的索引时结束，然后将Key和End指针交换位置。再将Key左右两边重复上述操作，最终有序。
+</code></pre>
+
+<h4 class="relative group">挖坑法 
+    <div id="%E6%8C%96%E5%9D%91%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8C%96%E5%9D%91%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>从数列中挑出一个元素称为基准。重新排序数列，所有比元素基准小的摆放在基准左边，比基准大的摆在基准右边。
+	从右向左依次和基准进行比较，小于基准就和基准进行交换，大于基准就保持不变。
+	交换后基准到了右边，所以从左向右依次和基准进行比较，如果大于基准就和基准进行交换，小于基准就保持不变
+	交换后基准到了左边，从右向左依次和基准进行比较，小于基准就和基准进行交换，大于基准就保持不变。
+整体排序后基准的位置是正确的，左右两边无序。
+将左右两边各当做一个新的序列继续进行挖坑法，递归的把剩余数列排序。
+</code></pre>
+
+<h4 class="relative group">前后指针法 
+    <div id="%E5%89%8D%E5%90%8E%E6%8C%87%E9%92%88%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%89%8D%E5%90%8E%E6%8C%87%E9%92%88%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>选择一端下标设为基准值
+然后初始设置 Cur、Prev 两个标志指针，Prev 标志序列第一个元素，Cur 标志 Prev 后一个位置；
+Cur 位置的元素若大于基准值，Cur 向前前进。若小于基准值，对 Prev 进行加一，然后判断是否与 Cur 的位置相等：
+	若相等，Cur 继续向前前进；
+	若不相等，则交换 Cur 和 Prev 的值。这样就能保证 Cur 与 Prev 之间的元素都大于基准值，Prev 之前的元	  素都小于基准值。
+重复上述过程，直到 Cur 超过序列最右侧位置，最后进行一次判断，若 Prev 标记位置不是序列最后一个位置，则将基
+准值交换到 Prev 位置，即完成左右子序列划分，再对左右子序列重复上述过程，直到整个序列完成排序
+</code></pre>
+
+<h4 class="relative group">优化选 Key 
+    <div id="%E4%BC%98%E5%8C%96%E9%80%89-key" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BC%98%E5%8C%96%E9%80%89-key" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>快速排序在选 Key 的时候，最理想，效率最高的情况就是每次都能选到中间值。但是，快速排序在没有优化前，对数
+据有序的情况进行排序，那么它每次选 Key 的值都在最左边或最右边，效率就会大大降低。所以：当待排序数组有序时，
+快速排序的时间复杂的最差。
+为解决这一情况引入一个较为巧妙的方法，三数取中。“三数取中”即取三个数中不是最大也不是最小的数，将这一概
+念引入快速排序中，取首中尾三个元素的中间值（排序三个数，取中间数）作为待排序区间的 Key，再把这个元素和队头
+元素互换，即可解决这一问题。一开始基准在最左边，所以从右向左依次和基准进行比较，如果小于基准就和基准进行交换，如果大于基准保持不变
+</code></pre>
+
+<h3 class="relative group">归并排序 
+    <div id="%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	并归排序（Merge Sort）是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的典型应用。</p>
+<p>​	归并排序的基本思想是：将原序列不断拆分，一直拆到每个子序列只有一个元素时，再用插入的方式归并。即先使每个子序列有序，再使子序列段间有序。将已有序的子序列合并，得到完全有序的序列。两个有序表合并成一个有序表的过程称为二路归并。和选择排序一样，归并排序的性能不收输入数据的影响，表现比选择排序好，代价是需要额外的空间内存。</p>
+<pre tabindex="0"><code>归并排序算法步骤：
+将原序列二等分，二等分之后的子序列继续二等分；
+直到每个子序列只有一个元素时，停止拆分；
+再按照分割的顺序进行归并。
+</code></pre>
+
+<h2 class="relative group">MapReduce计算流程 
+    <div id="mapreduce%E8%AE%A1%E7%AE%97%E6%B5%81%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E8%AE%A1%E7%AE%97%E6%B5%81%E7%A8%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">原始数据File 
+    <div id="%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AEfile" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AEfile" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	数据文件上传（Input），被切分成块（Block）存放在HDFS上，每一块有128M。</p>
+
+
+<h3 class="relative group">数据块Block 
+    <div id="%E6%95%B0%E6%8D%AE%E5%9D%97block" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E6%8D%AE%E5%9D%97block" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	HDFS上数据存储的一个单元，用一个文件中块的大小都是相同的。因为数据存储到HDFS上不可变，所以有可能块的数量和集群的计算能力不匹配。需要一个动态调整本次参与计算节点数量的一个单位。可以动态改变这个单位即参与的节点。</p>
+
+
+<h3 class="relative group">切片Split 
+    <div id="%E5%88%87%E7%89%87split" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%87%E7%89%87split" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	切片是一个逻辑概念。Split可以在不改变先有数据存储的情况喜爱动态调整参与计算的节点数量，使用比文件块更小的切片设置-得到更多节点，使用比文件块更大的切片设置-更少节点参与计算。默认情况下，Split大小等于Block大小128M，一个切片对应一个MapTask去计算程序员编写的计算代码。</p>
+
+
+<h3 class="relative group">MapTask 
+    <div id="maptask" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#maptask" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	MapTask工作流程：</p>
+<pre tabindex="0"><code>读取数据切片 -&gt; 读入环形数据缓冲区 -&gt; 分区&amp;排序 -&gt; 组合器（可选） -&gt; 合并 -&gt; 写出ReduceTask
+</code></pre><p>​	Map默认从所属切片读取数据，每次读取一行到内存；可以根据自己书写的分词逻辑计算每个单词出现的次数；会产生Map临时数据，存放在内存中，内存大小有限多个任务同时执行有可能OOM，把数据直接存放硬盘效率太低需要一个有效方案——内存写入一份，然后写出到硬盘。</p>
+
+
+<h3 class="relative group">环形数据缓冲区 
+    <div id="%E7%8E%AF%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%BC%93%E5%86%B2%E5%8C%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%8E%AF%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%BC%93%E5%86%B2%E5%8C%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	每个Map可以独享一个内存区域，在内存中构建一个环形数据缓冲区（kvBuffer），默认大小为100M，设置缓冲取得阈值为80%，达到阈值后开始外溢写到硬盘，溢写的时候还有20M空间可以被使用。实现了循环利用这块内存区域，减少了数据溢写时map停止的时间，循环写数据到硬盘也不用担心OOM问题。</p>
+<pre tabindex="0"><code>1、LineRecordReader读取切片数据，读取的数据格式是KV，K偏移量，V数据；向环形写入KV数据，
+2、每次环形数据缓冲区达到溢写阈值时，只会溢出一个spill次.out，还会生成spill次.out.index的索引文件用于描述数据文件中各分区的起始及长度
+3、每次合并最多合并10个文件，合并使用归并排序
+4、最终输出至ReducdTask时会最终合并一次，合并为file.out数据文件和file.out.index索引文件
+</code></pre><p>​	底层是一个数组，逻辑上数组首尾相连实现环形缓冲区，溢写时剩余空间的中间位置重新设置新的迟到，如此反复，实现无卡顿读写，默认使用Hash分区和快速排序。向左写入数据向右写入对应的元数据。</p>
+
+
+<h3 class="relative group">分区Partation 
+    <div id="%E5%88%86%E5%8C%BApartation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E5%8C%BApartation" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	有多少个ReduceTask就有多少个分区，一个分区可以有若干组，默认用MapOutputKey的比较规则作为分组条件。根据key直接计算出对应的Reduce，分区数量和Reduce的数量是相等的。hash（key）%partation=num；默认分区的算法是Hash然后取余，Object的hashCode()&mdash;equals()，如果两个对象equals，那么两个对象的hashcode一定相等，hashcode相等，对象不一定equals。根据元数据的信息（分区排序）对数据一些默认Hash分区。</p>
+
+
+<h3 class="relative group">排序Sort 
+    <div id="%E6%8E%92%E5%BA%8Fsort" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8E%92%E5%BA%8Fsort" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	对一些的数据进行排序，默认快速排序，按照先Partation后Key的顺序&ndash;&gt;相同分区在一起，相同key在一起，将来一些出的小文件也是有序的。</p>
+
+
+<h3 class="relative group">溢写Spill 
+    <div id="%E6%BA%A2%E5%86%99spill" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%BA%A2%E5%86%99spill" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	将内存中数据循环写到硬盘，不用担心OOM的问题，每次写出一个80M文件。环形缓冲区达到溢写阈值时，写出文件spillTIME.out和spillTIME.out.index-数据长度数据位置。索引文件用于描述数据文件中各分区的起始及长度。溢写时会调取用户自定义设置Combiner预聚合。</p>
+
+
+<h3 class="relative group">合并Merge 
+    <div id="%E5%90%88%E5%B9%B6merge" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%88%E5%B9%B6merge" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	溢写会产生很多有序（分区key）的小文件，而小文件的数目不确定，后面向reduce传递数据带来很多问题，所以将小文件合成一个大文件，将来拉取数据可以直接拉取大文件。合并小文件时进行归并排序最终产生一个有序的大文件 file.out.index和file.out，Merge减少了传输的文件数量，减少了网络IO次数，没有改变数据传输量。合并数据超过3个时会调取用户自定义设置的预聚合Combiner。</p>
+
+
+<h3 class="relative group">组合器Combiner 
+    <div id="%E7%BB%84%E5%90%88%E5%99%A8combiner" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BB%84%E5%90%88%E5%99%A8combiner" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>预聚合-组合器-小RM，Combiner 的意义是对每一个 MapTask 的输出进行局部汇总，以减小网络传输量。例如</p>
+<pre tabindex="0"><code>原先传给reduce的数据是 a1 a1 a1 a1 a1
+第一次combiner组合之后变为a{1,1,1,1,..}
+第二次combiner后传给reduce的数据变为a{4,2,3,5...}
+</code></pre><pre tabindex="0"><code>	集群的带宽限制了mapreduce作业的数量，因此应该尽量避免map和reduce任务之间的数据传输。hadoop允许用户对map的输出数据进行处理，用户可自定义combiner函数（如同map函数和reduce函数一般），其逻辑一般和reduce函
+数一样，combiner的输入是map的输出，combiner的输出作为reduce的输入，很多情况下可以直接将reduce函数作为
+conbiner函数来使用（job.setCombinerClass(FlowCountReducer.class);）。
+	combiner属于优化方案，所以无法确定combiner函数会调用多少次，可以在环形缓存区溢出文件时调用combiner函数，也可以在溢出的小文件合并成大文件时调用combiner。但要保证不管调用几次combiner函数都不会影响最终的结
+果，所以不是所有处理逻辑都可以使用combiner组件，有些逻辑如果在使用了combiner函数后会改变最后rerduce的输
+出结果（如求几个数的平均值，就不能先用combiner求一次各个map输出结果的平均值，再求这些平均值的平均值，
+这将导致结果错误）。
+</code></pre>
+
+<h3 class="relative group">拉取Fetch 
+    <div id="%E6%8B%89%E5%8F%96fetch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8B%89%E5%8F%96fetch" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	当已完成的MapTask任务达到总MapTask任务的5%时，ReduceTask初始化并拉取分区数据。将Map的临时结果拉取到Reduce节点。未排序前拉取数据时必须对Map产生的最终的合并文件做全序遍历，二期每个reduce都要做全序遍历。如果map产生的大文件是有序的， 每一个reduce只需要从文件中读取自己所需的即可。</p>
+<p>拉取规则</p>
+<pre tabindex="0"><code>1、相同的Key必须拉取到同一个Reduce节点，同一个Reduce节点可以有多个Key
+2、根据file.out.index索引文件拉取对应的分区数据至ReduceTask内存
+3、ReduceTask内存缓冲区大小默认是当前节点可用内存的70%，超过内存66%开始溢写。
+4、ReduceTask分组规则
+	a、查询程序员是否定义分组器，如果有直接用
+	b、如果a不满足，查找程序员是否定义了比较器，如果有直接使用
+	c、如果b不满足，按MapTask写出Key的比较器进行分组
+</code></pre><p>拉取后</p>
+<pre tabindex="0"><code>	当已完成的MapTask任务达到总MapTask任务的5%时，ReduceTask初始化并根据file.out.index拉取分区数据，拉取回来的数据在MapTask阶段是有序地，但是从不同的MapTask拉取回来相同分区的数据后，又无序了。对拉取回来的数据进行合并，全局归并排序，然后再分组进入Reduce阶段（用户重写reduce方法）。有多少个ReduceTask就有多少个分区，一个分区可以有若干组，默认情况下使用MapOutputKey的比较器规则为分组条件。
+</code></pre>
+
+<h3 class="relative group">合并Merge 
+    <div id="%E5%90%88%E5%B9%B6merge-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%88%E5%B9%B6merge-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	因为reduce拉取的时候，会从多个map拉取数据，每个map都会产生一个小文件，之间没有序列，为了方便计算，需要合并文件，归并算法将同key的都放在一起。拉取回来的数据在MapTask阶段是有序地，但是从不同的MapTask拉取回来相同分区的数据后，又无序了。对拉取回来的数据进行合并。</p>
+
+
+<h3 class="relative group">归并Reduce 
+    <div id="%E5%BD%92%E5%B9%B6reduce" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BD%92%E5%B9%B6reduce" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	将文件中的数据读取到内存中，一次性将相同的key全部读取到内存中，直接将相同的Key得到结果-&gt;最终结果。全局归并排序，然后再分组进入Reduce阶段（用户重写reduce方法）。</p>
+<p>​	ReduceTask分组规则：自定义分组器 -&gt; 自定义比较器 -&gt; MapTask写出的Key的比较器</p>
+
+
+<h3 class="relative group">写出Output 
+    <div id="%E5%86%99%E5%87%BAoutput" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%86%99%E5%87%BAoutput" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	每个reduce将自己计算的最终结果都会存放到HDFS上。</p>
+
+
+<h2 class="relative group">Hadoop-YARN架构 
+    <div id="hadoop-yarn%E6%9E%B6%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop-yarn%E6%9E%B6%E6%9E%84" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">基本概念 
+    <div id="%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	Yarn（另一种资源协调者），统一管理资源。之后其他的计算机框架可以直接访问yarn获取当前集群的空闲节点。</p>
+<p>​	client，客户端发送mr任务到集群，客户端的种类有很多种</p>
+<p>​	ResourceManager，资源协调框架的管理者。分为主节点和备用节点；时刻和NodeManager保持心跳，接收NM的汇报，NM会帮当前节点的资源情况；外部框架要使用资源的时候直接访问RM即可；如果有MR任务，先去ResourceManager申请资源，ResourceManage根据汇报相对灵活分配资源，资源在NodeManager1负责开辟。</p>
+<p>​	NodeManager,资源协调框架的执行者，每一个DataNode上面默认有一个NodeManager，NM汇报自己的信息到ResourceManager</p>
+<p>​	Container，资源的代名词，Container动态分配的。</p>
+<p>​	ApplicationMaster，本次Job任务的主导者，负责调度本次被分配的资源Container，当所有的节点任务全部完成，application告诉ResourceNanager请求杀死当前ApplicationMaster线程，本次任务所有资源都会被释放。</p>
+<p>​	Task（MapTask&ndash;ReduceTask）开始按照MR的流程执行业务，当任务完成时，ApplicationMaster接收到当前节点的回馈。</p>
+
+
+<h3 class="relative group">工作流程 
+    <div id="%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​		确认执行MapReduce作业的运行时框架，根据mapreduce.framework.name变量进行配置：</p>
+<p>如果等于yarn：创建YARNRunner对象。等于local：创建LocalJobRunner对象</p>
+<pre tabindex="0"><code>1、Client对ResourceMananger（ANN）发起提交作业申请
+2、ResourceManager返回JOBID（即Application ID）和保存数据资源（作业的Jar文件，配置文件，计算所得输入分片，资源信息等）的临时目录（使用JobID命名的目录）
+3、Client计算分片，拷贝资源（作业Jar文件，配置文件，计算所得分配，资源信息等）到HDFS，最后用submitApplicaotin函数提交job给ResourceManager
+4、RM中的ApplicatoinManager（负责调度本次被分配的资源Container）接收提交的job，并将其交给ResourceScheduler（调度者）处理
+5、RS选择一台NodeManager（DN）分配一个Container，在Container中开启ApplicationMaster进程
+6、AM向RM进行注册，这样用户可以直接通过RM查看应用程序的运行状态；然后AM收集计算后的输入分片情况来向RM申请对应的资源运行Task；最后AM初始化一定数量的记录对象（bookkeeping）来跟踪Job的运行进度，并收集每个Task的进度和完成情况，直到运行结束
+	1、AM采用轮询的方式，通过RPC协议向RM申请和领取资源
+	2、AM申请到资源后，会和对应的NM进行通讯，请求启动Container
+	3、NM为任务设置好运行环境（包括环境变量、jar包、二进制程序等），将Task启动命令写到一个脚本中，并通过该脚本启动对应的任务
+	4、各个任务通过RPC协议向AM汇报自己的状态和进度，方便AM随时掌握各个任务的运行状态，从而可以在任务失败的时候重启任务
+	5、此期间，客户端会每秒轮询检测AM，这样就会随时收到更新信息，这些信息可以通过Web UI来进行查看。除此之外客户端还会每5秒轮询检查Job是否完成，需要调用Job类下的waitForCompletion()方法，Job结束后该方法返回，轮询时间间隔可以通过mapreduce.client.completion.pollinterval进行设置
+7、应用程序运行完成后，AM向RM注销并关闭自己。
+</code></pre>
+
+<h2 class="relative group">Hadoop-YARN环境搭建 
+    <div id="hadoop-yarn%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadoop-yarn%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">目标环境 
+    <div id="%E7%9B%AE%E6%A0%87%E7%8E%AF%E5%A2%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9B%AE%E6%A0%87%E7%8E%AF%E5%A2%83" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<table>
+<thead>
+<tr>
+<th>节点</th>
+<th>NN01</th>
+<th>NN02</th>
+<th>DN</th>
+<th>Zookeeper</th>
+<th>ZKFC</th>
+<th>JouralNode</th>
+<th>ResourceManager</th>
+<th>NodeManager</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node1</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>node2</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>node</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">修改配置文件 
+    <div id="%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>　修改环境配置文件 hadoop-env.sh ：</p>
+<pre tabindex="0"><code>[root@node01 ~]# cd /opt/yjx/hadoop-3.3.4/etc/hadoop/
+[root@node01 hadoop]# vim hadoop-env.sh
+文件末尾加上
+export JAVA_HOME=/usr/java/jdk1.8.0_351-amd64
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_ZKFC_USER=root
+export HDFS_JOURNALNODE_USER=root
+export YARN_RESOURCEMANAGER_USER=root
+export YARN_NODEMANAGER_USER=root
+</code></pre><p>修改 Map 配置文件 mapred-site.xml ：</p>
+<pre tabindex="0"><code>在 configuration 节点中添加以下内容：
+&lt;!-- 设置执行 MapReduce 任务的运行时框架为 YARN --&gt;
+&lt;property&gt;
+&lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+&lt;value&gt;yarn&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 MapReduce JobHistory 服务器的地址 --&gt;
+&lt;property&gt;
+&lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+&lt;value&gt;node01:10020&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 MapReduce JobHistory 服务器的 Web 地址 --&gt;
+&lt;property&gt;
+&lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+&lt;value&gt;node01:19888&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置已经运行完的 Hadoop 作业记录的存放路径（HDFS 文件系统中的目录），默认是
+${yarn.app.mapreduce.am.staging-dir}/history/done --&gt;
+&lt;property&gt;
+&lt;name&gt;mapreduce.jobhistory.done-dir&lt;/name&gt;
+&lt;value&gt;/history/done&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置正在运行中的 Hadoop 作业记录的存放路径（HDFS 文件系统中的目录），默认是
+${yarn.app.mapreduce.am.staging-dir}/history/done_intermediate --&gt;
+&lt;property&gt;
+&lt;name&gt;mapreduce.jobhistory.intermediate-done-dir&lt;/name&gt;
+&lt;value&gt;/history/done_intermediate&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置需要加载的 jar 包和环境配置 --&gt;
+&lt;property&gt;
+&lt;name&gt;mapreduce.application.classpath&lt;/name&gt;
+&lt;value&gt;
+/opt/yjx/hadoop-3.3.4/etc/hadoop,
+/opt/yjx/hadoop-3.3.4/share/hadoop/common/*,
+/opt/yjx/hadoop-3.3.4/share/hadoop/common/lib/*,
+/opt/yjx/hadoop-3.3.4/share/hadoop/hdfs/*,
+/opt/yjx/hadoop-3.3.4/share/hadoop/hdfs/lib/*,
+/opt/yjx/hadoop-3.3.4/share/hadoop/mapreduce/*,
+/opt/yjx/hadoop-3.3.4/share/hadoop/yarn/*,
+/opt/yjx/hadoop-3.3.4/share/hadoop/yarn/lib/*
+&lt;/value&gt;
+&lt;/property&gt;
+</code></pre><p>修改 YARN 配置文件 yarn-site.xml ：</p>
+<pre tabindex="0"><code>[root@node01 hadoop]# vim yarn-site.xml
+在 configuration 节点中添加以下内容：
+&lt;!-- 提交 MapReduce 作业的 staging 目录（HDFS 文件系统中的目录），默认是 /tmp/hadoop-yarn/staging --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.app.mapreduce.am.staging-dir&lt;/name&gt;
+&lt;value&gt;/tmp/hadoop-yarn/staging&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置开启 ResourceManager 高可用 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.ha.enabled&lt;/name&gt;
+&lt;value&gt;true&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 ResourceManager 的集群 ID --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.cluster-id&lt;/name&gt;
+&lt;value&gt;yarn-yjx&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 ResourceManager 节点的名字 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.ha.rm-ids&lt;/name&gt;
+&lt;value&gt;rm1,rm2&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 ResourceManager 服务器的地址 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.hostname.rm1&lt;/name&gt;
+&lt;value&gt;node01&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 ResourceManager 服务器的地址 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.hostname.rm2&lt;/name&gt;
+&lt;value&gt;node03&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 ResourceManager 服务器的 Web 地址 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.webapp.address.rm1&lt;/name&gt;
+&lt;value&gt;node01:8088&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 ResourceManager 服务器的 Web 地址 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.webapp.address.rm2&lt;/name&gt;
+&lt;value&gt;node03:8088&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 YARN 的 ZK 集群地址，以逗号分隔 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.zk-address&lt;/name&gt;
+&lt;value&gt;node01:2181,node02:2181,node03:2181&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 定义用户自定义服务或者系统服务，以逗号分隔，服务名称只能包含 A-za-z0-9，不能以数字开头，例如：
+mapreduce_shuffle,spark_shuffle --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+&lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- MapReduce 是在各个机器上运行的，在运行过程中产生的日志存在于不同的机器上，为了能够统一查看各个机器的运行
+日志，将日志集中存放在 HDFS 上，这个过程就是日志聚合 --&gt;
+&lt;!-- 设置开启日志聚合，日志聚合会收集每个容器的日志，并在应用程序完成后将这些日志移动到文件系统，例如 HDFS --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;
+&lt;value&gt;true&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置聚合日志的保留时间 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt;
+&lt;value&gt;640800&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置是否启用自动恢复，如果为 true 则必须指定 yarn.resourcemanager.store.class --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.recovery.enabled&lt;/name&gt;
+&lt;value&gt;true&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置 ResourceManager 的状态信息存储在 ZooKeeper 集群 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.resourcemanager.store.class&lt;/name&gt;
+&lt;value&gt;org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置是否对容器强制执行物理内存限制 --&gt;
+&lt;!-- 是否启动一个线程检查每个任务正在使用的物理内存量，如果任务超出分配值，则将其直接杀掉，默认为 true --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;
+&lt;value&gt;false&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置是否对容器强制执行虚拟内存限制 --&gt;
+&lt;!-- 是否启动一个线程检查每个任务正在使用的虚拟内存量，如果任务超出分配值，则将其直接杀掉，默认为 true --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;
+&lt;value&gt;false&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 设置容器的虚拟内存限制，虚拟内存与物理内存之间的比率。作用：在物理内存不够用的情况下，如果占用了大量虚拟内
+存并且超过了一定阈值，那么就认为当前集群的性能比较差 --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.nodemanager.vmem-pmem-ratio&lt;/name&gt;
+&lt;value&gt;2.1&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 配置 JobHistory --&gt;
+&lt;property&gt;
+&lt;name&gt;yarn.log.server.url&lt;/name&gt;
+&lt;value&gt;http://node01:19888/jobhistory/logs&lt;/value&gt;
+&lt;/property&gt;
+
+提示：如果 yarn.nodemanager.aux-services 选项配置为 spark_shuffle ，需要拷贝
+$SPARK_HOME/yarn/spark-x.y.z-yarn-shuffle.jar 到 $HADOOP_HOME/share/hadoop/yarn/lib 目录。
+</code></pre>
+
+<h3 class="relative group">拷贝至其他节点 
+    <div id="%E6%8B%B7%E8%B4%9D%E8%87%B3%E5%85%B6%E4%BB%96%E8%8A%82%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8B%B7%E8%B4%9D%E8%87%B3%E5%85%B6%E4%BB%96%E8%8A%82%E7%82%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>将 node01 已配置好的 YARN 拷贝至 node02 和 node03。</p>
+<pre tabindex="0"><code>[root@node01 hadoop]# pwd
+/opt/yjx/hadoop-3.3.4/etc/hadoop
+[root@node01 hadoop]# scp mapred-site.xml yarn-site.xml root@node02:`pwd`
+[root@node01 hadoop]# scp mapred-site.xml yarn-site.xml root@node03:`pwd`
+# 或者使用分发脚本
+[root@node01 hadoop]# yjxrsync mapred-site.xml yarn-site.xml
+</code></pre>
+
+<h3 class="relative group">启动 
+    <div id="%E5%90%AF%E5%8A%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%AF%E5%8A%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>首先启动 ZooKeeper（三台机器都需要执行）。</p>
+<pre tabindex="0"><code>zkServer.sh start
+zkServer.sh status
+启动 HDFS。
+	[root@node01 hadoop]# start-dfs.sh
+启动 YARN。
+	[root@node01 hadoop]# start-yarn.sh
+启动 JobHistory。
+	[root@node01 hadoop]# mapred --daemon start historyserver
+
+后期只需要先启动 ZooKeeper 然后启动 Hadoop（start-all.sh）再启动 JobHistory 即可
+</code></pre>
+
+<h3 class="relative group">访问 
+    <div id="%E8%AE%BF%E9%97%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%BF%E9%97%AE" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>访问：http://node01:9870/ 和 http://node02:9870/ 结果如下。</p>
+<p>访问：http://node01:8088 或者 http://node03:8088，会被自动转发到 ResourceManager 的主节点。</p>
+<p>访问：http://node01:19888/jobhistory 结果如下。</p>
+
+
+<h3 class="relative group">关闭 
+    <div id="%E5%85%B3%E9%97%AD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%B3%E9%97%AD" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>先关闭 Hadoop 和 JobHistory。</p>
+<pre tabindex="0"><code>[root@node01 hadoop]# mapred --daemon stop historyserver
+[root@node01 hadoop]# stop-all.sh
+</code></pre><p>再关闭 ZooKeeper（三台机器都需要执行）。</p>
+<pre tabindex="0"><code>zkServer.sh stop
+</code></pre><p>环境搭建成功后 shutdown -h now 关机拍摄快照。</p>
+
+
+<h2 class="relative group">MapReduce案例[WordCount] 
+    <div id="mapreduce%E6%A1%88%E4%BE%8Bwordcount" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E6%A1%88%E4%BE%8Bwordcount" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Java代码实现 
+    <div id="java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#java%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>继续在学习 HDFS 时创建的 hadoop-demo 项目基础上进行编写。将新搭建的 YARN 环境的配置文件重新拷贝一份至项目。主要拷贝以下配置文件：
+core-site.xml
+hdfs-site.xml
+mapred-site.xml
+yarn-site.xml
+log4j.properties</p>
+<p>然后修改 hadoop-demo 项目的 pom.xml 文件，在 <project></project> 节点中添加以下内容（打包插件）：</p>
+<pre tabindex="0"><code>&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+      &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;
+      &lt;version&gt;3.4.2&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;!-- 生成的 jar 包名称中是否追加 appendAssemblyId --&gt;
+        &lt;appendAssemblyId&gt;false&lt;/appendAssemblyId&gt;
+        &lt;descriptorRefs&gt;
+          &lt;!-- 将项目依赖的 jar 包打包到当前 jar 包 --&gt;
+          &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;
+        &lt;/descriptorRefs&gt;
+        &lt;archive&gt;
+          &lt;manifest&gt;
+            &lt;!-- 打成可执行的 jar 包的主方法入口类 --&gt;
+            &lt;mainClass&gt;xxx.xxx.xxx.xxx.XxxXxx&lt;/mainClass&gt;
+          &lt;/manifest&gt;
+        &lt;/archive&gt;
+      &lt;/configuration&gt;
+      &lt;!-- 插件目标列表 --&gt;
+      &lt;executions&gt;
+        &lt;!-- 将插件目标与生命周期阶段绑定 --&gt;
+        &lt;execution&gt;
+          &lt;!-- 插件目标 --&gt;
+          &lt;goals&gt;
+            &lt;!-- 只运行一次 --&gt;
+            &lt;goal&gt;single&lt;/goal&gt;
+          &lt;/goals&gt;
+          &lt;!-- 生命周期阶段 --&gt;
+          &lt;phase&gt;package&lt;/phase&gt;
+        &lt;/execution&gt;
+      &lt;/executions&gt;
+    &lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre><p>Job代码</p>
+<pre tabindex="0"><code>import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import java.io.IOException;
+public class WordCountJob {
+  public static void main(String[] args) throws IOException,
+      InterruptedException, ClassNotFoundException {
+    // 加载配置文件
+    Configuration configuration = new Configuration(true);
+    // 本地模式运行
+    configuration.set(&#34;mapreduce.framework.name&#34;, &#34;local&#34;);
+    // 创建作业
+    Job job = Job.getInstance(configuration);
+    // 设置作业主类
+    job.setJarByClass(WordCountJob.class);
+    // 设置作业名称
+    job.setJobName(&#34;yjx-wordcount-&#34; + System.currentTimeMillis());
+    // 设置 Reduce 的数量
+    job.setNumReduceTasks(2);
+    // 设置数据的输入路径（需要计算的数据从哪里读）
+    FileInputFormat.setInputPaths(job, new Path(&#34;/yjx/harry potter.txt&#34;));
+    // 设置数据的输出路径（计算后的数据输出到哪里）
+    FileOutputFormat.setOutputPath(job, new Path(&#34;/yjx/result/&#34; + job.getJobName()));
+    // 设置 Map 的输出的 Key 和 Value 的类型
+    job.setMapOutputKeyClass(Text.class);
+    job.setMapOutputValueClass(IntWritable.class);
+    // 设置 Map 和 Reduce 的处理类
+    job.setMapperClass(WordCountMapper.class);
+    job.setReducerClass(WordCountReducer.class);
+    // 将作业提交到集群并等待完成
+    job.waitForCompletion(true);
+ }
+}
+</code></pre><p>Job的Mapper代码</p>
+<pre tabindex="0"><code>import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+import java.io.IOException;
+public class WordCountReducer extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; {
+  /**
+  * @param key   Map 的输出的 Key
+  * @param values Map 的输出的 Value
+  * @param context
+  * @throws IOException
+  * @throws InterruptedException
+  */
+  @Override
+  protected void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context)
+    throws IOException, InterruptedException {
+    // 声明计数器
+    int count = 0;
+    // 循环处理
+    for (IntWritable value : values) {
+      count += value.get();
+   }
+    // 写出数据
+    context.write(key, new IntWritable(count));
+ }
+}
+</code></pre>
+
+<h3 class="relative group">Job提交方式 
+    <div id="job%E6%8F%90%E4%BA%A4%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#job%E6%8F%90%E4%BA%A4%E6%96%B9%E5%BC%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	Linux 端执行方式
+​		hadoop jar wordcount.jar com.yjxxt.mapred.wordcount.WordCountJob
+​	Windows 端本地化执行
+​		拷贝 Hadoop 配置文件
+​		configuration.set(&ldquo;mapreduce.framework.name&rdquo;, &ldquo;local&rdquo;);</p>
+<p>​	直接从本地 IDEA 将程序提交到 YARN 平台</p>
+<pre tabindex="0"><code>// 加载配置文件
+Configuration configuration = new Configuration(true);
+// HDFS 文件系统主机地址
+conf.set(&#34;fs.defaultFS&#34;, &#34;hdfs://node01:8020&#34;);
+// MapReduce 作业的运行时框架，Local 本地模式（学习环境） YARN 模式（正式环境）
+conf.set(&#34;mapreduce.framework.name&#34;, &#34;yarn&#34;);
+// 设置 ResourceManager 的主机地址，默认为 0.0.0.0
+conf.set(&#34;yarn.resourcemanager.hostname&#34;, &#34;node01&#34;);
+// 允许跨平台提交（因为 Windows 和 Linux 系统的结构不一样，默认使用 Linux 系统的提交方式）
+// 不开启跨平台提交，在 Windows 提交应用会报 /bin/bash: line 0: fg: no job control 错误
+conf.set(&#34;mapreduce.app-submission.cross-platform&#34;, &#34;true&#34;);
+// 创建作业
+Job job = Job.getInstance(conf);
+// 要提交的应用程序的 Jar 包位置
+job.setJar(&#34;D:\\Projects\\IdeaProjects\\yjxxt\\hadoop-demo\\target\\hadoop-demo-1.0-SNAPSHOT.jar&#34;);
+
+注意：如果在 resources 目录下添加了 Hadoop 集群的 core-site.xml hdfs-site.xml mapred-site.xml yarn-site.xml，那么
+可以注释以上除 Jar 包之外的配置代码。这里的配置文件要和 Hadoop 集群中的配置文件一致，否则会出错，最好的
+做法是从集群中直接 Copy 出来。
+</code></pre>
+
+<h3 class="relative group">YARN 常用命令 
+    <div id="yarn-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#yarn-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>yarn node -list -all ：列出所有节点；
+yarn application -list ：列出所有 Application；
+yarn application -list -appStates ：根据 Application 的状态过滤（所有状态：ALL、NEW、NEW_SAVING、
+SUBMITTED、ACCEPTED、RUNNING、FINISHED、FAILED、KILLED）；
+yarn logs -applicationId application_1667293209556_0001 ：查看 Application 的日志；
+yarn logs -applicationId application_1667293209556_0001 -containerId
+container_e01_1667293209556_0001_01_000002 ：查询 Container 的日志；
+yarn application -kill application_1667293209556_0001 ：根据 ApplicationID 杀死应用；
+yarn container -list appattempt_1667293209556_0001_000001 ：列出 Application 的所有 Container；
+yarn container -status container_e01_1667293209556_0001_01_000002 ：打印 Container 的状态；只有在任务运行的过程中才能看到 Container 的状态。
+</code></pre>
+
+<h2 class="relative group">MapReduce案例[充值记录] 
+    <div id="mapreduce%E6%A1%88%E4%BE%8B%E5%85%85%E5%80%BC%E8%AE%B0%E5%BD%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E6%A1%88%E4%BE%8B%E5%85%85%E5%80%BC%E8%AE%B0%E5%BD%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>在Mapper通过加盐操作，让数据的Key达到相对平衡，解决数据倾斜的问题。</p>
+
+
+<h2 class="relative group">MapReduce案例[天气信息] 
+    <div id="mapreduce%E6%A1%88%E4%BE%8B%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E6%A1%88%E4%BE%8B%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<pre tabindex="0"><code>	解决方案一（用户自定义算法解决）：    
+Mapper 写出 Key：省市年月 Value：温度    Reducer 根据 省市年月 分组拿到所有 Value，计算出前三
+	解决方案二（合理利用 Hadoop 框架解决）：    
+	自定义 Weather 对象实现 WritableComparable 接口，重写比较规则，底层快排就会按照自定义的规则去进行比较，完成排序    Mapper 写出 Key：Weather 对象 Value：温度 Reducer 根据 省市年月 分组拿到所有 Value，这个 Value 是已经排好序的，直接取走前三即可（需要处理重复数据）
+</code></pre>
+
+<h2 class="relative group">MapReduce案例[好友推荐] 
+    <div id="mapreduce%E6%A1%88%E4%BE%8B%E5%A5%BD%E5%8F%8B%E6%8E%A8%E8%8D%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E6%A1%88%E4%BE%8B%E5%A5%BD%E5%8F%8B%E6%8E%A8%E8%8D%90" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">MapReducer压缩 
+    <div id="mapreducer%E5%8E%8B%E7%BC%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreducer%E5%8E%8B%E7%BC%A9" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">概述 
+    <div id="%E6%A6%82%E8%BF%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A6%82%E8%BF%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	压缩技术能够有效减少存储系统的读写字节数，提高网络带宽和磁盘空间的效率。注意：压缩特性运用得当提高性能，运用不当也可能降低性能。</p>
+<pre tabindex="0"><code>	在Hadoop中，当数据规模很大，工作负载非常密集时，I/O 操作和网络数据传输需要花费大量的时间，Shuffle 与Merge过程同样也面临着巨大的 I/O 压力。在这种情况下，数据压缩的重要性不言而喻。而在 Hive 中则体现在数据文件最终存储的格式是否启用压缩。
+　　鉴于磁盘 I/O 和网络带宽是 Hadoop 的宝贵资源，数据压缩对于节省资源、最小化磁盘 I/O 和网络传输非常有帮助，但其性能的提升和资源的节省并非没有代价（增加了 CPU 的运算负担）。如果磁盘 I/O 和网络带宽影响了 MapReduce作业性能，在任意 MapReduce 阶段启用压缩都可以改善端到端处理时间并减少 I/O 和网络流量。
+</code></pre>
+
+<h3 class="relative group">条件与优缺点 
+    <div id="%E6%9D%A1%E4%BB%B6%E4%B8%8E%E4%BC%98%E7%BC%BA%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9D%A1%E4%BB%B6%E4%B8%8E%E4%BC%98%E7%BC%BA%E7%82%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​	优点：减少存储系统读写字节数、提高网络带宽和磁盘空间的效率</p>
+<p>​	缺点：使用数据时需要先解压，加重CPU负载，压缩算法越复杂，解压时间越长</p>
+<p>​	条件：空间和CPU要充裕，CPU紧张慎用压缩</p>
+<p>​	技术：有损压缩（LOSSY COMPRESSION）压缩和解压过程中有数据丢失，一般用于视频</p>
+<p>​				无损压缩（LOSSLESS COMPRESSION）压缩和解压过程没有数据地市，日志数据</p>
+<p>​	对称和非对称：对称压缩和解压时间一致、非对称时间不一致</p>
+
+
+<h3 class="relative group">基本原则 
+    <div id="%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>计算密集型（CPU-Intensive）作业少用压缩
+	特点：要进行大量的计算，消耗 CPU 资源。比如计算圆周率、对视频进行高清解码等等，全靠 CPU 的运算能力。
+计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU 执行任务的效率就越
+低，所以，要最高效地利用 CPU，计算密集型任务同时进行的数量应当等于 CPU 的核心数。计算密集型任务由于主要消耗 CPU 资源，因此，代码运行效率至关重要。Python 这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用 C 语言编写。
+
+IO密集型（IO-Intensive）作业，多用压缩
+特点：CPU 消耗很少，任务的大部分时间都在等待 IO 操作完成（因为 IO 的速度远远低于 CPU 和内存的速度）。
+涉及到网络、磁盘 IO 的任务都是 IO 密集型任务。对于 IO 密集型任务，任务越多，CPU 效率越高，但也有一个限度。常见的大部分任务都是 IO 密集型任务，比如 Web 应用。IO 密集型任务执行期间，99% 的时间都花在 IO 上，花在 CPU 上的时间很少，因此，用运行速度极快的 C 语言替换Python 这样运行速度极低的脚本语言，完全无法提升运行效率。对于 IO 密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C 语言最差。
+</code></pre>
+
+<h3 class="relative group">压缩实践 
+    <div id="%E5%8E%8B%E7%BC%A9%E5%AE%9E%E8%B7%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%8B%E7%BC%A9%E5%AE%9E%E8%B7%B5" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">压缩支持 
+    <div id="%E5%8E%8B%E7%BC%A9%E6%94%AF%E6%8C%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%8B%E7%BC%A9%E6%94%AF%E6%8C%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​	使用 hadoop checknative 命令，可以查看是否有相应压缩算法的库，如果显示为 false，则需要额外安装。</p>
+<p>注意：Hadoop 2.X 版本已经集成了 Snappy、LZ4、BZip2 等压缩算法的编/解码器，会自动调用对应的本地库，而CentOS7 中又自带了 Snappy 的依赖库，所以无需安装 Snappy 依赖。</p>
+<pre tabindex="0"><code class="language-Linux" data-lang="Linux">[root@node01 ~]# hadoop checknative
+2023-02-20 19:55:59,761 INFO bzip2.Bzip2Factory: Successfully loaded &amp; initialized native-bzip2
+library system-native
+2023-02-20 19:55:59,764 INFO zlib.ZlibFactory: Successfully loaded &amp; initialized native-zlib library
+2023-02-20 19:55:59,771 WARN zstd.ZStandardCompressor: Error loading zstandard native libraries:
+java.lang.InternalError: Cannot load libzstd.so.1 (libzstd.so.1: cannot open shared object file: No
+such file or directory)!
+2023-02-20 19:55:59,773 WARN erasurecode.ErasureCodeNative: Loading ISA-L failed: Failed to load
+libisal.so.2 (libisal.so.2: cannot open shared object file: No such file or directory)
+2023-02-20 19:55:59,773 WARN erasurecode.ErasureCodeNative: ISA-L support is not available in your
+platform... using builtin-java codec where applicable
+2023-02-20 19:55:59,829 INFO nativeio.NativeIO: The native code was built without PMDK support.
+Native library checking:
+hadoop:  true /opt/yjx/hadoop-3.3.4/lib/native/libhadoop.so.1.0.0
+zlib:   true /lib64/libz.so.1
+zstd :  false
+bzip2:  true /lib64/libbz2.so.1
+openssl: false Cannot load libcrypto.so (libcrypto.so: cannot open shared object file: No such file or
+directory)!
+ISA-L:  false Loading ISA-L failed: Failed to load libisal.so.2 (libisal.so.2: cannot open shared
+object file: No such file or directory)
+PMDK:   false The native code was built without PMDK support.
+</code></pre>
+
+<h4 class="relative group">压缩比较 
+    <div id="%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>压缩格式</th>
+<th>算法</th>
+<th>文件扩展名</th>
+<th>是否可切分</th>
+<th>压缩比</th>
+<th>压缩速度</th>
+<th>解压速度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEFLATE</td>
+<td>DEFLATE</td>
+<td>.deflate</td>
+<td>否</td>
+<td>高</td>
+<td>低</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Gzip</td>
+<td>DEFLATE</td>
+<td>.gz</td>
+<td>否</td>
+<td>高</td>
+<td>低</td>
+<td>低</td>
+</tr>
+<tr>
+<td>BZip2</td>
+<td>BZip2</td>
+<td>.bz2</td>
+<td>是</td>
+<td>高</td>
+<td>低</td>
+<td>低</td>
+</tr>
+<tr>
+<td>LZO</td>
+<td>LZO</td>
+<td>.lzo</td>
+<td>是（索引）</td>
+<td>低</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>LZ4</td>
+<td>LZ4</td>
+<td>.lz4</td>
+<td>否</td>
+<td>低</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Snappy</td>
+<td>Snappy</td>
+<td>.snappy</td>
+<td>否</td>
+<td>低</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Zstd</td>
+<td>Zstd</td>
+<td>.zst</td>
+<td>否</td>
+<td>高</td>
+<td>高</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<pre tabindex="0"><code>1、文件扩展名：压缩后问数据文件的后缀名
+2、是否可切分：表示压缩后的数据文件在被 MapReduce 读取的时候，是否会产生多个 InputSplit。 如果这个压缩格式产生的文件不可切分，那也就意味着，无论这个压缩文件有多大，在 MapReduce 中都只会产生 1 个 Map 任务。如果压缩后的文件不大，也就 100M 左右，这样对性能没有多大影响。但是如果压缩后的文件比较大，达到了 1 个 G，由于不可切分，这样只能使用 1 个 Map 任务去计算，性能就比较差了，这个时候就没有办法达到并行计算的效果了。所以是否可切分这个特性是非常重要的，特别是当我们无法控制单个压缩文件大小的时候。
+3、压缩比：表示压缩格式的压缩效果，压缩比越高，说明压缩效果越好，对应产生的压缩文件就越小。 如果集群的存储
+空间有限，则需要重点关注压缩比，这个时候需要选择尽可能高的压缩比。
+4、压缩速度：表示将原始文件压缩为指定压缩格式消耗的时间。 压缩功能消耗的时间会体现在任务最终消耗的时间里
+面，所以这个指标也需要重点考虑。
+5、解压速度：表示将指定压缩格式的数据文件解压为原始文件消耗的时间。 因为 MapReduce 在使用压缩文件的时候需要先进行解压才能使用，解压消耗的时间也会体现在任务最终消耗的时间里面，所以这个指标也需要重点考虑。
+
+存放数据到HDFS时，可以通过配置指定数据的压缩方式。当MapReduce程序读取数据时，会根据拓展名自动解压。
+LZO，LZ4，Snappy 等压缩算法专注于压缩和解压缩性能，Zstd 在性能不错的同时号称压缩率跟Deflate（Zip/Gzip 的算法）相当。Linux 内核、HTTP 协议、以及一系列的大数据工具（包括 Hadoop 3.0.0，HBase 2.0.0，Spark 2.3.0，Kafka 2.1.0）等都已经加入了对 Zstd 的支持。
+</code></pre>
+
+<h4 class="relative group">压缩选择 
+    <div id="%E5%8E%8B%E7%BC%A9%E9%80%89%E6%8B%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%8B%E7%BC%A9%E9%80%89%E6%8B%A9" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>1、能压缩数据的地方只有两个：MapTask 写出和ReduceTask的写出</p>
+<p>2、MapTask写出的数据不需要考虑是否可切分，只需要考虑性能，推荐Snappy</p>
+<p>3、ReduceTask写出的数据需要考虑是否是下一个作业的数据入口</p>
+<p>​	a.如果是，不推荐使用不可切分的压缩算法</p>
+<p>​	b.如果计算后直接归档落盘，且后续计算可能性小，使用高比例压缩算法，节省存储空间。</p>
+<pre tabindex="0"><code>MR 主要在三个地方会用到数据压缩：Input ：数据来源；Transformation ：中间计算；Output ：最后的输出
+ 	Use Compressd Map Input ：第一次传入压缩文件，应选用可以切片的压缩方式，否则整个文件将只有一个 Map执行。建议：从 HDFS 中读取文件进行 MapReuce 作业，如果数据很大，可以使用压缩并且选择支持分片的压缩方式，例如 BZip2、LZO，这样可以实现并行处理，提高效率，减少磁盘读取时间，同时选择合适的存储格式例如 Sequence Files、RC、ORC 等。
+　　 Compress Intermediate Data ：第二次压缩应选择压缩解压速度快的压缩方式。建议：Map 的输出作为 Reducer的输入，需要经过 Shuffle 这一过程，需要把数据读取到环形数据缓冲区，然后再读取到本地磁盘，所以选择压缩可以减少了存储文件所占空间，提升了数据传输速率，建议使用压缩/解压速度快的压缩方式，例如 Snappy、LZO、LZ4、Zstd。
+　　 Compress ReducerOutput ：第三次压缩有两种场景分别是：当输出的文件为下一个 Job 的输入时，建议：选择可切分的压缩方式例如：BZip2。当输出的文件直接存到 HDFS 作为归档时，建议：选择压缩比高的压缩方式。Reduce 阶段数据落盘通常使用 Gzip 或BZip2 进行压缩（减少磁盘使用）。
+　　 
+总结：
+ Gzip：Hadoop 内置支持，压缩比高，不支持 Split。
+	用途：通常用来放不常访问的冷数据，较高的压缩比可以极大的节省磁盘空间。
+	对应的编码/解码器： org.apache.hadoop.io.compress.GzipCodec 。
+ BZip2：Hadoop 内置支持，压缩比高，支持 Split，支持多文件，缺点就是慢。
+	用途：适用于对处理速度要求不高的场景。一般不常用。
+	对应的编码/解码器： org.apache.hadoop.io.compress.BZip2Codec 。
+ LZO： 压缩比一般，支持 Split（需要建索引，文件修改后需要重新建索引），压缩/解压速度快，支持 Hadoop Native库，需要自己安装。
+	用途：适合于经常访问的热数据。
+	对应的编码/解码器： com.hadoop.compression.lzo.LzopCodec 。
+ LZ4：压缩比一般，不支持 Split，压缩/解压速度快，支持 Hadoop Native 库，需要自己安装。
+	用途：和 LZO 性能类似，但不支持 Split，可以用于 Map 中间结果的压缩。
+	对应的编码/解码器： org.apache.hadoop.io.compress.Lz4Codec 。
+ Snappy：压缩比一般，不支持 Split，压缩/解压速度快，支持 Hadoop Native 库，需要自己安装。
+	用途：和 LZO 性能类似，但不支持 Split，可以用于 Map 中间结果的压缩。
+	对应的编码/解码器： org.apache.hadoop.io.compress.SnappyCodec 。
+ Zstd：压缩比高跟 Deflate（Gzip 算法）相当，不支持 Split，压缩/解压速度快，支持 Hadoop Native 库，需要自己安装。
+	用途：和 LZO 性能类似，但不支持 Split，可以用于 Map 中间结果的压缩。
+	对应的编码/解码器： org.apache.hadoop.io.compress.ZStandardCodec 。
+</code></pre>
+
+<h4 class="relative group">压缩配置 
+    <div id="%E5%8E%8B%E7%BC%A9%E9%85%8D%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%8B%E7%BC%A9%E9%85%8D%E7%BD%AE" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>要在 Hadoop 中启用压缩，需要配置以下参数。配置文件配置完所有文件都压缩；windons可以压缩，但是需要自己配置环境
+core-site.xml</p>
+<pre tabindex="0"><code>&lt;!-- 可用于压缩/解压缩的编解码器，用逗号分隔列表 --&gt;
+&lt;propery&gt;
+  &lt;name&gt;io.compression.codecs&lt;/name&gt;
+  &lt;value&gt;
+   org.apache.hadoop.io.compress.DefaultCodec,
+   org.apache.hadoop.io.compress.GzipCodec,
+   org.apache.hadoop.io.compress.BZip2Codec,
+   com.hadoop.compression.lzo.LzopCodec,
+   org.apache.hadoop.io.compress.Lz4Codec,
+   org.apache.hadoop.io.compress.SnappyCodec,
+   org.apache.hadoop.io.compress.ZStandardCodec
+  &lt;/value&gt;
+&lt;/propery&gt;
+</code></pre><p>mapred-site.xml</p>
+<pre tabindex="0"><code>&lt;!-- 开启 Mapper 输出压缩 --&gt;
+&lt;propery&gt;
+  &lt;name&gt;mapreduce.map.output.compress&lt;/name&gt;
+  &lt;value&gt;true&lt;/value&gt;
+&lt;/propery&gt;
+&lt;!-- 设置 Mapper 输出压缩的压缩方式 --&gt;
+&lt;propery&gt;
+  &lt;name&gt;mapreduce.map.output.compress.codec&lt;/name&gt;
+  &lt;value&gt;org.apache.hadoop.io.compress.SnappyCodec&lt;/value&gt;
+&lt;/propery&gt;
+&lt;!-- 开启 Reducer 输出压缩 --&gt;
+&lt;propery&gt;
+  &lt;name&gt;mapreduce.output.fileoutputformat.compress&lt;/name&gt;
+  &lt;value&gt;true&lt;/value&gt;
+&lt;/propery&gt;
+&lt;!-- 设置 Reducer 输出压缩的压缩方式 --&gt;
+&lt;propery&gt;
+  &lt;name&gt;mapreduce.output.fileoutputformat.compress.codec&lt;/name&gt;
+  &lt;value&gt;org.apache.hadoop.io.compress.BZip2Codec&lt;/value&gt;
+&lt;/propery&gt;
+&lt;!-- SequenceFiles 输出可以使用的压缩类型：NONE、RECORD 或者 BLOCK --&gt;
+&lt;!-- 如果作业输出被压缩为 SequenceFiles，该属性用来控制使用的压缩格式。默认为 RECORD，即针对每条记录进行压
+缩，如果将其改为 BLOCK，将针对一组记录进行压缩，这是推荐的压缩策略，因为它的压缩效率更高。 --&gt;
+&lt;propery&gt;
+  &lt;name&gt;mapreduce.output.fileoutputformat.compress.type&lt;/name&gt;
+  &lt;value&gt;BLOCK&lt;/value&gt;
+&lt;/propery&gt;
+</code></pre><p>除了使用配置文件的方式指定压缩器（优先考虑）外，还可以使用编码的方式进行配置。</p>
+<pre tabindex="0"><code>// 加载配置文件
+Configuration configuration = new Configuration(true);
+// 开启 Mapper 输出压缩
+configuration.setBoolean(Job.MAP_OUTPUT_COMPRESS, true);
+configuration.setClass(Job.MAP_OUTPUT_COMPRESS_CODEC, SnappyCodec.class, CompressionCodec.class);
+// 创建作业
+Job job = Job.getInstance(configuration);
+// ... Job 的其他设置
+// 开启 Reducer 输出压缩
+FileOutputFormat.setCompressOutput(job, true);
+FileOutputFormat.setOutputCompressorClass(job, BZip2Codec.class);
+// 将作业提交到集群并等待完成
+job.waitForCompletion(true);
+</code></pre>
+
+<h4 class="relative group">压缩实践 
+    <div id="%E5%8E%8B%E7%BC%A9%E5%AE%9E%E8%B7%B5-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%8B%E7%BC%A9%E5%AE%9E%E8%B7%B5-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>将 Job 打包并上传至 Hadoop 服务器。
+　　运行命令： hadoop jar xxxxx.jar com.yjxxt.mapred.weather.compress.WeatherCompressJob</p>
+<p>Map 到 Reduce 阶段的压缩可以通过日志查看：</p>
+<p>修改之前 MR 的天气信息 Job 代码如下（Mapper 和 Reducer 的代码不动）：</p>
+<pre tabindex="0"><code>import com.yjxxt.wordcount.WordCountJob;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.compress.BZip2Codec;
+import org.apache.hadoop.io.compress.CompressionCodec;
+import org.apache.hadoop.io.compress.SnappyCodec;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import java.io.IOException;
+public class WeatherCompressJob {
+  public static void main(String[] args) {
+    try {
+      // 加载配置文件
+      Configuration configuration = new Configuration(true);
+      // 本地模式运行
+      // configuration.set(&#34;mapreduce.framework.name&#34;, &#34;local&#34;);
+      // 开启 Mapper 输出压缩
+      configuration.setBoolean(Job.MAP_OUTPUT_COMPRESS, true);
+      configuration.setClass(Job.MAP_OUTPUT_COMPRESS_CODEC, SnappyCodec.class,
+CompressionCodec.class);
+      // 创建作业
+      Job job = Job.getInstance(configuration);
+      // 设置作业主类
+      job.setJarByClass(WeatherCompressJob.class);
+      // 设置作业名称
+      job.setJobName(&#34;yjx-weather-compress-&#34; + System.currentTimeMillis());
+      // 设置 Reduce 的数量
+      job.setNumReduceTasks(2);
+      // 设置数据的输入路径（需要计算的数据从哪里读）
+      FileInputFormat.setInputPaths(job, new Path(&#34;/yjx/weather.csv&#34;));
+      // 设置数据的输出路径（计算后的数据输出到哪里）
+      FileOutputFormat.setOutputPath(job, new Path(&#34;/yjx/result/&#34; + job.getJobName()));
+      // 设置 Map 的输出的 Key 和 Value 的类型
+      job.setMapOutputKeyClass(Text.class);
+      job.setMapOutputValueClass(IntWritable.class);
+      // 设置 Map 和 Reduce 的处理类
+      job.setMapperClass(WeatherMapper.class);
+      job.setReducerClass(WeatherReducer.class);
+      // 开启 Reducer 输出压缩
+      FileOutputFormat.setCompressOutput(job, true);
+      FileOutputFormat.setOutputCompressorClass(job, BZip2Codec.class);
+      // 将作业提交到集群并等待完成
+      job.waitForCompletion(true);
+   } catch (IOException | InterruptedException | ClassNotFoundException e) {
+      e.printStackTrace();
+   }
+ }
+}
+</code></pre>
+
+<h2 class="relative group">MapReduce优化 
+    <div id="mapreduce%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">概述 
+    <div id="%E6%A6%82%E8%BF%B0-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A6%82%E8%BF%B0-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>　　优化前我们需要知道 Hadoop 适合干什么活，适合什么场景，在工作中，我们要知道业务是怎样的，才能结合平台资
+源达到最优优化。除了这些我们还要知道 MapReduce 的执行流程，比如从文件的读取，Map 处理，Shuffle 过程，Reduce
+处理，文件的输出或者存储压缩等等。
+　　在工作中，往往平台的参数都是固定的，不可能为了某一个作业去修改整个平台的参数，所以在作业的执行过程中，
+需要对作业进行单独的设定，这样既不会对其他作业产生影响，也能很好的提高作业的性能，提高优化的灵活性。
+　　接下来，回顾一下 Hadoop 的优势（适用场景）：
+　　	可构建在廉价机器上，设备成本相对较低
+　　	高容错性，HDFS将数据自动保存为多个副本，副本丢失后，自动恢复，防止数据丢失或损坏
+　　	适合批处理，HDFS适合一次写入多次查询的情况，适合在已有数据的情况下进行多次分析，稳定性好
+　　	适合存储大文件，其中的大可以表示存储单个大文件，因为是分块存储的。也可以表示存储大量的数据，但是不适合小文件
+</code></pre>
+
+<h3 class="relative group">小文件优化 
+    <div id="%E5%B0%8F%E6%96%87%E4%BB%B6%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B0%8F%E6%96%87%E4%BB%B6%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>	从概述中我们知道，很明显 Hadoop 适合大文件的处理和存储，那为什么不适合小文件呢？
+从存储方面来说：Hadoop 存储的每个文件都会在 NameNode 上记录元数据，如果同样大小的文件，文件很小的话，
+就会产生很多元数据文件，造成 NameNode 的压力；
+从读取方面来说：同样大小的文件分为很多小文件的话，会增加磁盘寻址次数，降低性能；
+从计算方面来说：我们知道一个 MapTask 默认处理一个分片或者一个文件，如果 MapTask 的启动时间比数据处理的时
+间还要长，那么就会造成低性能。而且在 Map 端溢写磁盘的时候每一个 MapTask 最终会产生 Reduce 数量个数的中间结果，如果 MapTask 数量特别多，就会造成临时文件很多，造成 Reduce 拉取数据的时候增加磁盘的 IO。
+　　明白小文件造成的弊端之后，那我们应该怎么处理这些小文件呢？
+从源头解决问题，也就是在 HDFS 上不要存储小文件，在数据上传至 HDFS 的时候提前合并小文件；
+如果小文件合并后的文件过大，可以更换文件存储格式或压缩存储，当然压缩存储需要考虑是否能切片的问题；
+如果小文件已经存储至 HDFS 了，那么在 FileInputFormat 读取数据的时候使用CombineFileInputFormat类读取数据，在读取数据的时候进行合并。
+</code></pre>
+
+<h3 class="relative group">数据倾斜 
+    <div id="%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E6%8D%AE%E5%80%BE%E6%96%9C" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>数据倾斜，每个 Reduce 处理的数据量大小不一致，导致有些已经跑完了，有些还在执行；
+还有可能就是某些作业所在的 NodeManager 有问题或者 Container 有问题或者 JVM GC 等，导致作业执行缓慢。
+　　那么为什么会产生数据倾斜呢？比如数据本身就不平衡，所以在默认的 HashPartition 时造成分区数据不一致问题，还有就是代码设计不合理等。
+　　那如何解决数据倾斜的问题呢？
+不使用默认的 Hash 分区算法，采用自定义分区，结合业务特点，使得每个分区数据基本平衡；
+或者既然有默认的分区算法，那么我们可以修改分区的键，让其符合 Hash 分区，并且使得最后的分区平衡，比如在
+Key 前加随机数或盐 n-key；
+既然 Reduce 处理慢，那么可以增加 Reduce 的 memory 和 vcore，提高性能解决问题，虽然没从根本上解决问题，但是还有效果的；
+如果是因为只有一个 Reduce 导致作业很慢，可以增加 Reduce 的数量来分摊压力，然后再来一个作业实现最终聚合。
+</code></pre>
+
+<h3 class="relative group">推测执行 
+    <div id="%E6%8E%A8%E6%B5%8B%E6%89%A7%E8%A1%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8E%A8%E6%B5%8B%E6%89%A7%E8%A1%8C" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>	如果不是数据倾斜带来的问题，而是节点服务有问题造成某些 Map 和 Reduce 执行缓慢呢？
+可以使用推测执行，你跑的慢，我们可以找个其他节点重启一样的任务进行竞争，谁快以谁为准。推测执行是空间换时间的一种优化思想，会带来集群资源的浪费，给集群增加压力，所以一般情况下集群的推测执行都是关闭的，可以根据实际情况选择是否开启
+
+	推测执行相关参数如下：
+# 是否启用 MapTask 推测执行，默认为 true
+mapreduce.map.speculative=true
+# 是否启用 ReduceTask 推测执行，默认为 true
+mapreduce.reduce.speculative=true
+# 推测任务占当前正在运行的任务数的比例，默认为 0.1
+mapreduce.job.speculative.speculative-cap-running-tasks=0.1;
+# 推测任务占全部要处理任务数的比例，默认为 0.01
+mapreduce.job.speculative.speculative-cap-total-tasks=0.01
+# 最少允许同时运行的推测任务数量，默认为 10
+mapreduce.job.speculative.minimum-allowed-tasks=10;
+# 本次推测没有任务下发，执行下一次推测任务的等待时间，默认为 1000（ms）
+mapreduce.job.speculative.retry-after-no-speculate=1000;
+# 本次推测有任务下发，执行下一次推测任务的等待时间，默认为 15000（ms）
+mapreduce.job.speculative.retry-after-speculate=15000;
+# 标准差，任务的平均进展率必须低于所有正在运行任务的平均值才会被认为是太慢的任务，默认为 1.0
+mapreduce.job.speculative.slowtaskthreshold=1.0;
+</code></pre>
+
+<h3 class="relative group">MapReduce执行流程优化 
+    <div id="mapreduce%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mapreduce%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">Map 
+    <div id="map" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#map" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+
+
+<h5 class="relative group">临时文件 
+    <div id="%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>上面我们从 Hadoop 的某些特定场景下聊了 MapReduce 的优化，接下来我们从 MapReduce 的执行流程进行优化。
+　　前面我们已经聊过小文件在数据读取这里也可以做优化，所以选择一个合适的数据文件的读取类（FIleInputFormat 的实现类）也很重要。我们在作业提交的过程中，会把作业 Jar 文件，配置文件，计算所得输入分片，资源信息等提交到HDFS 的临时目录(Job ID 命名的目录下)，默认 10 个副本，可以通过mapreduce.client.submit.file.replication参数修改副本数量。后期作业执行时会下载这些文件到本地，中间会产生磁盘 IO。如果集群很大的时候，可以增加该参数的值，这样集群很多副本都可以供 NM 访问，从而提高下载的效率。
+</code></pre>
+
+<h5 class="relative group">分片 
+    <div id="%E5%88%86%E7%89%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E7%89%87" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<p>源码中分片的计算公式：</p>
+<pre tabindex="0"><code>// getFormatMinSplitSize()：一个切片最少应该拥有 1 个字节
+// getMinSplitSize(job)：读取程序员设置的切片的最小值，如果没有设置默认读取 1
+long minSize = Math.max(getFormatMinSplitSize(), getMinSplitSize(job));
+// 读取程序员设置的切片的最大值，如果没有设置默认读取 Long.MAX_VALUE
+long maxSize = getMaxSplitSize(job);
+// 获取 Block 的大小（默认为 128M）
+long blockSize = file.getBlockSize();
+// 获取 Split 的大小，切片的默认大小为 Block 的大小
+// return Math.max(minSize, Math.min(maxSize, blockSize));
+// minSize 为 64M --&gt; 最终返回 128M，minSize 为 256M --&gt; 最终返回 256M
+// maxSize 为 64M --&gt; 最终返回 64M，maxSize 为 256M --&gt; 最终返回 128M
+// 如果需要调大切片，则调节 minSize；如果需要调小切片，则调节 maxSize
+long splitSize = computeSplitSize(blockSize, minSize, maxSize);
+
+因为 Map 数没有具体的参数指定（默认情况下一个切片一个 MapTask），所以可以通过如上的公式调整切片的大小，
+这样就可以实现动态设置 Map 数了，那么问题来了，Map 数该如何设置呢？
+</code></pre>
+
+<h5 class="relative group">资源 
+    <div id="%E8%B5%84%E6%BA%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%B5%84%E6%BA%90" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<p>​	这些东西一定要结合业务，Map 数太多，会产生很多中间结果，导致 Reduce 拉取数据变慢；Map 数太少，每个 Map处理的时间又很长。那如果数据量就是很大，并且还需要控制 Map 的数量，这个时候每个 Map 的执行时间就比较长了，这时候可以调整每个 Map 的资源来提升 Map 的处理能力，相关参数如下。</p>
+<pre tabindex="0"><code># MapTask 的执行内存，默认为 1024MB
+mapreduce.map.memory.mb=2048
+# MapTask 的虚拟 CPU 核数，默认为 1
+mapreduce.map.cpu.vcores=1
+
+这里需要注意的是，单个 Map/Reduce 申请的资源大小，其值应该在每个容器申请的最大/最小分配之间，具体如下。
+
+# NodeManager 节点最大可用虚拟核，默认值为 -1。如果设置为 -1 且yarn.nodemanager.resource.detect-
+hardware-capabilities 为 true（默认为 false），则会自动计算(在Windows和Linux环境下)。在其他情况下，默认为8。
+# 推荐将该值设置为与物理 CPU 核数相同。如果你的节点 CPU 核数不够 8 个，则需要调减小这个值，因为 YARN 不会智能的探测节点的物理 CPU 总数。
+yarn.nodemanager.resource.cpu-vcores=-1
+# 单个容器可申请的最小虚拟 CPU 核数，默认是 1，如果一个容器申请的 CPU 个数少于该数，则修改对应的值为这个数。
+yarn.scheduler.minimum-allocation-vcores=1
+# 单个容器可申请的最大虚拟 CPU 核数，默认是 4。
+yarn.scheduler.maximum-allocation-vcores=4
+# NodeManager 节点最大可用物理内存，默认值为 -1。如果设置为-1 且yarn.nodemanager.resource.detect-
+hardware-capabilities 为 true（默认为 false），则会自动计算(在Windows和Linux环境下)。在其他情况下，默认为8192MB。
+yarn.nodemanager.resource.memory-mb=-1
+# ResourceManager 上每个容器可以申请内存资源的最小值，默认值为 1024MB
+yarn.scheduler.minimum-allocation-mb=1024
+# ResourceManager 上每个容器可以申请内存资源的最大值，默认值为 8192MB
+yarn.scheduler.maximum-allocation-mb=8192
+</code></pre>
+
+<h5 class="relative group">环形缓冲区 &amp; 溢写 
+    <div id="%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA--%E6%BA%A2%E5%86%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%8E%AF%E5%BD%A2%E7%BC%93%E5%86%B2%E5%8C%BA--%E6%BA%A2%E5%86%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>　　从源头上确定好 Map 之后，接下来看看 Map 的具体执行过程。首先写环形数据缓冲区，为啥要写环形数据缓冲区
+呢，为什么不直接写磁盘？这样的目的主要是为了减少磁盘 IO。
+　　每个 Map 任务不断地将键值对输出到在内存中构造的一个环形数据结构中。使用环形数据结构是为了更有效地使用内
+存空间，在内存中放置尽可能多的数据。该缓冲默认为 100M（ mapreduce.task.io.sort.mb 参数控制），当达到 80%（ mapreduce.map.sort.spill.percent 参数控制）时就会溢写至磁盘，每达到 80% 都会重写溢写到一个新的文件。
+　　可以根据机器的配置和数据量来设置这两个参数，当内存足够时，增大 mapreduce.task.io.sort.mb=500 会提高溢写的过程，而且会减少中间结果的文件数量。
+　　
+mapreduce.task.io.sort.mb=500
+mapreduce.map.sort.spill.percent=0.8
+</code></pre>
+
+<h5 class="relative group">合并 
+    <div id="%E5%90%88%E5%B9%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%88%E5%B9%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>	mapreduce.task.io.sort.factor=50当文件溢写完后，Map 会对这些文件进行 Merge 合并，默认每次最多合并 10 个溢写的文件，由参数
+mapreduce.task.io.sort.factor 进行设置。调大可以减少合并的次数，提高合并的并行度，降低对磁盘操作的次
+数。
+mapreduce.task.io.sort.factor=50
+</code></pre>
+
+<h5 class="relative group">输出 
+    <div id="%E8%BE%93%E5%87%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%BE%93%E5%87%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+
+
+<h6 class="relative group">组合器 
+    <div id="%E7%BB%84%E5%90%88%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BB%84%E5%90%88%E5%99%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h6>
+<pre tabindex="0"><code>	在 Reduce 拉取数据之前，我们可以使用 Combiner 实现 Map-Side 的预聚合（不影响最终结果的情况下），如果自定义了 Combiner，此时会根据 Combiner 定义的函数对 map 方法的结果进行合并，这样可以减少数据的传输，降低磁盘和网络 IO，提升性能。
+</code></pre>
+
+<h6 class="relative group">压缩 
+    <div id="%E5%8E%8B%E7%BC%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8E%8B%E7%BC%A9" aria-label="锚点">#</a>
+    </span>        
+    
+</h6>
+<pre><code>	到了 Map 到 Reduce 的数据传输过程了，这中间主要的影响无非就是磁盘 IO，网络 IO，数据量的大小了（是否压缩），其实减少数据量的大小，就可以做到优化了，所以我们可以选择性压缩数据，压缩后数据量会进一步减少，降低
+磁盘和网络 IO，提升性能。
+　　开启压缩后，数据会被压缩写入磁盘，Reduce 读的是压缩数据所以需要解压，在实际经验中 Hive 在 Hadoop 的运行的瓶颈一般都是 IO 而不是 CPU，压缩一般可以 10 倍的减少 IO 操作。具体可以通过以下参数进行配置。
+　　
+# Map 的输出在通过网络发送之前是否被压缩，默认为 false 不压缩
+mapreduce.map.output.compress=false
+# 如果 Map 的输出被压缩，那么应该如何压缩它们，默认为 org.apache.hadoop.io.compress.DefaultCodec
+mapreduce.map.output.compress.codec=org.apache.hadoop.io.compress.SnappyCodec
+</code></pre>
+
+
+<h6 class="relative group">影响线程 
+    <div id="%E5%BD%B1%E5%93%8D%E7%BA%BF%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BD%B1%E5%93%8D%E7%BA%BF%E7%A8%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h6>
+<pre tabindex="0"><code>	Map 流程完成之后，会通过运行一个 HTTP Server 暴露自身，供 Reduce 端获取数据。这里用来响应 Reduce 数据请求的线程数量是可以配置的，通过 mapreduce.shuffle.max.threads 属性进行配置，默认为 0，表示当前机器内核数量的两倍。注意该配置是针对 NodeManager 配置的，而不是每个作业配置。具体如下。
+	
+mapreduce.shuffle.max.threads=0
+</code></pre>
+
+<h5 class="relative group">容错 
+    <div id="%E5%AE%B9%E9%94%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%B9%E9%94%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>	Reduce 的每一个下载线程在下载某个 Map 数据的时候，有可能因为那个 Map 中间结果所在的机器发生错误，或者中间结果的文件丢失，或者网络中断等等情况，这样 Reduce 的下载就有可能失败，所以 Reduce 的下载线程并不会无休止的等待下去，当一定时间后下载仍然失败，那么下载线程就会放弃这次下载，并在随后尝试从其他的地方下载（因为这段时间 Map 可能会重跑）。
+　　为什么会从其他地方下载呢？因为 Map/Reduce Task 有容错机制，当任务执行失败后会尝试重启任务，相关参数如下。
+　　
+# MapTask 最大重试次数，一旦重试次数超过该值，则认为 MapTask 运行失败，其对应的输入数据将不会产生任何结果，默认为 4
+	mapreduce.map.maxattempts=4
+# ReduceTask最大重试次数，一旦重试次数超过该值，则认为ReduceTask运行失败，其对应的输入数据将不会产生任何结果，默认为4
+	mapreduce.reduce.maxattempts=4
+# 当一个NodeManager 上有超过 3 个任务失败时，ApplicationMaster会将该节点上的任务调度到其他节点上执行
+# 该值必须小于 Map/Reduce Task 最大重试次数，否则失败的任务将永远不会在不同的节点上尝试
+	mapreduce.job.maxtaskfailures.per.tracker=3
+# 当 NodeManager 发生故障，停止向 ResourceManager 节点发送心跳信息时，ResourceManager 节点并不会立即移除NodeManager，而是要等待一段时间，该参数如下，默认为 600000ms
+	yarn.nm.liveness-monitor.expiry-interval-ms=600000
+# 如果一个 Task 在一定时间内没有任务进度的更新（ApplicationMaster 一段时间没有收到任务进度的更新），即不会读取新的数据，也没有输出数据，则认为该 Task 处于 Block 状态，可能是临时卡住，也可能会永远卡住。为了防止 Task 永远 Block 不退出，则设置了一个超时时间（单位毫秒），默认为 600000ms，为 0 表示禁用超时
+	mapreduce.task.timeout=600000
+# YARN 中的应用程序失败之后，最多尝试的次数，默认为 2，即当 ApplicationMaster 失败 2 次以后，运行的任务将会失败
+	mapreduce.am.max-attempts=2
+# YARN 对 ApplicationMaster 的最大尝试次数做了限制，每个在 YARN 中运行的应用程序不能超过这个数量限制
+	yarn.resourcemanager.am.max-attempts=2
+# Hadoop 对 ResourceManager 节点提供了检查点机制，当所有的 ResourceManager 节点失败后，重启 	ResouceManager节点，可以从上一个失败的 ResourceManager 节点保存的检查点进行状态恢复
+# 检查点的存储由 yarn-site.xml 配置文件中的 yarn-resourcemanager.store.class 属性进行设置，默认是保存到文件中
+	yarn.resourcemanager.store.class=org.apache.hadoop.yarn.server.resourcemanager.recovery.FileSystemRMStateStore
+</code></pre>
+
+<h4 class="relative group">Reduce 
+    <div id="reduce" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#reduce" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+
+
+<h5 class="relative group">资源 
+    <div id="%E8%B5%84%E6%BA%90-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%B5%84%E6%BA%90-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>	接下来就是 Reduce 了，首先可以通过参数设置合理的 Reduce 数量（ mapreduce.job.reduces 参数控制），以及通过参数设置每个 Reduce 的资源。具体如下。
+# 默认为 1
+mapreduce.job.reduces=1
+# ReduceTask 的执行内存，默认为 1024MB
+mapreduce.reduce.memory.mb=4096
+# ReduceTask 的虚拟 CPU 核数，默认为 1
+mapreduce.reduce.cpu.vcores=1
+# Map 和 Reduce 共享，当 MapTask 完成的比例达到该值后会为 ReduceTask 申请资源，默认是 0.05
+# 只要有溢写合并完成的 MapTask，申请到资源的 ReduceTask 就可以开始拉取
+mapreduce.job.reduce.slowstart.completedmaps=0.05
+
+这里需要注意的是，单个 Map/Reduce 申请的资源大小，其值应该在每个容器申请的最大/最小分配之间，具体如下。
+
+# NodeManager 节点最大可用虚拟核，默认值为 -1。如果设置为 -1 且yarn.nodemanager.resource.detect-
+hardware-capabilities 为 true（默认为 false），则会自动计算(在Windows和Linux环境下)。在其他情况下，默认为8。
+# 推荐将该值设置为与物理 CPU 核数相同。如果你的节点 CPU 核数不够 8 个，则需要调减小这个值，因为 YARN 不会智能的探测节点的物理 CPU 总数。
+	yarn.nodemanager.resource.cpu-vcores=-1
+# 单个容器可申请的最小虚拟 CPU 核数，默认是 1，如果一个容器申请的 CPU 个数少于该数，则修改对应的值为这个数。
+	yarn.scheduler.minimum-allocation-vcores=1
+# 单个容器可申请的最大虚拟 CPU 核数，默认是 4。
+	yarn.scheduler.maximum-allocation-vcores=4
+# NodeManager 节点最大可用物理内存，默认值为 -1。如果设置为 -1 且 		yarn.nodemanager.resource.detecthardware-capabilities 为 true（默认为 false），则会自动计算(在Windows和Linux环境下)。在其他情况下，默认为、8192MB。
+	yarn.nodemanager.resource.memory-mb=-1
+# ResourceManager 上每个容器可以申请内存资源的最小值，默认值为 1024MB
+	yarn.scheduler.minimum-allocation-mb=1024
+# ResourceManager 上每个容器可以申请内存资源的最大值，默认值为 8192MB
+	yarn.scheduler.maximum-allocation-mb=8192
+</code></pre>
+
+<h5 class="relative group">拉取 
+    <div id="%E6%8B%89%E5%8F%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8B%89%E5%8F%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>	Reduce 在 Copy 的过程中默认使用 5 个（ mapreduce.reduce.shuffle.parallelcopies 参数控制）并行度进行数据复制，可以将其调大例如 100。Reduce 的每一个下载线程在下载某个 Map 数据的时候，有可能因为那个 Map 中间结果所在的机器发生错误，或者中间结果的文件丢失，或者网络中断等等情况，这样 Reduce 的下载就有可能失败，所以 Reduce 的下载线程并不会无休止的
+	等待下去，当一定时间后下载仍然失败，那么下载线程就会放弃这次下载，并在随后尝试从其他的地方下载（因为这段时间 Map 可能会重跑）。Reduce下载线程的最大下载时间段通过mapreduce.reduce.shuffle.read.timeout （默认为 180000 秒）进行调整。
+</code></pre>
+
+<h5 class="relative group">缓冲区&amp;溢写 
+    <div id="%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%86%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%86%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>	Copy 过来的数据会先放入内存缓冲区中，然后当使用内存达到一定量的时候才 Spill 磁盘。这里的缓冲区大小要比Map 端的更为灵活，它基于 JVM 的 Heap Size 进行设置。该内存大小不像 Map一样可以通过 mapreduce.task.io.sort.mb来设置，而是通过参数mapreduce.reduce.shuffle.input.buffer.percent （默认为 0.7）进行设置。意思是说，Shuffile 在 Reduce 内存中的数据最多使用内存量为：0.7 * maxHeap of reduce task，内存到磁盘 Merge 的启动门限可以通过 mapreduce.reduce.shuffle.merge.percent （默认为 0.66）进行设置。
+	假设 mapreduce.reduce.shuffle.input.buffer.percent 为 0.7，ReduceTask 的 max heapsize 为 1G，那么用来做拉取数据缓存的内存大概为 700MB 左右。这 700MB 的内存跟 Map 端一样，也不是要等到全部写满才会往磁盘溢写，而是达到指定的阈值就会开始往磁盘溢写（溢写前会先做 sortMerge）。这个限度阈值可以通过参数mapreduce.reduce.shuffle.merge.percent 来设定（默认为 0.66）。整个过程同 Map 类似，如果用户设置了 Combiner，也会被启用，然后磁盘中会生成众多的溢写文件。这种 Merge 方式一直在运行，直到没有 Map 端的数据时才会结束，然后启动磁盘到磁盘的 Merge 方式生成最终的文件。
+</code></pre>
+
+<h5 class="relative group">合并 
+    <div id="%E5%90%88%E5%B9%B6-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%90%88%E5%B9%B6-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>	同 Map 一样，当文件溢写完后，Reduce 会对这些文件进行 Merge 合并。最大合并因子默认为 10，由参数
+mapreduce.task.io.sort.factor 进行设置。如果 Map 输出很多，则需要合并很多趟，所以可以减少合并的次数，提高合并的并行度，降低对磁盘操作的次数。
+</code></pre>
+
+<h5 class="relative group">读缓存 
+    <div id="%E8%AF%BB%E7%BC%93%E5%AD%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AF%BB%E7%BC%93%E5%AD%98" aria-label="锚点">#</a>
+    </span>        
+    
+</h5>
+<pre tabindex="0"><code>	默认情况下，数据达到一个阈值的时候，缓冲区中的数据就会写入磁盘，然后 Reduce 会从磁盘中获得所有的数据。也就是说，缓冲区和 Reduce 是没有直接关联的，中间会有多次写磁盘 -&gt; 读磁盘的过程，既然有这个弊端，那么可以通过修改参数，使得缓冲区中的一部分数据可以直接输送到 Reduce（缓冲区 -&gt; 读缓存 -&gt; Reduce），从而减少 IO 开销。
+	修改参数 mapreduce.reduce.input.buffer.percent ，默认为 0.0，表示不开启缓存，直接从磁盘读。当该值大于 0 的时候，会保留指定比例的内存用于缓存（缓冲区 -&gt; 读缓存 -&gt; Reduce），从而提升计算的速度。这样一来，设置缓冲区需要内存，读取数据需要内存，Reduce 计算也需要内存，所以要根据作业的用运行情况进行调整。
+	当 Reduce 计算逻辑消耗内存很小时，可以分一部分内存用来缓存数据，可以提升计算的速度。默认情况下都是从磁盘读取数据，如果内存足够大的话，务必设置该参数让 Reduce 直接从缓存读数据
+</code></pre>
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\Hadoop MapReduce\\Hadoop MapReduce.md"
+        var oid_likes = "likes_docs\\Hadoop MapReduce\\Hadoop MapReduce.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/hadoop_hdfs/hadoop_hdfs/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  ></span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/shell/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Shell</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-07-01 08:00:00 &#43;0800 CST">2024-07-01</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部" title="返回顶部">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      KV先生
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://your_domain.com/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

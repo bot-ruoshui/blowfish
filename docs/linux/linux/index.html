@@ -1,0 +1,2847 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-cn" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title> &middot; KV先生</title>
+  <meta name="title" content=" &middot; KV先生" />
+  
+  
+  
+  
+  
+  <link rel="canonical" href="https://your_domain.com/docs/linux/linux/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.8ea60310059bae0843ca33ef1de0ed63f1367330a68d9b13d82d6c3bc474a4c1a7c705dba2592e367518d4eb2c0a82076592aeab874ff2e02034ddc7147c752f.css"
+    integrity="sha512-jqYDEAWbrghDyjPvHeDtY/E2czCmjZsT2C1sO8R0pMGnxwXbolkuNnUY1OssCoIHZZKuq4dP8uAgNN3HFHx1Lw==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.b3e22525a7c62c7b8e4c7c002546ab6498031635fa2d07802d593d476d7ab1262ec61b0cec0fe9f5653e1c9e6c256cbd0b66e5a8421b4f82a7bd2c1d5c901638.js"
+    integrity="sha512-s&#43;IlJafGLHuOTHwAJUarZJgDFjX6LQeALVk9R216sSYuxhsM7A/p9WU&#43;HJ5sJWy9C2blqEIbT4KnvSwdXJAWOA==" data-copy="" data-copied=""></script>
+  
+  
+  <script src="/js/zoom.min.js"></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://your_domain.com/docs/linux/linux/">
+  <meta property="og:site_name" content="KV先生">
+  <meta property="og:title" content="KV先生">
+  <meta property="og:description" content="Linux # 配置虚拟机 # 自定义分区 # ​	/boot引导分区，256M；swap硬盘当内存使用，2G；/剩余所有空间。
+配置网络 # ​	输入以下命令代开配置文件：vi /etc/sysconfig/network-scripts/ifcfg-ens33。出现以下内容：
+TYPE=Ethernet # 网卡类型（通常是 Ethernet 以太网） PROXY_METHOD=none # 代理方式：为关闭状态 BROWSER_ONLY=no # 只是浏览器：否 BOOTPROTO=static # 网卡的引导协议（static：静态IP dhcp：动态IP none：不指定，不指定容易出现各种各样的网络受限） DEFROUTE=yes # 默认路由 IPV4_FAILURE_FATAL=no # 是否开启 IPV4 致命错误检测 IPV6INIT=yes # IPV6 是否自动初始化：是（现在还未用到 IPV6，不会有任何影响） IPV6_AUTOCONF=yes # IPV6 是否自动配置：是 IPV6_DEFROUTE=yes # IPV6 是否可以为默认路由：是 IPV6_FAILURE_FATAL=no # 是否开启 IPV6 致命错误检测 IPV6_ADDR_GEN_MODE=stable-privacy # IPV6 地址生成模型 NAME=ens33 # 网卡物理设备名称 UUID=070892f0-514c-46c5-8593-c379854dcce1 # 通用唯一识别码，每一个网卡都会有，不能重复，否则两台 Linux 机器只有一台可上网 DEVICE=ens33 # 网卡设备名称，必须和‘NAME’的值一样 ONBOOT=yes # 是否开机启动网络，要想网卡开机就启动或通过`systemctl restart network`控制网卡，必 须设置为 yes 修改 # ONBOOT = yes——是否开机启动网络
+BOOTPROTO = static——使用静态网络IP，dhcp表示动态获取网络IP，也就是自动获取
+删除 # UUID = xxxx——每一个网卡都会有，不能重复，否则两台Linux机器只有一台可以上网
+新增 # IPADDR=192.168.88.100 # 本机 IP NETMASK=255.255.255.0 # 子网掩码 GATEWAY=192.168.88.2 # 默认网关 DNS1=192.168.88.2 # DNS 服务器 DNS2=114.114.114.114 # DNS 服务器 DNS3=8.8.8.8 # DNS 服务器 测试 # 配置完以后输入重启网络——systemctl restart network
+然后 ping 一下百度，如果出现以下效果则表示网络配置成功（Ctrl &#43; C 终止 ping 命令的执行）。
+防火墙 # systemctl status firewalld——查看防火墙状态
+systemctl stop firewalld——本次服务关闭防火墙，重启后会自动开启
+systemctl start firewalld ——启动防火墙
+ststemctl restart firewalld——重启防火墙
+systemctl disable firewalld ——禁用防火墙
+SELINUX # 使用一下命令打开SRLinux的配置文件：vi /etc/selinux/config
+enforcing：强制执行
+permissive：放行
+disabled：禁用
+修改 SELinux=disabled ，然后 :wq 保存并退出。
+修改主机名和hosts # 修改主机名：vi /etc/hostname
+设置网络地址别名：vi /etc/hosts
+关闭虚拟机 # halt ：相当于直接拔掉电源，不推荐。
+poweroff ：直接关闭机器，但是有可能当前虚拟机有其他用户正在使用，不推荐。
+shutdown -h now ：马上关闭计算机 ，但是会给其他用户发送消息，推荐。
+reboot ：重启虚拟机。
+万事万物皆文件 # 文件目录 # /bin # ​	Binary的缩写，存放着最经常使用的命令文件；软连接，实际地址是 /usr/bin ；普通用户和管理员都可以运行。
+/etc # ​	存放所有的系统管理所需要的配置文件和子目录；Linux操作系统配置文件所在地。
+/home # ​	普通用户的家目录，每个用户都有一个自己的目录，一般以用户的账号命名
+/opt # ​	非系统盘，额外安装软件所存放的目录，默认为空。
+/root # ​	超级管理员用户的主目录
+/usr # ​	类似Windows系统的系统盘，用户的很多应用程序和文件都放在这个目录下
+/var # ​	经常被修改的文件放在这里，动态数据文件，例如日志、数据库文件。
+1、/	Linux文件系统的根目录
+2、/boot	引导分区
+3、/dev ; /media; /mnt	第三方挂载目录
+4、/lib-&gt;/usr/lib；lib64-&gt;/usr/lib64	操作系统所需要的系统资源
+5、/proc	内存相关文件
+6、/run	操作系统进程相关文件
+7、/sbin-&gt;/usr/sbin	管理员才可以运行的命令文件，系统守护程序
+8、/srv	非系统盘，服务启动后需要提取的一些数据
+9、/sys	操作系统相关文件
+10、/tmp	临时目录，重启时会清空
+文件操作 # Linux 命令在线查询：https://www.linuxcool.com/
+cd（change directory） # 更改当前所处的工作目录，路径可以是绝对/相对路径，不写则回到家目录
+cd 参数名	目录名
+参数： -L 切换至符号链接所在目录 ~ 切换至用户的家目录 -p 软连接，切换到实际目录 .. 返回到当前位置的上一级目录 – 回到上次所在目录 ls/ll（list） # 列出，显示目录中的文件及其属性信息。
+ls	参数	文件名字
+ll 是 “ls -l -color =auto”	的别名
+参数 -a 显示所有文件及目录 -r 根据首字母蒋文杰反序显示 -A 显示除’.‘和’..‘外的所有文件 -R 地柜显示所有子文件 -d 显示目录自身的属性信息 -S 根据文件大小排序 -i 显示文件的inode属性信息 -t 依据最后修改时间按排序 -l 显示文件的详细属性信息 -X 依据拓展名将文件排序显示 -m 用逗号间隔，水平显示文件信息 -color 彩色显示信息 mkdir（make directories) # 创建目录，不会覆盖已有文件，可以一次性同时创建多个目录
+madir	参数	目录名
+参数 -m 创建目录的视同设置权限 -v 显示执行过程的详细信息 -p 递归创建多级目录 -z 设置目录安全上下文 rmdir（remove directory） # 删除空目录文件，非空白需要带-R参数，递归删除要求子目录必须是空的
+rmdir	参数	目录名
+参数 -p 递归处理所有子文件 –help 显示帮助信息 -v 显示执行过程中详细信息 –version 显示版本信息 cp（copy） # 能够将一个或多个文件/目录复制到指定位置，并重命名，会直接覆盖
+cp	参数	原文件名	目标文件名
+参数 -a pdr参数组合 -l 对源文件建立硬链接 -b 覆盖目标文件前先备份 -p 保留原文件或目录的所有信息 -d 复制时，目标文件也建立为链接文件 -r* 递归复制所有子文件 -f* 目标文件已存在，直接覆盖 -s 建立软连接，非复制文件 -i 目标文件存在，会询问是否覆盖 -v 显示执行过程详细信息 mv（move） # 对文件进行剪切和重命名，注意区别CP，同文件夹为重命名操作
+mv	参数	源文件名	目标文件名
+参数 -b 覆盖前给目标文件创立备份 -v 显示执行过程详细信息 -f 直接覆盖目标文件，不询问 -z 设置文件安全上下文 -i 覆盖目标文件前，询问 –help 显示帮助信息 -n 不覆盖已有文件 –version 显示版本信息 -u 源文件比目标文件更新时覆盖 rm（remove） # 删除文件或目录，可以递归删除子文件，也可以同时删除多个
+rm	参数	文件名
+参数 -d 删除位子文件的空目录 -v 显示执行过程详细信息 -f 删除文件不询问 –help 显示帮助信息 -i 删除前询问用户确认 –version 显示版本信息 -r 递归删除目录及其子文件 touch # 创建空文件夹和修改时间戳，文件存在则会对Atime访问时间和Ctime修改时间进行修改
+touch	参数	文件名
+参数 -a 设置文件的读取时间记录 -t 设置文件的时间记录 -c 不创建新文件 –help 显示帮助信息 -d 设置时间和日期 –version 显示版本信息 -m 设置文件的修改时间记录 stat（status） # 显示文件的状态信息，最后访问时间ATIME，最后修改时间MTIME，最后更改时间CTIME
+stat	参数	文件名
+参数 -c 设置显示格式 -Z 显示SElinux安全上下文值 -f 显示文件系统信息 –help 显示帮助信息 -L 支持符号链接 –version 显示版本信息 -t 设置以简洁方式显示 ln（link） # 在另一个位置建立同步连接，分为软连接和硬链接。软连接相当于快捷方式，硬链接复制了文件的inode属性。
+ln	参数	原文件名	目标文件名
+参数 -b 为已存在的目标文件创建备份 -s 对源文件创建软连接 -f 强制创建连接而不询问 读取文件信息 # cat（concatenate files and print） # 在终端设备上显示文件内容，适合内容较少的纯文本。tac反向cat
+cat	参数	文件名
+参数 -b 显示行数， -E 每行结束处显示$符号 -n 显示行数，包括空行 -s 显示行数，多个空行算一个 # ">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KV先生">
+  <meta name="twitter:description" content="Linux # 配置虚拟机 # 自定义分区 # ​	/boot引导分区，256M；swap硬盘当内存使用，2G；/剩余所有空间。
+配置网络 # ​	输入以下命令代开配置文件：vi /etc/sysconfig/network-scripts/ifcfg-ens33。出现以下内容：
+TYPE=Ethernet # 网卡类型（通常是 Ethernet 以太网） PROXY_METHOD=none # 代理方式：为关闭状态 BROWSER_ONLY=no # 只是浏览器：否 BOOTPROTO=static # 网卡的引导协议（static：静态IP dhcp：动态IP none：不指定，不指定容易出现各种各样的网络受限） DEFROUTE=yes # 默认路由 IPV4_FAILURE_FATAL=no # 是否开启 IPV4 致命错误检测 IPV6INIT=yes # IPV6 是否自动初始化：是（现在还未用到 IPV6，不会有任何影响） IPV6_AUTOCONF=yes # IPV6 是否自动配置：是 IPV6_DEFROUTE=yes # IPV6 是否可以为默认路由：是 IPV6_FAILURE_FATAL=no # 是否开启 IPV6 致命错误检测 IPV6_ADDR_GEN_MODE=stable-privacy # IPV6 地址生成模型 NAME=ens33 # 网卡物理设备名称 UUID=070892f0-514c-46c5-8593-c379854dcce1 # 通用唯一识别码，每一个网卡都会有，不能重复，否则两台 Linux 机器只有一台可上网 DEVICE=ens33 # 网卡设备名称，必须和‘NAME’的值一样 ONBOOT=yes # 是否开机启动网络，要想网卡开机就启动或通过`systemctl restart network`控制网卡，必 须设置为 yes 修改 # ONBOOT = yes——是否开机启动网络
+BOOTPROTO = static——使用静态网络IP，dhcp表示动态获取网络IP，也就是自动获取
+删除 # UUID = xxxx——每一个网卡都会有，不能重复，否则两台Linux机器只有一台可以上网
+新增 # IPADDR=192.168.88.100 # 本机 IP NETMASK=255.255.255.0 # 子网掩码 GATEWAY=192.168.88.2 # 默认网关 DNS1=192.168.88.2 # DNS 服务器 DNS2=114.114.114.114 # DNS 服务器 DNS3=8.8.8.8 # DNS 服务器 测试 # 配置完以后输入重启网络——systemctl restart network
+然后 ping 一下百度，如果出现以下效果则表示网络配置成功（Ctrl &#43; C 终止 ping 命令的执行）。
+防火墙 # systemctl status firewalld——查看防火墙状态
+systemctl stop firewalld——本次服务关闭防火墙，重启后会自动开启
+systemctl start firewalld ——启动防火墙
+ststemctl restart firewalld——重启防火墙
+systemctl disable firewalld ——禁用防火墙
+SELINUX # 使用一下命令打开SRLinux的配置文件：vi /etc/selinux/config
+enforcing：强制执行
+permissive：放行
+disabled：禁用
+修改 SELinux=disabled ，然后 :wq 保存并退出。
+修改主机名和hosts # 修改主机名：vi /etc/hostname
+设置网络地址别名：vi /etc/hosts
+关闭虚拟机 # halt ：相当于直接拔掉电源，不推荐。
+poweroff ：直接关闭机器，但是有可能当前虚拟机有其他用户正在使用，不推荐。
+shutdown -h now ：马上关闭计算机 ，但是会给其他用户发送消息，推荐。
+reboot ：重启虚拟机。
+万事万物皆文件 # 文件目录 # /bin # ​	Binary的缩写，存放着最经常使用的命令文件；软连接，实际地址是 /usr/bin ；普通用户和管理员都可以运行。
+/etc # ​	存放所有的系统管理所需要的配置文件和子目录；Linux操作系统配置文件所在地。
+/home # ​	普通用户的家目录，每个用户都有一个自己的目录，一般以用户的账号命名
+/opt # ​	非系统盘，额外安装软件所存放的目录，默认为空。
+/root # ​	超级管理员用户的主目录
+/usr # ​	类似Windows系统的系统盘，用户的很多应用程序和文件都放在这个目录下
+/var # ​	经常被修改的文件放在这里，动态数据文件，例如日志、数据库文件。
+1、/	Linux文件系统的根目录
+2、/boot	引导分区
+3、/dev ; /media; /mnt	第三方挂载目录
+4、/lib-&gt;/usr/lib；lib64-&gt;/usr/lib64	操作系统所需要的系统资源
+5、/proc	内存相关文件
+6、/run	操作系统进程相关文件
+7、/sbin-&gt;/usr/sbin	管理员才可以运行的命令文件，系统守护程序
+8、/srv	非系统盘，服务启动后需要提取的一些数据
+9、/sys	操作系统相关文件
+10、/tmp	临时目录，重启时会清空
+文件操作 # Linux 命令在线查询：https://www.linuxcool.com/
+cd（change directory） # 更改当前所处的工作目录，路径可以是绝对/相对路径，不写则回到家目录
+cd 参数名	目录名
+参数： -L 切换至符号链接所在目录 ~ 切换至用户的家目录 -p 软连接，切换到实际目录 .. 返回到当前位置的上一级目录 – 回到上次所在目录 ls/ll（list） # 列出，显示目录中的文件及其属性信息。
+ls	参数	文件名字
+ll 是 “ls -l -color =auto”	的别名
+参数 -a 显示所有文件及目录 -r 根据首字母蒋文杰反序显示 -A 显示除’.‘和’..‘外的所有文件 -R 地柜显示所有子文件 -d 显示目录自身的属性信息 -S 根据文件大小排序 -i 显示文件的inode属性信息 -t 依据最后修改时间按排序 -l 显示文件的详细属性信息 -X 依据拓展名将文件排序显示 -m 用逗号间隔，水平显示文件信息 -color 彩色显示信息 mkdir（make directories) # 创建目录，不会覆盖已有文件，可以一次性同时创建多个目录
+madir	参数	目录名
+参数 -m 创建目录的视同设置权限 -v 显示执行过程的详细信息 -p 递归创建多级目录 -z 设置目录安全上下文 rmdir（remove directory） # 删除空目录文件，非空白需要带-R参数，递归删除要求子目录必须是空的
+rmdir	参数	目录名
+参数 -p 递归处理所有子文件 –help 显示帮助信息 -v 显示执行过程中详细信息 –version 显示版本信息 cp（copy） # 能够将一个或多个文件/目录复制到指定位置，并重命名，会直接覆盖
+cp	参数	原文件名	目标文件名
+参数 -a pdr参数组合 -l 对源文件建立硬链接 -b 覆盖目标文件前先备份 -p 保留原文件或目录的所有信息 -d 复制时，目标文件也建立为链接文件 -r* 递归复制所有子文件 -f* 目标文件已存在，直接覆盖 -s 建立软连接，非复制文件 -i 目标文件存在，会询问是否覆盖 -v 显示执行过程详细信息 mv（move） # 对文件进行剪切和重命名，注意区别CP，同文件夹为重命名操作
+mv	参数	源文件名	目标文件名
+参数 -b 覆盖前给目标文件创立备份 -v 显示执行过程详细信息 -f 直接覆盖目标文件，不询问 -z 设置文件安全上下文 -i 覆盖目标文件前，询问 –help 显示帮助信息 -n 不覆盖已有文件 –version 显示版本信息 -u 源文件比目标文件更新时覆盖 rm（remove） # 删除文件或目录，可以递归删除子文件，也可以同时删除多个
+rm	参数	文件名
+参数 -d 删除位子文件的空目录 -v 显示执行过程详细信息 -f 删除文件不询问 –help 显示帮助信息 -i 删除前询问用户确认 –version 显示版本信息 -r 递归删除目录及其子文件 touch # 创建空文件夹和修改时间戳，文件存在则会对Atime访问时间和Ctime修改时间进行修改
+touch	参数	文件名
+参数 -a 设置文件的读取时间记录 -t 设置文件的时间记录 -c 不创建新文件 –help 显示帮助信息 -d 设置时间和日期 –version 显示版本信息 -m 设置文件的修改时间记录 stat（status） # 显示文件的状态信息，最后访问时间ATIME，最后修改时间MTIME，最后更改时间CTIME
+stat	参数	文件名
+参数 -c 设置显示格式 -Z 显示SElinux安全上下文值 -f 显示文件系统信息 –help 显示帮助信息 -L 支持符号链接 –version 显示版本信息 -t 设置以简洁方式显示 ln（link） # 在另一个位置建立同步连接，分为软连接和硬链接。软连接相当于快捷方式，硬链接复制了文件的inode属性。
+ln	参数	原文件名	目标文件名
+参数 -b 为已存在的目标文件创建备份 -s 对源文件创建软连接 -f 强制创建连接而不询问 读取文件信息 # cat（concatenate files and print） # 在终端设备上显示文件内容，适合内容较少的纯文本。tac反向cat
+cat	参数	文件名
+参数 -b 显示行数， -E 每行结束处显示$符号 -n 显示行数，包括空行 -s 显示行数，多个空行算一个 # ">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "",
+    "headline": "",
+    
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eLinux \n    \u003cdiv id=\u0022linux\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#linux\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h1\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e配置虚拟机 \n    \u003cdiv id=\u0022%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e自定义分区 \n    \u003cdiv id=\u0022%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e​\t\t\/boot引导分区，256M；swap硬盘当内存使用，2G；\/剩余所有空间。\u003c\/p\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e配置网络 \n    \u003cdiv id=\u0022%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e​\t\t输入以下命令代开配置文件：vi \/etc\/sysconfig\/network-scripts\/ifcfg-ens33。出现以下内容：\u003c\/p\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-vim\u0022 data-lang=\u0022vim\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eTYPE\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eEthernet\u003c\/span\u003e     # \u003cspan class=\u0022nx\u0022\u003e网卡类型\u003c\/span\u003e（\u003cspan class=\u0022nx\u0022\u003e通常是\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003eEthernet\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e以太网\u003c\/span\u003e）\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003ePROXY_METHOD\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003enone\u003c\/span\u003e   # \u003cspan class=\u0022nx\u0022\u003e代理方式\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e为关闭状态\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eBROWSER_ONLY\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eno\u003c\/span\u003e    # \u003cspan class=\u0022nx\u0022\u003e只是浏览器\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e否\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eBOOTPROTO\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003estatic\u003c\/span\u003e   # \u003cspan class=\u0022nx\u0022\u003e网卡的引导协议\u003c\/span\u003e（\u003cspan class=\u0022nx\u0022\u003estatic\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e静态IP\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003edhcp\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e动态IP\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003enone\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e不指定\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e不指定容易出现各种各样的网络受限\u003c\/span\u003e）\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eDEFROUTE\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eyes\u003c\/span\u003e     # \u003cspan class=\u0022nx\u0022\u003e默认路由\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eIPV4_FAILURE_FATAL\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eno\u003c\/span\u003e # \u003cspan class=\u0022nx\u0022\u003e是否开启\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003eIPV4\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e致命错误检测\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eIPV6INIT\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eyes\u003c\/span\u003e     # \u003cspan class=\u0022nx\u0022\u003eIPV6\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e是否自动初始化\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e是\u003c\/span\u003e（\u003cspan class=\u0022nx\u0022\u003e现在还未用到\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003eIPV6\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e不会有任何影响\u003c\/span\u003e）\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eIPV6_AUTOCONF\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eyes\u003c\/span\u003e   # \u003cspan class=\u0022nx\u0022\u003eIPV6\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e是否自动配置\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e是\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eIPV6_DEFROUTE\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eyes\u003c\/span\u003e   # \u003cspan class=\u0022nx\u0022\u003eIPV6\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e是否可以为默认路由\u003c\/span\u003e：\u003cspan class=\u0022nx\u0022\u003e是\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eIPV6_FAILURE_FATAL\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eno\u003c\/span\u003e # \u003cspan class=\u0022nx\u0022\u003e是否开启\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003eIPV6\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e致命错误检测\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eIPV6_ADDR_GEN_MODE\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003estable\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e-\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eprivacy\u003c\/span\u003e # \u003cspan class=\u0022nx\u0022\u003eIPV6\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e地址生成模型\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eNAME\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eens33\u003c\/span\u003e      # \u003cspan class=\u0022nx\u0022\u003e网卡物理设备名称\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eUUID\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022m\u0022\u003e070892\u003c\/span\u003ef\u003cspan class=\u0022m\u0022\u003e0-514\u003c\/span\u003ec\u003cspan class=\u0022m\u0022\u003e-46\u003c\/span\u003ec\u003cspan class=\u0022m\u0022\u003e5-8593\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e-\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003ec379854dcce1\u003c\/span\u003e # \u003cspan class=\u0022nx\u0022\u003e通用唯一识别码\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e每一个网卡都会有\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e不能重复\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e否则两台\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003eLinux\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e机器只有一台可上网\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eDEVICE\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eens33\u003c\/span\u003e     # \u003cspan class=\u0022nx\u0022\u003e网卡设备名称\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e必须和\u003c\/span\u003e‘\u003cspan class=\u0022nx\u0022\u003eNAME\u003c\/span\u003e’\u003cspan class=\u0022nx\u0022\u003e的值一样\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eONBOOT\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022nx\u0022\u003eyes\u003c\/span\u003e      # \u003cspan class=\u0022nx\u0022\u003e是否开机启动网络\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e要想网卡开机就启动或通过\u003c\/span\u003e\u0060\u003cspan class=\u0022nx\u0022\u003esystemctl\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003erestart\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003enetwork\u003c\/span\u003e\u0060\u003cspan class=\u0022nx\u0022\u003e控制网卡\u003c\/span\u003e，\u003cspan class=\u0022nx\u0022\u003e必\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003e须设置为\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003eyes\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003e修改 \n    \u003cdiv id=\u0022%E4%BF%AE%E6%94%B9\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E4%BF%AE%E6%94%B9\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003eONBOOT = yes——是否开机启动网络\u003c\/p\u003e\n\u003cp\u003eBOOTPROTO = static——使用静态网络IP，dhcp表示动态获取网络IP，也就是自动获取\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e删除 \n    \u003cdiv id=\u0022%E5%88%A0%E9%99%A4\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E5%88%A0%E9%99%A4\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003eUUID = xxxx——每一个网卡都会有，不能重复，否则两台Linux机器只有一台可以上网\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e新增 \n    \u003cdiv id=\u0022%E6%96%B0%E5%A2%9E\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E6%96%B0%E5%A2%9E\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-vim\u0022 data-lang=\u0022vim\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eIPADDR\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022m\u0022\u003e192\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e168\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e88\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e100\u003c\/span\u003e # \u003cspan class=\u0022nx\u0022\u003e本机\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003eIP\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eNETMASK\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022m\u0022\u003e255\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e255\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e255\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e0\u003c\/span\u003e # \u003cspan class=\u0022nx\u0022\u003e子网掩码\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eGATEWAY\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022m\u0022\u003e192\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e168\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e88\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e2\u003c\/span\u003e # \u003cspan class=\u0022nx\u0022\u003e默认网关\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eDNS1\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022m\u0022\u003e192\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e168\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e88\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e2\u003c\/span\u003e   # \u003cspan class=\u0022nx\u0022\u003eDNS\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e服务器\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eDNS2\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022m\u0022\u003e114\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e114\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e114\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e114\u003c\/span\u003e  # \u003cspan class=\u0022nx\u0022\u003eDNS\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e服务器\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nx\u0022\u003eDNS3\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022m\u0022\u003e8\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e8\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e8\u003c\/span\u003e.\u003cspan class=\u0022m\u0022\u003e8\u003c\/span\u003e      # \u003cspan class=\u0022nx\u0022\u003eDNS\u003c\/span\u003e \u003cspan class=\u0022nx\u0022\u003e服务器\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003e测试 \n    \u003cdiv id=\u0022%E6%B5%8B%E8%AF%95\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E6%B5%8B%E8%AF%95\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e配置完以后输入重启网络——systemctl restart network\u003c\/p\u003e\n\u003cp\u003e然后 ping 一下百度，如果出现以下效果则表示网络配置成功（Ctrl \u002b C 终止 ping 命令的执行）。\u003c\/p\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e防火墙 \n    \u003cdiv id=\u0022%E9%98%B2%E7%81%AB%E5%A2%99\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E9%98%B2%E7%81%AB%E5%A2%99\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003esystemctl status firewalld——查看防火墙状态\u003c\/p\u003e\n\u003cp\u003esystemctl stop firewalld——本次服务关闭防火墙，重启后会自动开启\u003c\/p\u003e\n\u003cp\u003esystemctl start firewalld ——启动防火墙\u003c\/p\u003e\n\u003cp\u003eststemctl restart firewalld——重启防火墙\u003c\/p\u003e\n\u003cp\u003esystemctl disable firewalld ——禁用防火墙\u003c\/p\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003eSELINUX \n    \u003cdiv id=\u0022selinux\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#selinux\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e使用一下命令打开SRLinux的配置文件：vi \/etc\/selinux\/config\u003c\/p\u003e\n\u003cp\u003eenforcing：强制执行\u003c\/p\u003e\n\u003cp\u003epermissive：放行\u003c\/p\u003e\n\u003cp\u003edisabled：禁用\u003c\/p\u003e\n\u003cp\u003e修改 SELinux=disabled ，然后 :wq 保存并退出。\u003c\/p\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e修改主机名和hosts \n    \u003cdiv id=\u0022%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%92%8Chosts\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%92%8Chosts\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003e修改主机名：vi \/etc\/hostname\u003c\/p\u003e\n\u003cp\u003e设置网络地址别名：vi \/etc\/hosts\u003c\/p\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e关闭虚拟机 \n    \u003cdiv id=\u0022%E5%85%B3%E9%97%AD%E8%99%9A%E6%8B%9F%E6%9C%BA\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E5%85%B3%E9%97%AD%E8%99%9A%E6%8B%9F%E6%9C%BA\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003ehalt ：相当于直接拔掉电源，不推荐。\u003c\/p\u003e\n\u003cp\u003epoweroff ：直接关闭机器，但是有可能当前虚拟机有其他用户正在使用，不推荐。\u003c\/p\u003e\n\u003cp\u003eshutdown -h now ：马上关闭计算机 ，但是会给其他用户发送消息，推荐。\u003c\/p\u003e\n\u003cp\u003ereboot ：重启虚拟机。\u003c\/p\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e万事万物皆文件 \n    \u003cdiv id=\u0022%E4%B8%87%E4%BA%8B%E4%B8%87%E7%89%A9%E7%9A%86%E6%96%87%E4%BB%B6\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E4%B8%87%E4%BA%8B%E4%B8%87%E7%89%A9%E7%9A%86%E6%96%87%E4%BB%B6\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e文件目录 \n    \u003cdiv id=\u0022%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\/bin \n    \u003cdiv id=\u0022bin\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#bin\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e​\t\tBinary的缩写，存放着最经常使用的命令文件；软连接，实际地址是 \/usr\/bin ；普通用户和管理员都可以运行。\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\/etc \n    \u003cdiv id=\u0022etc\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#etc\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e​\t\t存放所有的系统管理所需要的配置文件和子目录；Linux操作系统配置文件所在地。\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\/home \n    \u003cdiv id=\u0022home\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#home\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e​\t\t普通用户的家目录，每个用户都有一个自己的目录，一般以用户的账号命名\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\/opt \n    \u003cdiv id=\u0022opt\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#opt\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e​\t\t非系统盘，额外安装软件所存放的目录，默认为空。\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\/root \n    \u003cdiv id=\u0022root\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#root\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e​\t\t超级管理员用户的主目录\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\/usr \n    \u003cdiv id=\u0022usr\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#usr\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e​\t\t类似Windows系统的系统盘，用户的很多应用程序和文件都放在这个目录下\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\/var \n    \u003cdiv id=\u0022var\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#var\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e​\t\t经常被修改的文件放在这里，动态数据文件，例如日志、数据库文件。\u003c\/p\u003e\n\u003cp\u003e1、\/\tLinux文件系统的根目录\u003c\/p\u003e\n\u003cp\u003e2、\/boot\t引导分区\u003c\/p\u003e\n\u003cp\u003e3、\/dev ; \/media; \/mnt\t第三方挂载目录\u003c\/p\u003e\n\u003cp\u003e4、\/lib-\u0026gt;\/usr\/lib；lib64-\u0026gt;\/usr\/lib64\t操作系统所需要的系统资源\u003c\/p\u003e\n\u003cp\u003e5、\/proc\t内存相关文件\u003c\/p\u003e\n\u003cp\u003e6、\/run\t操作系统进程相关文件\u003c\/p\u003e\n\u003cp\u003e7、\/sbin-\u0026gt;\/usr\/sbin\t管理员才可以运行的命令文件，系统守护程序\u003c\/p\u003e\n\u003cp\u003e8、\/srv\t非系统盘，服务启动后需要提取的一些数据\u003c\/p\u003e\n\u003cp\u003e9、\/sys\t操作系统相关文件\u003c\/p\u003e\n\u003cp\u003e10、\/tmp\t临时目录，重启时会清空\u003c\/p\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e文件操作 \n    \u003cdiv id=\u0022%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cp\u003eLinux 命令在线查询：https:\/\/www.linuxcool.com\/\u003c\/p\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003ecd（change directory） \n    \u003cdiv id=\u0022cdchange-directory\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#cdchange-directory\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e更改当前所处的工作目录，路径可以是绝对\/相对路径，不写则回到家目录\u003c\/p\u003e\n\u003cp\u003ecd \t参数名\t目录名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数：\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-L\u003c\/td\u003e\n\u003ctd\u003e切换至符号链接所在目录\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e~\u003c\/td\u003e\n\u003ctd\u003e切换至用户的家目录\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-p\u003c\/td\u003e\n\u003ctd\u003e软连接，切换到实际目录\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e..\u003c\/td\u003e\n\u003ctd\u003e返回到当前位置的上一级目录\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u0026ndash;\u003c\/td\u003e\n\u003ctd\u003e回到上次所在目录\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003els\/ll（list） \n    \u003cdiv id=\u0022lslllist\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#lslllist\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e列出，显示目录中的文件及其属性信息。\u003c\/p\u003e\n\u003cp\u003els\t参数\t文件名字\u003c\/p\u003e\n\u003cp\u003ell 是 “ls -l -color =auto”\t的别名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-a\u003c\/td\u003e\n\u003ctd\u003e显示所有文件及目录\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e-r\u003c\/td\u003e\n\u003ctd\u003e根据首字母蒋文杰反序显示\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-A\u003c\/td\u003e\n\u003ctd\u003e显示除\u0026rsquo;.\u0026lsquo;和\u0026rsquo;..\u0026lsquo;外的所有文件\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e-R\u003c\/td\u003e\n\u003ctd\u003e地柜显示所有子文件\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-d\u003c\/td\u003e\n\u003ctd\u003e显示目录自身的属性信息\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e-S\u003c\/td\u003e\n\u003ctd\u003e根据文件大小排序\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-i\u003c\/td\u003e\n\u003ctd\u003e显示文件的inode属性信息\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e-t\u003c\/td\u003e\n\u003ctd\u003e依据最后修改时间按排序\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-l\u003c\/td\u003e\n\u003ctd\u003e显示文件的详细属性信息\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e-X\u003c\/td\u003e\n\u003ctd\u003e依据拓展名将文件排序显示\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-m\u003c\/td\u003e\n\u003ctd\u003e用逗号间隔，水平显示文件信息\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e-color\u003c\/td\u003e\n\u003ctd\u003e彩色显示信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003emkdir（make directories) \n    \u003cdiv id=\u0022mkdirmake-directories\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#mkdirmake-directories\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e创建目录，不会覆盖已有文件，可以一次性同时创建多个目录\u003c\/p\u003e\n\u003cp\u003emadir\t参数\t目录名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-m\u003c\/td\u003e\n\u003ctd\u003e创建目录的视同设置权限\u003c\/td\u003e\n\u003ctd\u003e-v\u003c\/td\u003e\n\u003ctd\u003e显示执行过程的详细信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-p\u003c\/td\u003e\n\u003ctd\u003e递归创建多级目录\u003c\/td\u003e\n\u003ctd\u003e-z\u003c\/td\u003e\n\u003ctd\u003e设置目录安全上下文\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003ermdir（remove directory） \n    \u003cdiv id=\u0022rmdirremove-directory\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#rmdirremove-directory\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e删除空目录文件，非空白需要带-R参数，递归删除要求子目录必须是空的\u003c\/p\u003e\n\u003cp\u003ermdir\t参数\t目录名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-p\u003c\/td\u003e\n\u003ctd\u003e递归处理所有子文件\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;help\u003c\/td\u003e\n\u003ctd\u003e显示帮助信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-v\u003c\/td\u003e\n\u003ctd\u003e显示执行过程中详细信息\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;version\u003c\/td\u003e\n\u003ctd\u003e显示版本信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003ecp（copy） \n    \u003cdiv id=\u0022cpcopy\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#cpcopy\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e能够将一个或多个文件\/目录复制到指定位置，并重命名，会直接覆盖\u003c\/p\u003e\n\u003cp\u003ecp\t参数\t原文件名\t目标文件名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-a\u003c\/td\u003e\n\u003ctd\u003epdr参数组合\u003c\/td\u003e\n\u003ctd\u003e-l\u003c\/td\u003e\n\u003ctd\u003e对源文件建立硬链接\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-b\u003c\/td\u003e\n\u003ctd\u003e覆盖目标文件前先备份\u003c\/td\u003e\n\u003ctd\u003e-p\u003c\/td\u003e\n\u003ctd\u003e保留原文件或目录的所有信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-d\u003c\/td\u003e\n\u003ctd\u003e复制时，目标文件也建立为链接文件\u003c\/td\u003e\n\u003ctd\u003e-r*\u003c\/td\u003e\n\u003ctd\u003e递归复制所有子文件\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-f*\u003c\/td\u003e\n\u003ctd\u003e目标文件已存在，直接覆盖\u003c\/td\u003e\n\u003ctd\u003e-s\u003c\/td\u003e\n\u003ctd\u003e建立软连接，非复制文件\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-i\u003c\/td\u003e\n\u003ctd\u003e目标文件存在，会询问是否覆盖\u003c\/td\u003e\n\u003ctd\u003e-v\u003c\/td\u003e\n\u003ctd\u003e显示执行过程详细信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003emv（move） \n    \u003cdiv id=\u0022mvmove\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#mvmove\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e对文件进行剪切和重命名，注意区别CP，同文件夹为重命名操作\u003c\/p\u003e\n\u003cp\u003emv\t参数\t源文件名\t目标文件名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-b\u003c\/td\u003e\n\u003ctd\u003e覆盖前给目标文件创立备份\u003c\/td\u003e\n\u003ctd\u003e-v\u003c\/td\u003e\n\u003ctd\u003e显示执行过程详细信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-f\u003c\/td\u003e\n\u003ctd\u003e直接覆盖目标文件，不询问\u003c\/td\u003e\n\u003ctd\u003e-z\u003c\/td\u003e\n\u003ctd\u003e设置文件安全上下文\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-i\u003c\/td\u003e\n\u003ctd\u003e覆盖目标文件前，询问\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;help\u003c\/td\u003e\n\u003ctd\u003e显示帮助信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-n\u003c\/td\u003e\n\u003ctd\u003e不覆盖已有文件\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;version\u003c\/td\u003e\n\u003ctd\u003e显示版本信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-u\u003c\/td\u003e\n\u003ctd\u003e源文件比目标文件更新时覆盖\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003erm（remove） \n    \u003cdiv id=\u0022rmremove\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#rmremove\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e删除文件或目录，可以递归删除子文件，也可以同时删除多个\u003c\/p\u003e\n\u003cp\u003erm\t参数\t文件名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-d\u003c\/td\u003e\n\u003ctd\u003e删除位子文件的空目录\u003c\/td\u003e\n\u003ctd\u003e-v\u003c\/td\u003e\n\u003ctd\u003e显示执行过程详细信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-f\u003c\/td\u003e\n\u003ctd\u003e删除文件不询问\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;help\u003c\/td\u003e\n\u003ctd\u003e显示帮助信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-i\u003c\/td\u003e\n\u003ctd\u003e删除前询问用户确认\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;version\u003c\/td\u003e\n\u003ctd\u003e显示版本信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-r\u003c\/td\u003e\n\u003ctd\u003e递归删除目录及其子文件\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003etouch \n    \u003cdiv id=\u0022touch\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#touch\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e创建空文件夹和修改时间戳，文件存在则会对Atime访问时间和Ctime修改时间进行修改\u003c\/p\u003e\n\u003cp\u003etouch\t参数\t文件名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-a\u003c\/td\u003e\n\u003ctd\u003e设置文件的读取时间记录\u003c\/td\u003e\n\u003ctd\u003e-t\u003c\/td\u003e\n\u003ctd\u003e设置文件的时间记录\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-c\u003c\/td\u003e\n\u003ctd\u003e不创建新文件\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;help\u003c\/td\u003e\n\u003ctd\u003e显示帮助信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-d\u003c\/td\u003e\n\u003ctd\u003e设置时间和日期\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;version\u003c\/td\u003e\n\u003ctd\u003e显示版本信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-m\u003c\/td\u003e\n\u003ctd\u003e设置文件的修改时间记录\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003estat（status） \n    \u003cdiv id=\u0022statstatus\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#statstatus\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e显示文件的状态信息，最后访问时间ATIME，最后修改时间MTIME，最后更改时间CTIME\u003c\/p\u003e\n\u003cp\u003estat\t参数\t文件名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-c\u003c\/td\u003e\n\u003ctd\u003e设置显示格式\u003c\/td\u003e\n\u003ctd\u003e-Z\u003c\/td\u003e\n\u003ctd\u003e显示SElinux安全上下文值\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-f\u003c\/td\u003e\n\u003ctd\u003e显示文件系统信息\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;help\u003c\/td\u003e\n\u003ctd\u003e显示帮助信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-L\u003c\/td\u003e\n\u003ctd\u003e支持符号链接\u003c\/td\u003e\n\u003ctd\u003e\u0026ndash;version\u003c\/td\u003e\n\u003ctd\u003e显示版本信息\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-t\u003c\/td\u003e\n\u003ctd\u003e设置以简洁方式显示\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003eln（link） \n    \u003cdiv id=\u0022lnlink\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#lnlink\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e在另一个位置建立同步连接，分为软连接和硬链接。软连接相当于快捷方式，硬链接复制了文件的inode属性。\u003c\/p\u003e\n\u003cp\u003eln\t参数\t原文件名\t目标文件名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-b\u003c\/td\u003e\n\u003ctd\u003e为已存在的目标文件创建备份\u003c\/td\u003e\n\u003ctd\u003e-s\u003c\/td\u003e\n\u003ctd\u003e对源文件创建软连接\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-f\u003c\/td\u003e\n\u003ctd\u003e强制创建连接而不询问\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e读取文件信息 \n    \u003cdiv id=\u0022%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003ecat（concatenate files and print） \n    \u003cdiv id=\u0022catconcatenate-files-and-print\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#catconcatenate-files-and-print\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cp\u003e在终端设备上显示文件内容，适合内容较少的纯文本。tac反向cat\u003c\/p\u003e\n\u003cp\u003ecat\t参数\t文件名\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003e参数\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003cth\u003e\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e-b\u003c\/td\u003e\n\u003ctd\u003e显示行数，\u003c\/td\u003e\n\u003ctd\u003e-E\u003c\/td\u003e\n\u003ctd\u003e每行结束处显示$符号\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e-n\u003c\/td\u003e\n\u003ctd\u003e显示行数，包括空行\u003c\/td\u003e\n\u003ctd\u003e-s\u003c\/td\u003e\n\u003ctd\u003e显示行数，多个空行算一个\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003ctd\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e \n    \u003cdiv id=\u0022heading\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#heading\u0022 aria-label=\u0022锚点\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e",
+    "inLanguage": "zh-cn",
+    "url" : "https:\/\/your_domain.com\/docs\/linux\/linux\/",
+    "author" : {
+      "@type": "Person",
+      "name": "KV先生"
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "813"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="KV先生" />
+  
+  
+  
+  <link href="mailto:hello@your_domain.com" rel="me" />
+  
+  
+  <link href="https://github.com/bot-ruoshui" rel="me" />
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+	            <span style="font-weight:600;font-size:18px;">KV先生</span>
+	        </a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        文档
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        标签
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/5mrhelloworld"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" for="menu-controller" class="block">
+            <input type="checkbox" id="menu-controller" class="hidden" />
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li>
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            文档
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            标签
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/5mrhelloworld"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/linux/linux/"
+      >文章</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time><span class="px-2 text-primary-500">&middot;</span><span>813 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+        
+        
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="KV先生" src="/img/wmz_hu0f64dbd4a3f6623dcafe1cf79b5f4bcf_435948_192x192_fill_q75_box_center.jpg" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      KV先生
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">rosser</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:hello@your_domain.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/bot-ruoshui"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+      
+
+      
+
+      
+      <div class="mb-5"></div>
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置虚拟机">配置虚拟机</a>
+      <ul>
+        <li><a href="#自定义分区">自定义分区</a></li>
+        <li><a href="#配置网络">配置网络</a>
+          <ul>
+            <li><a href="#修改">修改</a></li>
+            <li><a href="#删除">删除</a></li>
+            <li><a href="#新增">新增</a></li>
+            <li><a href="#测试">测试</a></li>
+          </ul>
+        </li>
+        <li><a href="#防火墙">防火墙</a></li>
+        <li><a href="#selinux">SELINUX</a></li>
+        <li><a href="#修改主机名和hosts">修改主机名和hosts</a></li>
+        <li><a href="#关闭虚拟机">关闭虚拟机</a></li>
+      </ul>
+    </li>
+    <li><a href="#万事万物皆文件">万事万物皆文件</a>
+      <ul>
+        <li><a href="#文件目录">文件目录</a>
+          <ul>
+            <li><a href="#bin">/bin</a></li>
+            <li><a href="#etc">/etc</a></li>
+            <li><a href="#home">/home</a></li>
+            <li><a href="#opt">/opt</a></li>
+            <li><a href="#root">/root</a></li>
+            <li><a href="#usr">/usr</a></li>
+            <li><a href="#var">/var</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件操作">文件操作</a>
+          <ul>
+            <li><a href="#cdchange-directory">cd（change directory）</a></li>
+            <li><a href="#lslllist">ls/ll（list）</a></li>
+            <li><a href="#mkdirmake-directories">mkdir（make directories)</a></li>
+            <li><a href="#rmdirremove-directory">rmdir（remove directory）</a></li>
+            <li><a href="#cpcopy">cp（copy）</a></li>
+            <li><a href="#mvmove">mv（move）</a></li>
+            <li><a href="#rmremove">rm（remove）</a></li>
+            <li><a href="#touch">touch</a></li>
+            <li><a href="#statstatus">stat（status）</a></li>
+            <li><a href="#lnlink">ln（link）</a></li>
+          </ul>
+        </li>
+        <li><a href="#读取文件信息">读取文件信息</a>
+          <ul>
+            <li><a href="#catconcatenate-files-and-print">cat（concatenate files and print）</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading"></a>
+          <ul>
+            <li><a href="#head">head</a></li>
+            <li><a href="#tail">tail</a></li>
+            <li><a href="#find">find</a></li>
+          </ul>
+        </li>
+        <li><a href="#vi-and-vim">vi and vim</a>
+          <ul>
+            <li><a href="#命令模式">命令模式</a></li>
+            <li><a href="#编辑模式">编辑模式</a></li>
+            <li><a href="#低行模式">低行模式</a></li>
+            <li><a href="#打开文件夹">打开文件夹</a></li>
+          </ul>
+        </li>
+        <li><a href="#数据传输">数据传输</a>
+          <ul>
+            <li><a href="#scpsecure-copy">scp（secure copy）</a></li>
+            <li><a href="#rsyncremote-sync">rsync（remote sync）</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件压缩">文件压缩</a>
+          <ul>
+            <li><a href="#tar">tar</a></li>
+            <li><a href="#zip和unzip">zip和unzip</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#linux网络信息">Linux网络信息</a>
+      <ul>
+        <li><a href="#主机名称">主机名称</a>
+          <ul>
+            <li><a href="#修改主机域名">修改主机域名</a></li>
+          </ul>
+        </li>
+        <li><a href="#服务器之间相互免密钥">服务器之间相互免密钥</a>
+          <ul>
+            <li><a href="#生成密钥对">生成密钥对</a></li>
+            <li><a href="#拷贝公钥">拷贝公钥</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#时间和日期">时间和日期</a>
+      <ul>
+        <li><a href="#时间命令">时间命令</a></li>
+        <li><a href="#日期自动同步">日期自动同步</a></li>
+      </ul>
+    </li>
+    <li><a href="#用户-组-权限">用户-组-权限</a>
+      <ul>
+        <li><a href="#用户">用户</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#配置虚拟机">配置虚拟机</a>
+      <ul>
+        <li><a href="#自定义分区">自定义分区</a></li>
+        <li><a href="#配置网络">配置网络</a>
+          <ul>
+            <li><a href="#修改">修改</a></li>
+            <li><a href="#删除">删除</a></li>
+            <li><a href="#新增">新增</a></li>
+            <li><a href="#测试">测试</a></li>
+          </ul>
+        </li>
+        <li><a href="#防火墙">防火墙</a></li>
+        <li><a href="#selinux">SELINUX</a></li>
+        <li><a href="#修改主机名和hosts">修改主机名和hosts</a></li>
+        <li><a href="#关闭虚拟机">关闭虚拟机</a></li>
+      </ul>
+    </li>
+    <li><a href="#万事万物皆文件">万事万物皆文件</a>
+      <ul>
+        <li><a href="#文件目录">文件目录</a>
+          <ul>
+            <li><a href="#bin">/bin</a></li>
+            <li><a href="#etc">/etc</a></li>
+            <li><a href="#home">/home</a></li>
+            <li><a href="#opt">/opt</a></li>
+            <li><a href="#root">/root</a></li>
+            <li><a href="#usr">/usr</a></li>
+            <li><a href="#var">/var</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件操作">文件操作</a>
+          <ul>
+            <li><a href="#cdchange-directory">cd（change directory）</a></li>
+            <li><a href="#lslllist">ls/ll（list）</a></li>
+            <li><a href="#mkdirmake-directories">mkdir（make directories)</a></li>
+            <li><a href="#rmdirremove-directory">rmdir（remove directory）</a></li>
+            <li><a href="#cpcopy">cp（copy）</a></li>
+            <li><a href="#mvmove">mv（move）</a></li>
+            <li><a href="#rmremove">rm（remove）</a></li>
+            <li><a href="#touch">touch</a></li>
+            <li><a href="#statstatus">stat（status）</a></li>
+            <li><a href="#lnlink">ln（link）</a></li>
+          </ul>
+        </li>
+        <li><a href="#读取文件信息">读取文件信息</a>
+          <ul>
+            <li><a href="#catconcatenate-files-and-print">cat（concatenate files and print）</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading"></a>
+          <ul>
+            <li><a href="#head">head</a></li>
+            <li><a href="#tail">tail</a></li>
+            <li><a href="#find">find</a></li>
+          </ul>
+        </li>
+        <li><a href="#vi-and-vim">vi and vim</a>
+          <ul>
+            <li><a href="#命令模式">命令模式</a></li>
+            <li><a href="#编辑模式">编辑模式</a></li>
+            <li><a href="#低行模式">低行模式</a></li>
+            <li><a href="#打开文件夹">打开文件夹</a></li>
+          </ul>
+        </li>
+        <li><a href="#数据传输">数据传输</a>
+          <ul>
+            <li><a href="#scpsecure-copy">scp（secure copy）</a></li>
+            <li><a href="#rsyncremote-sync">rsync（remote sync）</a></li>
+          </ul>
+        </li>
+        <li><a href="#文件压缩">文件压缩</a>
+          <ul>
+            <li><a href="#tar">tar</a></li>
+            <li><a href="#zip和unzip">zip和unzip</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#linux网络信息">Linux网络信息</a>
+      <ul>
+        <li><a href="#主机名称">主机名称</a>
+          <ul>
+            <li><a href="#修改主机域名">修改主机域名</a></li>
+          </ul>
+        </li>
+        <li><a href="#服务器之间相互免密钥">服务器之间相互免密钥</a>
+          <ul>
+            <li><a href="#生成密钥对">生成密钥对</a></li>
+            <li><a href="#拷贝公钥">拷贝公钥</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#时间和日期">时间和日期</a>
+      <ul>
+        <li><a href="#时间命令">时间命令</a></li>
+        <li><a href="#日期自动同步">日期自动同步</a></li>
+      </ul>
+    </li>
+    <li><a href="#用户-组-权限">用户-组-权限</a>
+      <ul>
+        <li><a href="#用户">用户</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <h1 class="relative group">Linux 
+    <div id="linux" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linux" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">配置虚拟机 
+    <div id="%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">自定义分区 
+    <div id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​		/boot引导分区，256M；swap硬盘当内存使用，2G；/剩余所有空间。</p>
+
+
+<h3 class="relative group">配置网络 
+    <div id="%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>​		输入以下命令代开配置文件：vi /etc/sysconfig/network-scripts/ifcfg-ens33。出现以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">TYPE</span><span class="p">=</span><span class="nx">Ethernet</span>     # <span class="nx">网卡类型</span>（<span class="nx">通常是</span> <span class="nx">Ethernet</span> <span class="nx">以太网</span>）
+</span></span><span class="line"><span class="cl"><span class="nx">PROXY_METHOD</span><span class="p">=</span><span class="nx">none</span>   # <span class="nx">代理方式</span>：<span class="nx">为关闭状态</span>
+</span></span><span class="line"><span class="cl"><span class="nx">BROWSER_ONLY</span><span class="p">=</span><span class="nx">no</span>    # <span class="nx">只是浏览器</span>：<span class="nx">否</span>
+</span></span><span class="line"><span class="cl"><span class="nx">BOOTPROTO</span><span class="p">=</span><span class="nx">static</span>   # <span class="nx">网卡的引导协议</span>（<span class="nx">static</span>：<span class="nx">静态IP</span> <span class="nx">dhcp</span>：<span class="nx">动态IP</span> <span class="nx">none</span>：<span class="nx">不指定</span>，<span class="nx">不指定容易出现各种各样的网络受限</span>）
+</span></span><span class="line"><span class="cl"><span class="nx">DEFROUTE</span><span class="p">=</span><span class="nx">yes</span>     # <span class="nx">默认路由</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IPV4_FAILURE_FATAL</span><span class="p">=</span><span class="nx">no</span> # <span class="nx">是否开启</span> <span class="nx">IPV4</span> <span class="nx">致命错误检测</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IPV6INIT</span><span class="p">=</span><span class="nx">yes</span>     # <span class="nx">IPV6</span> <span class="nx">是否自动初始化</span>：<span class="nx">是</span>（<span class="nx">现在还未用到</span> <span class="nx">IPV6</span>，<span class="nx">不会有任何影响</span>）
+</span></span><span class="line"><span class="cl"><span class="nx">IPV6_AUTOCONF</span><span class="p">=</span><span class="nx">yes</span>   # <span class="nx">IPV6</span> <span class="nx">是否自动配置</span>：<span class="nx">是</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IPV6_DEFROUTE</span><span class="p">=</span><span class="nx">yes</span>   # <span class="nx">IPV6</span> <span class="nx">是否可以为默认路由</span>：<span class="nx">是</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IPV6_FAILURE_FATAL</span><span class="p">=</span><span class="nx">no</span> # <span class="nx">是否开启</span> <span class="nx">IPV6</span> <span class="nx">致命错误检测</span>
+</span></span><span class="line"><span class="cl"><span class="nx">IPV6_ADDR_GEN_MODE</span><span class="p">=</span><span class="nx">stable</span><span class="p">-</span><span class="nx">privacy</span> # <span class="nx">IPV6</span> <span class="nx">地址生成模型</span>
+</span></span><span class="line"><span class="cl"><span class="nx">NAME</span><span class="p">=</span><span class="nx">ens33</span>      # <span class="nx">网卡物理设备名称</span>
+</span></span><span class="line"><span class="cl"><span class="nx">UUID</span><span class="p">=</span><span class="m">070892</span>f<span class="m">0-514</span>c<span class="m">-46</span>c<span class="m">5-8593</span><span class="p">-</span><span class="nx">c379854dcce1</span> # <span class="nx">通用唯一识别码</span>，<span class="nx">每一个网卡都会有</span>，<span class="nx">不能重复</span>，<span class="nx">否则两台</span> <span class="nx">Linux</span> <span class="nx">机器只有一台可上网</span>
+</span></span><span class="line"><span class="cl"><span class="nx">DEVICE</span><span class="p">=</span><span class="nx">ens33</span>     # <span class="nx">网卡设备名称</span>，<span class="nx">必须和</span>‘<span class="nx">NAME</span>’<span class="nx">的值一样</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ONBOOT</span><span class="p">=</span><span class="nx">yes</span>      # <span class="nx">是否开机启动网络</span>，<span class="nx">要想网卡开机就启动或通过</span>`<span class="nx">systemctl</span> <span class="nx">restart</span> <span class="nx">network</span>`<span class="nx">控制网卡</span>，<span class="nx">必</span>
+</span></span><span class="line"><span class="cl"><span class="nx">须设置为</span> <span class="nx">yes</span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">修改 
+    <div id="%E4%BF%AE%E6%94%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BF%AE%E6%94%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>ONBOOT = yes——是否开机启动网络</p>
+<p>BOOTPROTO = static——使用静态网络IP，dhcp表示动态获取网络IP，也就是自动获取</p>
+
+
+<h4 class="relative group">删除 
+    <div id="%E5%88%A0%E9%99%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%A0%E9%99%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>UUID = xxxx——每一个网卡都会有，不能重复，否则两台Linux机器只有一台可以上网</p>
+
+
+<h4 class="relative group">新增 
+    <div id="%E6%96%B0%E5%A2%9E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%B0%E5%A2%9E" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">IPADDR</span><span class="p">=</span><span class="m">192</span>.<span class="m">168</span>.<span class="m">88</span>.<span class="m">100</span> # <span class="nx">本机</span> <span class="nx">IP</span>
+</span></span><span class="line"><span class="cl"><span class="nx">NETMASK</span><span class="p">=</span><span class="m">255</span>.<span class="m">255</span>.<span class="m">255</span>.<span class="m">0</span> # <span class="nx">子网掩码</span>
+</span></span><span class="line"><span class="cl"><span class="nx">GATEWAY</span><span class="p">=</span><span class="m">192</span>.<span class="m">168</span>.<span class="m">88</span>.<span class="m">2</span> # <span class="nx">默认网关</span>
+</span></span><span class="line"><span class="cl"><span class="nx">DNS1</span><span class="p">=</span><span class="m">192</span>.<span class="m">168</span>.<span class="m">88</span>.<span class="m">2</span>   # <span class="nx">DNS</span> <span class="nx">服务器</span>
+</span></span><span class="line"><span class="cl"><span class="nx">DNS2</span><span class="p">=</span><span class="m">114</span>.<span class="m">114</span>.<span class="m">114</span>.<span class="m">114</span>  # <span class="nx">DNS</span> <span class="nx">服务器</span>
+</span></span><span class="line"><span class="cl"><span class="nx">DNS3</span><span class="p">=</span><span class="m">8</span>.<span class="m">8</span>.<span class="m">8</span>.<span class="m">8</span>      # <span class="nx">DNS</span> <span class="nx">服务器</span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">测试 
+    <div id="%E6%B5%8B%E8%AF%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B5%8B%E8%AF%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>配置完以后输入重启网络——systemctl restart network</p>
+<p>然后 ping 一下百度，如果出现以下效果则表示网络配置成功（Ctrl + C 终止 ping 命令的执行）。</p>
+
+
+<h3 class="relative group">防火墙 
+    <div id="%E9%98%B2%E7%81%AB%E5%A2%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%98%B2%E7%81%AB%E5%A2%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>systemctl status firewalld——查看防火墙状态</p>
+<p>systemctl stop firewalld——本次服务关闭防火墙，重启后会自动开启</p>
+<p>systemctl start firewalld ——启动防火墙</p>
+<p>ststemctl restart firewalld——重启防火墙</p>
+<p>systemctl disable firewalld ——禁用防火墙</p>
+
+
+<h3 class="relative group">SELINUX 
+    <div id="selinux" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#selinux" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>使用一下命令打开SRLinux的配置文件：vi /etc/selinux/config</p>
+<p>enforcing：强制执行</p>
+<p>permissive：放行</p>
+<p>disabled：禁用</p>
+<p>修改 SELinux=disabled ，然后 :wq 保存并退出。</p>
+
+
+<h3 class="relative group">修改主机名和hosts 
+    <div id="%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%92%8Chosts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%92%8Chosts" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>修改主机名：vi /etc/hostname</p>
+<p>设置网络地址别名：vi /etc/hosts</p>
+
+
+<h3 class="relative group">关闭虚拟机 
+    <div id="%E5%85%B3%E9%97%AD%E8%99%9A%E6%8B%9F%E6%9C%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%B3%E9%97%AD%E8%99%9A%E6%8B%9F%E6%9C%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>halt ：相当于直接拔掉电源，不推荐。</p>
+<p>poweroff ：直接关闭机器，但是有可能当前虚拟机有其他用户正在使用，不推荐。</p>
+<p>shutdown -h now ：马上关闭计算机 ，但是会给其他用户发送消息，推荐。</p>
+<p>reboot ：重启虚拟机。</p>
+
+
+<h2 class="relative group">万事万物皆文件 
+    <div id="%E4%B8%87%E4%BA%8B%E4%B8%87%E7%89%A9%E7%9A%86%E6%96%87%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%87%E4%BA%8B%E4%B8%87%E7%89%A9%E7%9A%86%E6%96%87%E4%BB%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">文件目录 
+    <div id="%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">/bin 
+    <div id="bin" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bin" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​		Binary的缩写，存放着最经常使用的命令文件；软连接，实际地址是 /usr/bin ；普通用户和管理员都可以运行。</p>
+
+
+<h4 class="relative group">/etc 
+    <div id="etc" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#etc" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​		存放所有的系统管理所需要的配置文件和子目录；Linux操作系统配置文件所在地。</p>
+
+
+<h4 class="relative group">/home 
+    <div id="home" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#home" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​		普通用户的家目录，每个用户都有一个自己的目录，一般以用户的账号命名</p>
+
+
+<h4 class="relative group">/opt 
+    <div id="opt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#opt" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​		非系统盘，额外安装软件所存放的目录，默认为空。</p>
+
+
+<h4 class="relative group">/root 
+    <div id="root" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#root" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​		超级管理员用户的主目录</p>
+
+
+<h4 class="relative group">/usr 
+    <div id="usr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#usr" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​		类似Windows系统的系统盘，用户的很多应用程序和文件都放在这个目录下</p>
+
+
+<h4 class="relative group">/var 
+    <div id="var" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#var" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>​		经常被修改的文件放在这里，动态数据文件，例如日志、数据库文件。</p>
+<p>1、/	Linux文件系统的根目录</p>
+<p>2、/boot	引导分区</p>
+<p>3、/dev ; /media; /mnt	第三方挂载目录</p>
+<p>4、/lib-&gt;/usr/lib；lib64-&gt;/usr/lib64	操作系统所需要的系统资源</p>
+<p>5、/proc	内存相关文件</p>
+<p>6、/run	操作系统进程相关文件</p>
+<p>7、/sbin-&gt;/usr/sbin	管理员才可以运行的命令文件，系统守护程序</p>
+<p>8、/srv	非系统盘，服务启动后需要提取的一些数据</p>
+<p>9、/sys	操作系统相关文件</p>
+<p>10、/tmp	临时目录，重启时会清空</p>
+
+
+<h3 class="relative group">文件操作 
+    <div id="%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Linux 命令在线查询：https://www.linuxcool.com/</p>
+
+
+<h4 class="relative group">cd（change directory） 
+    <div id="cdchange-directory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cdchange-directory" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>更改当前所处的工作目录，路径可以是绝对/相对路径，不写则回到家目录</p>
+<p>cd 	参数名	目录名</p>
+<table>
+<thead>
+<tr>
+<th>参数：</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-L</td>
+<td>切换至符号链接所在目录</td>
+<td></td>
+<td>~</td>
+<td>切换至用户的家目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>软连接，切换到实际目录</td>
+<td></td>
+<td>..</td>
+<td>返回到当前位置的上一级目录</td>
+</tr>
+<tr>
+<td>&ndash;</td>
+<td>回到上次所在目录</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">ls/ll（list） 
+    <div id="lslllist" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lslllist" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>列出，显示目录中的文件及其属性信息。</p>
+<p>ls	参数	文件名字</p>
+<p>ll 是 “ls -l -color =auto”	的别名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示所有文件及目录</td>
+<td></td>
+<td>-r</td>
+<td>根据首字母蒋文杰反序显示</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>显示除&rsquo;.&lsquo;和&rsquo;..&lsquo;外的所有文件</td>
+<td></td>
+<td>-R</td>
+<td>地柜显示所有子文件</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示目录自身的属性信息</td>
+<td></td>
+<td>-S</td>
+<td>根据文件大小排序</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>显示文件的inode属性信息</td>
+<td></td>
+<td>-t</td>
+<td>依据最后修改时间按排序</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示文件的详细属性信息</td>
+<td></td>
+<td>-X</td>
+<td>依据拓展名将文件排序显示</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>用逗号间隔，水平显示文件信息</td>
+<td></td>
+<td>-color</td>
+<td>彩色显示信息</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">mkdir（make directories) 
+    <div id="mkdirmake-directories" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mkdirmake-directories" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>创建目录，不会覆盖已有文件，可以一次性同时创建多个目录</p>
+<p>madir	参数	目录名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-m</td>
+<td>创建目录的视同设置权限</td>
+<td>-v</td>
+<td>显示执行过程的详细信息</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>递归创建多级目录</td>
+<td>-z</td>
+<td>设置目录安全上下文</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">rmdir（remove directory） 
+    <div id="rmdirremove-directory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rmdirremove-directory" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>删除空目录文件，非空白需要带-R参数，递归删除要求子目录必须是空的</p>
+<p>rmdir	参数	目录名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>递归处理所有子文件</td>
+<td>&ndash;help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示执行过程中详细信息</td>
+<td>&ndash;version</td>
+<td>显示版本信息</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">cp（copy） 
+    <div id="cpcopy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cpcopy" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>能够将一个或多个文件/目录复制到指定位置，并重命名，会直接覆盖</p>
+<p>cp	参数	原文件名	目标文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>pdr参数组合</td>
+<td>-l</td>
+<td>对源文件建立硬链接</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>覆盖目标文件前先备份</td>
+<td>-p</td>
+<td>保留原文件或目录的所有信息</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>复制时，目标文件也建立为链接文件</td>
+<td>-r*</td>
+<td>递归复制所有子文件</td>
+</tr>
+<tr>
+<td>-f*</td>
+<td>目标文件已存在，直接覆盖</td>
+<td>-s</td>
+<td>建立软连接，非复制文件</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>目标文件存在，会询问是否覆盖</td>
+<td>-v</td>
+<td>显示执行过程详细信息</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">mv（move） 
+    <div id="mvmove" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mvmove" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>对文件进行剪切和重命名，注意区别CP，同文件夹为重命名操作</p>
+<p>mv	参数	源文件名	目标文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>覆盖前给目标文件创立备份</td>
+<td>-v</td>
+<td>显示执行过程详细信息</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>直接覆盖目标文件，不询问</td>
+<td>-z</td>
+<td>设置文件安全上下文</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>覆盖目标文件前，询问</td>
+<td>&ndash;help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>不覆盖已有文件</td>
+<td>&ndash;version</td>
+<td>显示版本信息</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>源文件比目标文件更新时覆盖</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">rm（remove） 
+    <div id="rmremove" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rmremove" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>删除文件或目录，可以递归删除子文件，也可以同时删除多个</p>
+<p>rm	参数	文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-d</td>
+<td>删除位子文件的空目录</td>
+<td>-v</td>
+<td>显示执行过程详细信息</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>删除文件不询问</td>
+<td>&ndash;help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>删除前询问用户确认</td>
+<td>&ndash;version</td>
+<td>显示版本信息</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归删除目录及其子文件</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">touch 
+    <div id="touch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#touch" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>创建空文件夹和修改时间戳，文件存在则会对Atime访问时间和Ctime修改时间进行修改</p>
+<p>touch	参数	文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>设置文件的读取时间记录</td>
+<td>-t</td>
+<td>设置文件的时间记录</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>不创建新文件</td>
+<td>&ndash;help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>设置时间和日期</td>
+<td>&ndash;version</td>
+<td>显示版本信息</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>设置文件的修改时间记录</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">stat（status） 
+    <div id="statstatus" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#statstatus" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>显示文件的状态信息，最后访问时间ATIME，最后修改时间MTIME，最后更改时间CTIME</p>
+<p>stat	参数	文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>设置显示格式</td>
+<td>-Z</td>
+<td>显示SElinux安全上下文值</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>显示文件系统信息</td>
+<td>&ndash;help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>支持符号链接</td>
+<td>&ndash;version</td>
+<td>显示版本信息</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设置以简洁方式显示</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">ln（link） 
+    <div id="lnlink" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lnlink" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>在另一个位置建立同步连接，分为软连接和硬链接。软连接相当于快捷方式，硬链接复制了文件的inode属性。</p>
+<p>ln	参数	原文件名	目标文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>为已存在的目标文件创建备份</td>
+<td>-s</td>
+<td>对源文件创建软连接</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>强制创建连接而不询问</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">读取文件信息 
+    <div id="%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">cat（concatenate files and print） 
+    <div id="catconcatenate-files-and-print" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#catconcatenate-files-and-print" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>在终端设备上显示文件内容，适合内容较少的纯文本。tac反向cat</p>
+<p>cat	参数	文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>显示行数，</td>
+<td>-E</td>
+<td>每行结束处显示$符号</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示行数，包括空行</td>
+<td>-s</td>
+<td>显示行数，多个空行算一个</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group"> 
+    <div id="heading" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#heading" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>less</p>
+<p>more分页显示文本文件。Enter下一行，Space下一页不可以回退。less可以从后向前浏览</p>
+<p>more	参数	文件名</p>
+<p>less	参数	文件名</p>
+<table>
+<thead>
+<tr>
+<th>more</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p</td>
+<td>清屏后显示文本文件内容</td>
+<td>-s</td>
+<td>多个空行压缩成一行显示</td>
+</tr>
+<tr>
+<td><strong>less</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-y</td>
+<td>设置向前滚最大行数</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">head 
+    <div id="head" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#head" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>显示文件开头的内容，默认为前10行</p>
+<p>head	参数	文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>设置显示头部内容的字符数</td>
+<td>-v</td>
+<td>显示文件名的头信息</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>设置显示行数</td>
+<td>-q</td>
+<td>不现实文件名头信息</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">tail 
+    <div id="tail" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tail" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>查看文件尾部内容，默认在终端显示指定文件末尾10行。可以使用管道|。inode变化后-f会失效，-F不会。</p>
+<p>tail	参数	文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-f</td>
+<td>持续显示文件尾部最新内容</td>
+<td>-c</td>
+<td>设置显示文件尾部的字符数</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>设置显示文件尾部的行数</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">find 
+    <div id="find" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#find" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>根据给定的路径和条件找茬相关文件，模糊搜索</p>
+<p>find	路径	条件	文件名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-name</td>
+<td>匹配文件名</td>
+<td>-user</td>
+<td>匹配文件所属主</td>
+</tr>
+<tr>
+<td>-type</td>
+<td>匹配文件类型</td>
+<td>-size</td>
+<td>匹配文件大小</td>
+</tr>
+<tr>
+<td>-mtime</td>
+<td>匹配最后修改文件内容时间</td>
+<td>-atime</td>
+<td>匹配最后读取文件时间</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="relative group">vi and vim 
+    <div id="vi-and-vim" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vi-and-vim" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>vi	文件名；进入文件命令模式，i插入；a追加；I行首；A行末；o下一行；O上一行。</p>
+
+
+<h4 class="relative group">命令模式 
+    <div id="%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G：跳转文件末尾</td>
+<td>gg：跳转文件第一行</td>
+<td>数字gg：跳转指定行</td>
+</tr>
+<tr>
+<td>^:跳转行首</td>
+<td>$：跳转行末</td>
+<td>w：调到下个单词</td>
+</tr>
+<tr>
+<td>yw：复制一个单词</td>
+<td>yy：复制一行</td>
+<td>p：黏贴</td>
+</tr>
+<tr>
+<td>dw：删除一个单词</td>
+<td>dd：删除一行</td>
+<td>u：回退上一步</td>
+</tr>
+<tr>
+<td>ctrl+r：回退u执行的</td>
+<td>.：重复上一步</td>
+<td>x：剪切</td>
+</tr>
+<tr>
+<td>r：替换</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">编辑模式 
+    <div id="%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+
+
+<h4 class="relative group">低行模式 
+    <div id="%E4%BD%8E%E8%A1%8C%E6%A8%A1%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%8E%E8%A1%8C%E6%A8%A1%E5%BC%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:set nu 打开行号</td>
+<td>:set nonu 关闭行号</td>
+<td>/要查找的内容</td>
+</tr>
+<tr>
+<td>:w 保存</td>
+<td>;q 退出</td>
+<td>:wq 保存并退出</td>
+</tr>
+<tr>
+<td>q! 强制退出</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>s/要查找的内容/替换为的内容/修饰符	/i忽略大小写	/g替换当前行所有</p>
+
+
+<h4 class="relative group">打开文件夹 
+    <div id="%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%A4%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>vi 文件名 ：正常打开。
+vi +8 文件名 ：打开文件并跳转至第 8 行。
+vi + 文件名 ：打开文件并跳转至最后一行。
+vi +/要查找的内容 文件名 ：打开文件并搜索指定的字符串。	n ：查找下一个。	N ：查找上一个</p>
+
+
+<h3 class="relative group">数据传输 
+    <div id="%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">scp（secure copy） 
+    <div id="scpsecure-copy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#scpsecure-copy" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>基于SSH协议远程复制文件，可以在Linux系统之间复制文件，数据全部加密。源数据地址失灵一台服务器，可以把别的服务器文件拷贝到自己本机。不同步，一端删除不影响另一端。</p>
+<p>scp	参数	源数据地址	远程服务器信息</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-C</td>
+<td>允许传输过程中压缩</td>
+<td>-r</td>
+<td>递归传输整个目录</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>保留文件的stat属性</td>
+<td>-P</td>
+<td>制定远程主机的端口号</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>设置宽带限制</td>
+<td>-v</td>
+<td>显示执行过程详细信息</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">rsync（remote sync） 
+    <div id="rsyncremote-sync" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rsyncremote-sync" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>远程数据同步，传送前进行文件比较，只传送内容有差异的部分。使用前需要先安装</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">yum</span> <span class="p">-</span><span class="nx">y</span> <span class="nx">stall</span> <span class="nx">sync</span>
+</span></span></code></pre></div><p>rsync	参数	源数据地址	远程服务器信息</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>归档模式，保持所有文件属性</td>
+<td>-v</td>
+<td>显示过程中的详细信息</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>传输时进行压缩</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>-P</td>
+<td>&ndash;partial恢复终端的传输</td>
+<td>两个参数</td>
+<td>&ndash;progress显示传输进度</td>
+</tr>
+</tbody>
+</table>
+<p>区别：
+1、scp总是安全的，rsync不是加密传输，只有通过ssh传输才能安全。</p>
+<p>2、传输大文件，在传输之前断开时，rsync会从中断的地方继续传输，scp不会</p>
+<p>3、rsync默认是只拷贝有改变的文件，scp是全覆盖。</p>
+<p>scp和rsync在文件夹均不存在时，执行时间相差不大，文件夹存在的情况下想差异很大。原因是scp是复制后强制全部覆盖。rsync是tongue，先比较两边文件差异，再将有差异的文件进行更新。</p>
+
+
+<h3 class="relative group">文件压缩 
+    <div id="%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">tar 
+    <div id="tar" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tar" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>功能是压缩和解压缩，7以后解压缩不填价格是参数。</p>
+<p>tar	参数	压缩包名	文件或目录名</p>
+<p>tar	-zxf	file1	-C	目录地址		解压缩文件file1到目录地址</p>
+<p>tar	-zcf	压缩后的名字	源文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-z</td>
+<td>使用gzip压缩格式</td>
+<td>-x</td>
+<td>从压缩包中解压缩</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示执行过程详细信息</td>
+<td>-f</td>
+<td>制定压缩包文件</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>压缩</td>
+<td>-C</td>
+<td>制定解压缩的文件目录</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="relative group">zip和unzip 
+    <div id="zip%E5%92%8Cunzip" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#zip%E5%92%8Cunzip" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">yum</span> <span class="p">-</span><span class="nx">y</span> <span class="nx">install</span> <span class="nx">zip</span> <span class="nx">unzip</span>
+</span></span></code></pre></div><p>压缩和解压缩；使用&ndash;help</p>
+
+
+<h2 class="relative group">Linux网络信息 
+    <div id="linux%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linux%E7%BD%91%E7%BB%9C%E4%BF%A1%E6%81%AF" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">主机名称 
+    <div id="%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%A7%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%A7%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>hostname	bdp		临时修改</p>
+<p>vi /etc/hostname		长久修改</p>
+
+
+<h4 class="relative group">修改主机域名 
+    <div id="%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%9F%9F%E5%90%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%9F%9F%E5%90%8D" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>vi /etc/hosts		192.168.10.100	别名</p>
+
+
+<h3 class="relative group">服务器之间相互免密钥 
+    <div id="%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E5%85%8D%E5%AF%86%E9%92%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E5%85%8D%E5%AF%86%E9%92%A5" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>散列算法 -&gt; 不可逆 -&gt; 完整性校验 -&gt; 账户密码加密 -&gt; 虚拟货币加密</p>
+<p>对称算法 -&gt; 密钥解密 -&gt; 不安全</p>
+<p>非对称算法 -&gt; 一对公私钥 -&gt; 公钥加密，私钥解密 -&gt; 私钥加密，公钥解密</p>
+
+
+<h4 class="relative group">生成密钥对 
+    <div id="%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5%E5%AF%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5%E5%AF%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">ssh</span><span class="p">-</span><span class="nx">keygen</span> <span class="p">-</span><span class="nx">t</span> <span class="nx">rsa</span> <span class="p">-</span><span class="nx">P</span> <span class="s1">&#39;&#39;</span> <span class="p">-</span><span class="nx">f</span> <span class="p">~</span><span class="sr">/.ssh/</span><span class="nx">id_rsa</span>
+</span></span></code></pre></div><p>运行以上命令后会在 ~/.ssh/ 目录下生成一对密钥对。</p>
+
+
+<h4 class="relative group">拷贝公钥 
+    <div id="%E6%8B%B7%E8%B4%9D%E5%85%AC%E9%92%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8B%B7%E8%B4%9D%E5%85%AC%E9%92%A5" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.88.102
+</code></pre>
+
+<h2 class="relative group">时间和日期 
+    <div id="%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">时间命令 
+    <div id="%E6%97%B6%E9%97%B4%E5%91%BD%E4%BB%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%B6%E9%97%B4%E5%91%BD%E4%BB%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>查看时区：	ll /etc/loclatime</p>
+<p>设置时区：	ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</p>
+<p>查看当前系统时间：	date</p>
+<p>查看日历：	cal</p>
+<p>修改时间：	 date -s 2019-11-11 11:11:11</p>
+
+
+<h3 class="relative group">日期自动同步 
+    <div id="%E6%97%A5%E6%9C%9F%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%A5%E6%9C%9F%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>安装时间同步的服务：	yum -y install ntp</p>
+<p>自动同步网络时间中心：	ntpdate cn.ntp.org.cn</p>
+
+
+<h2 class="relative group">用户-组-权限 
+    <div id="%E7%94%A8%E6%88%B7-%E7%BB%84-%E6%9D%83%E9%99%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%A8%E6%88%B7-%E7%BB%84-%E6%9D%83%E9%99%90" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">用户 
+    <div id="%E7%94%A8%E6%88%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%A8%E6%88%B7" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><useradd>命令可以用来创建新用户或更改用户信息。账号建好之后再用<passwd>设定账号的密码，建立的账号保存在/etc/passwd文本中</p>
+<p>useradd [选项] [用户名]</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-D</td>
+<td>改变新用户的默认值</td>
+<td>-c</td>
+<td>添加备注文字</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>设置新用户家目录</td>
+<td>-e</td>
+<td>用户终止日期</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>过期几天后停止权利</td>
+<td>-g</td>
+<td>用户对应用户组</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+        </div>
+        
+        
+
+        
+        
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\Linux\\Linux.md"
+        var oid_likes = "likes_docs\\Linux\\Linux.md"
+      </script>
+      
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/zookeeper/zookeeper/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  ></span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/hive/hive/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  ></span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">0001-01-01</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部" title="返回顶部">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      KV先生
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://your_domain.com/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
